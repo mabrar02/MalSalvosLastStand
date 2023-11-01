@@ -32,7 +32,6 @@ public class gunScript : MonoBehaviour
             // make sure it's rotated at the right angle
             transform.Rotate(Vector3.right * 90);
 
-
             // Create a projectile and start it 
         }
     }
