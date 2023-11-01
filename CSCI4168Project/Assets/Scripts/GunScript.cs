@@ -7,9 +7,10 @@ using UnityEngine;
 public class gunScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
-    public Transform target;
+    public Transform target; // should maybe be an array?
     public float rotationSpeed;
     public float projectileSpeed; // bullet will need it's own script...
+    public GameObject bullet;
 
 
     /* PRIVATE VARIABLES */
@@ -32,7 +33,20 @@ public class gunScript : MonoBehaviour
             // make sure it's rotated at the right angle
             transform.Rotate(Vector3.right * 90);
 
-            // Create a projectile and start it 
+            
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                // Create a bullet
+                Instantiate(bullet);
+
+                // pass the target to the bullet script. 
+                BulletScript bulletScript = bullet.GetComponent<BulletScript>();
+
+                // Set variables on bulletScript
+                bulletScript.target = target;
+                bulletScript.speed = projectileSpeed;
+            }
         }
     }
 }
