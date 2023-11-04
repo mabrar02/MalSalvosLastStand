@@ -20,12 +20,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
-    public float horizontalInput;
-    public float verticalInput;
+    private float horizontalInput;
+    private float verticalInput;
 
-    public Vector3 moveDir;
+    private Vector3 moveDir;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
+
+
+    public GameObject switchCam;
+
+
 
     void Start()
     {
@@ -77,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (Input.GetKey(KeyCode.K)) {
+            switchCam.GetComponent<SwitchCamera>().ChangeCamera();
         }
     }
 
