@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public GameObject switchCam;
+    public GameObject buildingSystem;
     public bool placementMode;
 
 
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K)) {
             switchCam.GetComponent<SwitchCamera>().ChangeCamera();
             placementMode = !placementMode;
+            buildingSystem.SetActive(!buildingSystem.activeSelf);
         }
 
         if (!placementMode) {
