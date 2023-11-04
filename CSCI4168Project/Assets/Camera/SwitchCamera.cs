@@ -6,21 +6,20 @@ public class SwitchCamera : MonoBehaviour
 {
     public GameObject playerCam;
     public GameObject placementCam;
-    public int manager;
+    public int manager = 0;
 
     public void ChangeCamera() {
         GetComponent<Animator>().SetTrigger("Change");
-
     }
 
 
     public void ManageCameras() {
         if(manager == 0) {
-            ActivePlayerCam();
+            ActivePlacementCam();
             manager = 1;
         }
         else {
-            ActivePlacementCam();
+            ActivePlayerCam();
             manager = 0;
         }
     }

@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public GameObject switchCam;
-
+    public bool placementMode;
 
 
     void Start()
@@ -37,15 +37,22 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canJump = true;
+        placementMode = false;
         
     }
 
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.red);
 
-        GetInput();
+        if (Input.GetKeyDown(KeyCode.K)) {
+            switchCam.GetComponent<SwitchCamera>().ChangeCamera();
+            placementMode = !placementMode;
+        }
+
+        if (!placementMode) {
+            GetInput();
+        }
         ControlSpeed();
 
         if (grounded) {
@@ -58,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        MovePlayer();
+        if (!placementMode) {
+            MovePlayer();
+        }
+
     }
 
     private void MovePlayer() {
@@ -82,10 +92,6 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
-        }
-
-        if (Input.GetKey(KeyCode.K)) {
-            switchCam.GetComponent<SwitchCamera>().ChangeCamera();
         }
     }
 
