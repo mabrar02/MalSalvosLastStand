@@ -9,6 +9,9 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private InputManager inputManager;
 
     [SerializeField] private GameObject turretPref;
+    [SerializeField] private int turretCost;
+
+    [SerializeField] private GameObject player;
 
     [SerializeField] Grid grid;
     private int selectedObjectIndex = -1;
@@ -16,6 +19,7 @@ public class PlacementSystem : MonoBehaviour
 
     private Vector3 mousePos;
     private Vector3Int gridPos;
+    private PlayerStats playerStats;
 
     [SerializeField] private Vector3 spaceReq;
 
@@ -25,9 +29,14 @@ public class PlacementSystem : MonoBehaviour
 
     private void Start() {
         StopPlacement();
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     public void StartPlacement() {
+        if (playerStats.GetGears() - turretCost < 0) {
+            Debug.Log("NOT ENOUGH GEARS!");
+            return;
+        }
         StopPlacement();
         selectedObjectIndex = 0;
         preview.StartShowingPlacementPreview(turretPref);
@@ -49,6 +58,11 @@ public class PlacementSystem : MonoBehaviour
         turret.transform.position = grid.CellToWorld(gridPos);
 
         preview.UpdatePosition(grid.CellToWorld(gridPos), false);
+        playerStats.UseGears(turretCost);
+
+        if(playerStats.GetGears() - turretCost < 0) {
+            StopPlacement();
+        }
     }
 
     private bool CheckPlacementValidity() {
