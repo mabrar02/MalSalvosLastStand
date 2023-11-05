@@ -14,9 +14,18 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] Grid grid;
     private int selectedObjectIndex = -1;
 
+    private Renderer previewRenderer;
+
+    private Vector3 mousePos;
+    private Vector3Int gridPos;
+
+    [SerializeField] private Vector3 spaceReq;
+
     private void Start() {
         StopPlacement();
+        previewRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
+
     public void StartPlacement() {
         StopPlacement();
         selectedObjectIndex = 0;
@@ -30,11 +39,19 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
-        Vector3 mousePos = inputManager.GetSelectedMapPosition();
-        Vector3Int gridPos = grid.WorldToCell(mousePos);
+        bool placementValidity = CheckPlacementValidity();
+        if(!placementValidity) {
+            return;
+        }
+
         GameObject turret = Instantiate(turretPref);
         turret.transform.position = grid.CellToWorld(gridPos);
 
+    }
+
+    private bool CheckPlacementValidity() {
+        Collider[] hitColliders = Physics.OverlapBox(mousePos, spaceReq, Quaternion.identity, ~LayerMask.GetMask("ground"));
+        return hitColliders.Length == 0;
     }
 
     private void StopPlacement() {
@@ -49,8 +66,13 @@ public class PlacementSystem : MonoBehaviour
         if(selectedObjectIndex < 0) {
             return;
         }
-        Vector3 mousePos = inputManager.GetSelectedMapPosition();
-        Vector3Int gridPos = grid.WorldToCell(mousePos);
+        mousePos = inputManager.GetSelectedMapPosition();
+        gridPos = grid.WorldToCell(mousePos);
+
+        bool placementValidity = CheckPlacementValidity();
+        Color newColor = placementValidity ? new Color(0f, 1f, 0f, previewRenderer.material.color.a) : new Color(1f, 0f, 0f, previewRenderer.material.color.a);
+        previewRenderer.material.color = newColor;
+
         mouseIndicator.transform.position = mousePos;
         cellIndicator.transform.position = grid.CellToWorld(gridPos);
     }
