@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlacementSystem : MonoBehaviour
 {
     [SerializeField] private GameObject mouseIndicator;
-    [SerializeField] private GameObject cellIndicator;
     [SerializeField] private InputManager inputManager;
 
     [SerializeField] private GameObject turretPref;
@@ -14,22 +13,24 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] Grid grid;
     private int selectedObjectIndex = -1;
 
-    private Renderer previewRenderer;
 
     private Vector3 mousePos;
     private Vector3Int gridPos;
 
     [SerializeField] private Vector3 spaceReq;
 
+    [SerializeField] private PreviewSystem preview; 
+
+    private Vector3Int lastDetectedPos = Vector3Int.zero;
+
     private void Start() {
         StopPlacement();
-        previewRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
 
     public void StartPlacement() {
         StopPlacement();
         selectedObjectIndex = 0;
-        cellIndicator.SetActive(true);
+        preview.StartShowingPlacementPreview(turretPref);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
@@ -47,6 +48,7 @@ public class PlacementSystem : MonoBehaviour
         GameObject turret = Instantiate(turretPref);
         turret.transform.position = grid.CellToWorld(gridPos);
 
+        preview.UpdatePosition(grid.CellToWorld(gridPos), false);
     }
 
     private bool CheckPlacementValidity() {
@@ -56,9 +58,10 @@ public class PlacementSystem : MonoBehaviour
 
     private void StopPlacement() {
         selectedObjectIndex = -1;
-        cellIndicator.SetActive(false);
+        preview.StopShowingPreview();
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;
+        lastDetectedPos = Vector3Int.zero;
     }
 
     void Update()
@@ -68,12 +71,13 @@ public class PlacementSystem : MonoBehaviour
         }
         mousePos = inputManager.GetSelectedMapPosition();
         gridPos = grid.WorldToCell(mousePos);
+        if(lastDetectedPos != gridPos) {
+            bool placementValidity = CheckPlacementValidity();
 
-        bool placementValidity = CheckPlacementValidity();
-        Color newColor = placementValidity ? new Color(0f, 1f, 0f, previewRenderer.material.color.a) : new Color(1f, 0f, 0f, previewRenderer.material.color.a);
-        previewRenderer.material.color = newColor;
+            mouseIndicator.transform.position = mousePos;
+            preview.UpdatePosition(grid.CellToWorld(gridPos), placementValidity);
+            lastDetectedPos = gridPos;
+        }
 
-        mouseIndicator.transform.position = mousePos;
-        cellIndicator.transform.position = grid.CellToWorld(gridPos);
     }
 }
