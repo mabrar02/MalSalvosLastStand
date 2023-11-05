@@ -34,6 +34,16 @@ public class BulletScript : MonoBehaviour
 
             // Move the bullet
             transform.Translate(velocity * Time.deltaTime, Space.World);
+
+            float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+
+            if (distanceToTarget < 10)
+            {
+                Destroy(gameObject);
+            }
         }
+
     }
+
+
 }

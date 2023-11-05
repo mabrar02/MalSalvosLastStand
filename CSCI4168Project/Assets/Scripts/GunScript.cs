@@ -11,25 +11,24 @@ public class gunScript : MonoBehaviour
     public float rotationSpeed;
     public float projectileSpeed; // bullet will need it's own script...
     public GameObject bullet;
-
+    public Transform gunTipTransform;
 
     /* PRIVATE VARIABLES */
-    private Transform gunTransform;
-    
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        gunTransform = this.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gunTransform != null && target != null)
+        if (gunTipTransform != null && target != null)
         {
             // Have the gun point at the target
-            gunTransform.LookAt(target);
+            transform.LookAt(target);
             // make sure it's rotated at the right angle
             transform.Rotate(Vector3.right * 90);
 
@@ -39,6 +38,8 @@ public class gunScript : MonoBehaviour
             {
                 // Create a bullet
                 Instantiate(bullet);
+                // set the bullet starting point
+                bullet.transform.position = gunTipTransform.position;
 
                 // pass the target to the bullet script. 
                 BulletScript bulletScript = bullet.GetComponent<BulletScript>();
