@@ -118,9 +118,11 @@ GameObject:
   - component: {fileID: 8432573719973470616}
   - component: {fileID: 1038368908879294534}
   - component: {fileID: 2801282795259600505}
+  - component: {fileID: 6486397749350295344}
+  - component: {fileID: 2217395651067574151}
   m_Layer: 0
   m_Name: EnemyGun
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +231,42 @@ MonoBehaviour:
   projectileSpeed: 50
   bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
   gunTipTransform: {fileID: 4297488575369236812}
+  shoot: 0
+--- !u!114 &6486397749350295344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454608638741238251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440ff0f522ec9294a8322ccb440e4f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingInterval: 1
+  tagToTarget: TowerGun
+--- !u!135 &2217395651067574151
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454608638741238251}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!1 &1461062734422265120
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,9 +281,10 @@ GameObject:
   - component: {fileID: 6051826914505599958}
   - component: {fileID: 5336211823624388121}
   - component: {fileID: 2438176661243016374}
+  - component: {fileID: -6446155191466985656}
   m_Layer: 0
   m_Name: Enemy-Dude
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 1461062734422265120}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.62, y: -120.25, z: 19.132599}
+  m_LocalPosition: {x: 95.86052, y: -124.09577, z: 4.8352814}
   m_LocalScale: {x: 4.746437, y: 4.746437, z: 4.746437}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -373,4 +412,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07b455565c3c8a43b7b873d03761ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 1521592916729495276, guid: 767fa388871370d438d01cd449341bfe, type: 3}
+  goal: {fileID: 0}
+--- !u!54 &-6446155191466985656
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461062734422265120}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

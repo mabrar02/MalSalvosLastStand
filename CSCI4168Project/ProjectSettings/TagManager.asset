@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gun
+  - Enemy
+  - Wall
+  - Tower
+  - TowerGun
   layers:
   - Default
   - TransparentFX
