@@ -177,13 +177,17 @@ PrefabInstance:
       propertyPath: goal
       value: 
       objectReference: {fileID: 394464458}
+    - target: {fileID: 6486397749350295344, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: shootingInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6653605303928274677, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 102.254166
       objectReference: {fileID: 0}
     - target: {fileID: 6653605303928274677, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -131.38925
+      value: -128.5
       objectReference: {fileID: 0}
     - target: {fileID: 6653605303928274677, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -256,8 +260,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5057191853836843394}
   - {fileID: 39081257}
+  - {fileID: 668502925}
   m_Father: {fileID: 408682135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &394464458 stripped
@@ -387,7 +391,7 @@ Transform:
   m_GameObject: {fileID: 515766451}
   serializedVersion: 2
   m_LocalRotation: {x: -0.001514017, y: -0.8490809, z: -0.010214335, w: 0.528162}
-  m_LocalPosition: {x: 161, y: -78.8, z: 276.6}
+  m_LocalPosition: {x: 188.63417, y: -87.05, z: 280.07892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -411,12 +415,17 @@ PositionConstraint:
   m_Active: 1
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 0}
+  - sourceTransform: {fileID: 1768905303}
     weight: 1
 --- !u!4 &529434991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8292288525840764099, guid: 66c4183cf8bd62c4faf2d11ec07ec612, type: 3}
   m_PrefabInstance: {fileID: 9030743791638747474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &668502925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7177085480675225979, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
+  m_PrefabInstance: {fileID: 1922716673}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -533,6 +542,10 @@ PrefabInstance:
       propertyPath: goal
       value: 
       objectReference: {fileID: 394464458}
+    - target: {fileID: 6486397749350295344, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: shootingInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6653605303928274677, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 95.86052
@@ -764,7 +777,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
---- !u!1001 &5057191853836843393
+--- !u!1001 &1922716673
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -774,7 +787,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6053874117274066234, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
       propertyPath: m_Name
-      value: Tower
+      value: Tower (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7177085480675225979, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,11 +834,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
---- !u!4 &5057191853836843394 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7177085480675225979, guid: 5cd157dfdb0eab244a25cc5192d682a6, type: 3}
-  m_PrefabInstance: {fileID: 5057191853836843393}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6753158296502344920
 PrefabInstance:
   m_ObjectHideFlags: 0
