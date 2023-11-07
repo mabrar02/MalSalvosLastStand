@@ -28,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
 
-    public GameObject switchCam;
-    public GameObject buildingSystem;
-    public bool placementMode;
 
 
     void Start()
@@ -38,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canJump = true;
-        placementMode = false;
+
         
     }
 
@@ -46,15 +43,10 @@ public class PlayerMovement : MonoBehaviour
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
 
-        if (Input.GetKeyDown(KeyCode.K)) {
-            switchCam.GetComponent<SwitchCamera>().ChangeCamera();
-            placementMode = !placementMode;
-            buildingSystem.SetActive(!buildingSystem.activeSelf);
-        }
 
-        if (!placementMode) {
-            GetInput();
-        }
+
+        GetInput();
+
         ControlSpeed();
 
         if (grounded) {
@@ -67,9 +59,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (!placementMode) {
-            MovePlayer();
-        }
+
+        MovePlayer();
+
 
     }
 

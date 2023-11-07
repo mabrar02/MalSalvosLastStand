@@ -29,9 +29,11 @@ public class PlacementCamera : MonoBehaviour
 
         transform.position = targetPosition;
 
-        if(moveDir == Vector3.zero) {
+        if (moveDir == Vector3.zero) {
             targetPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * deceleration);
             transform.position = targetPosition;
         }
+
+        transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
     }
 }
