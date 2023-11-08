@@ -68,7 +68,7 @@ public class PlacementSystem : MonoBehaviour
         return hitColliders.Length == 0;
     }
 
-    private void StopPlacement() {
+    public void StopPlacement() {
         selectedObjectIndex = -1;
         preview.StopShowingPreview();
         inputManager.OnClicked -= PlaceStructure;

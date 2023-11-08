@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject player;
     public GameObject buildSys;
+    public GameObject placementSys;
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
 
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
 
     private async void HandleBattlePhase() {
+        placementSys.GetComponent<PlacementSystem>().StopPlacement();
         buildSys.SetActive(false);
         player.SetActive(true);
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
