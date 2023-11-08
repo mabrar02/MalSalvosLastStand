@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - PlayerHoldable
+  - Gun
+  - Enemy
+  - Wall
+  - Tower
+  - TowerGun
   layers:
   - Default
   - TransparentFX
