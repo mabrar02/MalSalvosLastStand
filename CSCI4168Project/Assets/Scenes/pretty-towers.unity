@@ -868,10 +868,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1371019229}
     m_Modifications:
-    - target: {fileID: 278477225528513229, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
-      propertyPath: m_Radius
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 604860965711187861, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.069
@@ -915,6 +911,22 @@ PrefabInstance:
     - target: {fileID: 2864682821127194337, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
       propertyPath: m_Name
       value: TowerUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146921840592522196, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 4d29891228ba82948a30e700aad7352b, type: 3}
+    - target: {fileID: 4147447533274604458, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 74e53efdd85e648419d41302fdd9ec82, type: 3}
+    - target: {fileID: 4155489296429940154, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156234891712276848, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
