@@ -31,8 +31,6 @@ public class GunScript : MonoBehaviour
         {
             // Have the gun point at the target
             transform.LookAt(target);
-            // make sure it's rotated at the right angle
-            transform.Rotate(Vector3.right * 90);
 
             
 
