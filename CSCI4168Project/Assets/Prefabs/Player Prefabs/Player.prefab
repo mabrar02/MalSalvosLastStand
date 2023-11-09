@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5828949067232625864}
   - component: {fileID: 6312679407553298199}
-  - component: {fileID: 5765085905094784346}
+  - component: {fileID: 1520344817697614871}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +35,7 @@ Transform:
   - {fileID: 2316591929618835899}
   - {fileID: 7035242945752818641}
   - {fileID: 6225506811030456609}
+  - {fileID: 2469307712115144474}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6312679407553298199
@@ -64,7 +65,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5765085905094784346
+--- !u!114 &1520344817697614871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,6 +289,110 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &6390454868539255644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5828949067232625864}
+    m_Modifications:
+    - target: {fileID: 9109726685006955985, guid: 25bb2d9cf97baff47a1ea2cbb94adba0, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 4743979558537880263}
+    - target: {fileID: 9109726685006955985, guid: 25bb2d9cf97baff47a1ea2cbb94adba0, type: 3}
+      propertyPath: sensitivity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177734210793782905, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: camPos
+      value: 
+      objectReference: {fileID: 6687567949194787097}
+    - target: {fileID: 2418586749672112605, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_Name
+      value: PlayerCamHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158794014756718581, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4743979558537880263}
+    - target: {fileID: 7158794014756718581, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 2316591929618835899}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.002181689
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+--- !u!4 &2469307712115144474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8857395879451286598, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+  m_PrefabInstance: {fileID: 6390454868539255644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2637960155389320901 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8949952153765541273, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+  m_PrefabInstance: {fileID: 6390454868539255644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6687567949194787097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 315383118049071685, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
+  m_PrefabInstance: {fileID: 6390454868539255644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6924999358455572775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 5363601126927821755, guid: 73fd2d8d163f88746b5b0040d8ecf9f5, type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 2637960155389320901}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
