@@ -15,13 +15,15 @@ public class GunScript : MonoBehaviour
     public bool shoot;
 
     /* PRIVATE VARIABLES */
-
+    private bool gunBelongsToEnemy;
+    private Vector3 enemyTarget;
 
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = false;
+        gunBelongsToEnemy = transform.parent.tag == "Enemy";
     }
 
     // Update is called once per frame
@@ -29,6 +31,13 @@ public class GunScript : MonoBehaviour
     {
         if (gunTipTransform != null && target != null)
         {
+            if (gunBelongsToEnemy)
+            {
+                enemyTarget = target.position;
+                enemyTarget.y = transform.parent.position.y;
+                // Have the enemy look at the target
+                transform.parent.LookAt(enemyTarget);
+            }
             // Have the gun point at the target
             transform.LookAt(target);
 
