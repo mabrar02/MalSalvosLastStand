@@ -45,15 +45,18 @@ public class GunScript : MonoBehaviour
                 // smoothly rotate
                 transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, enemyRotation, Time.deltaTime * rotationSpeed);
 
+                // Have the gun point at the target
+                //transform.LookAt(target);
             }
+            
+                // Calculate the rotation to look at the enemy's target
+                Quaternion gunRotation = Quaternion.LookRotation(target.position - transform.position);
 
-            // Have the gun point at the target
-            transform.LookAt(target);
+                // smoothly rotate
+                transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
+           
 
-
-
-
-
+            // Shoot the gun
             if (shoot)
             {
                 shoot = false;
