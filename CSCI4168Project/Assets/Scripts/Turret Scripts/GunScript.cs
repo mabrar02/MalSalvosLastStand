@@ -15,13 +15,15 @@ public class GunScript : MonoBehaviour
     public bool shoot;
 
     /* PRIVATE VARIABLES */
-
+    private bool gunBelongsToEnemy;
+    private Vector3 enemyTarget;
 
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = false;
+        gunBelongsToEnemy = transform.parent.tag == "Enemy";
     }
 
     // Update is called once per frame
@@ -29,13 +31,32 @@ public class GunScript : MonoBehaviour
     {
         if (gunTipTransform != null && target != null)
         {
-            // Have the gun point at the target
-            transform.LookAt(target);
-            // make sure it's rotated at the right angle
-            transform.Rotate(Vector3.right * 90);
+            if (gunBelongsToEnemy)
+            {
+                // get target without y
+                enemyTarget = target.position;
+                enemyTarget.y = transform.parent.position.y;
+                
+                // Have the enemy look at the target
 
+                // Calculate the rotation to look at the enemy's target
+                Quaternion enemyRotation = Quaternion.LookRotation(enemyTarget - transform.parent.position);
+
+                // smoothly rotate
+                transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, enemyRotation, Time.deltaTime * rotationSpeed);
+
+                // Have the gun point at the target
+                //transform.LookAt(target);
+            }
             
+                // Calculate the rotation to look at the enemy's target
+                Quaternion gunRotation = Quaternion.LookRotation(target.position - transform.position);
 
+                // smoothly rotate
+                transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
+           
+
+            // Shoot the gun
             if (shoot)
             {
                 shoot = false;

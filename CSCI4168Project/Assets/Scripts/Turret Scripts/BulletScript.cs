@@ -21,8 +21,7 @@ public class BulletScript : MonoBehaviour
         {
             // point at target
             transform.LookAt(target);
-            // make sure it's rotated at the right angle
-            transform.Rotate(Vector3.right * 90);
+           
             // movement direction
             Vector3 movementDirection = target.position - transform.position;
 

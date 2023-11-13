@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7519304541739273578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.4665985, y: -64.6277, z: 223.47856}
+  m_LocalPosition: {x: 59.409374, y: -66.54646, z: 242.4109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 50
+  speed: 60
