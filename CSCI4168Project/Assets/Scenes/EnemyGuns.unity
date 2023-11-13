@@ -211,6 +211,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19355709}
     m_Modifications:
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.488
+      objectReference: {fileID: 0}
     - target: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_Name
       value: Enemy-Dude (1)
@@ -492,6 +500,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19355709}
     m_Modifications:
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.488
+      objectReference: {fileID: 0}
     - target: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_Name
       value: Enemy-Dude
@@ -561,6 +577,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19355709}
     m_Modifications:
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.488
+      objectReference: {fileID: 0}
     - target: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_Name
       value: Enemy-Dude (2)
@@ -744,6 +768,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19355709}
     m_Modifications:
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 550095345973728015, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.488
+      objectReference: {fileID: 0}
     - target: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
       propertyPath: m_Name
       value: Enemy-Dude
