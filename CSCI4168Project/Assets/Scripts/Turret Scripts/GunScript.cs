@@ -33,15 +33,26 @@ public class GunScript : MonoBehaviour
         {
             if (gunBelongsToEnemy)
             {
+                // get target without y
                 enemyTarget = target.position;
                 enemyTarget.y = transform.parent.position.y;
+                
                 // Have the enemy look at the target
-                transform.parent.LookAt(enemyTarget);
+
+                // Calculate the rotation to look at the enemy's target
+                Quaternion enemyRotation = Quaternion.LookRotation(enemyTarget - transform.parent.position);
+
+                // smoothly rotate
+                transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, enemyRotation, Time.deltaTime * rotationSpeed);
+
             }
+
             // Have the gun point at the target
             transform.LookAt(target);
 
-            
+
+
+
 
             if (shoot)
             {
