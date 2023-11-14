@@ -24,13 +24,13 @@ public class MenuManager : MonoBehaviour
 
     private void GameManagerStateChange(GameState state) {
         buildMenu.SetActive(state == GameState.BuildPhase);
-        battleMenu.SetActive(state == GameState.BattlePhase);
+        battleMenu.SetActive(state == GameState.BattlePhase || state == GameState.SpawnPhase);
     }
 
     public void StartBuild() {
         GameManager.Instance.UpdateGameState(GameState.BuildPhase);
     }
     public void StartBattle() {
-        GameManager.Instance.UpdateGameState(GameState.BattlePhase);
+        GameManager.Instance.UpdateGameState(GameState.SpawnPhase);
     }
 }

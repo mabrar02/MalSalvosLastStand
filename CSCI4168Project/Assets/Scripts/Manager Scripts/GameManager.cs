@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
             case GameState.BuildPhase:
                 HandleBuildPhase();
                 break;
+            case GameState.SpawnPhase:
+                HandleSpawnPhase(); 
+                break;
             case GameState.BattlePhase:
                 HandleBattlePhase();
                 break;
@@ -51,15 +54,16 @@ public class GameManager : MonoBehaviour
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
     }
 
-    private async void HandleBattlePhase() {
+    private void HandleSpawnPhase() {
         placementSys.GetComponent<PlacementSystem>().StopPlacement();
         buildSys.SetActive(false);
         player.SetActive(true);
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
+    }
 
-        await Task.Delay(20000);
-        AddGears(50);
-        UpdateGameState(GameState.BuildPhase);
+    private void HandleBattlePhase() {
+
+
     }
 
 
@@ -83,6 +87,9 @@ public class GameManager : MonoBehaviour
 
 public enum GameState {
     BuildPhase,
+    SpawnPhase,
     BattlePhase,
-    CooldownPhase
+    CooldownPhase,
+    LosePhase,
+    VictoryPhase,
 }
