@@ -36,10 +36,13 @@ public class BulletScript : MonoBehaviour
 
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
 
-            if (distanceToTarget < 10)
+            if (distanceToTarget < 0.5f)
             {
                 Destroy(gameObject);
             }
+        }
+        else if(target == null) {
+            Destroy(gameObject);
         }
 
     }

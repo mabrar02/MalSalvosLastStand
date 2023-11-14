@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6626012313678860998}
   - component: {fileID: 8490514595521248386}
   - component: {fileID: 4883516304947044840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TowerUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4104001013968610812}
   - component: {fileID: 6212064169903663292}
   - component: {fileID: 278477225528513229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonB_Barrel00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rotationSpeed: 5.5
-  projectileSpeed: 50
+  projectileSpeed: 40
   bullet: {fileID: 2029728111821696289, guid: ffb26cc356dcf8f4daa825f1f12d2c36, type: 3}
   gunTipTransform: {fileID: 4172628085442281448}
   shoot: 0
@@ -246,7 +246,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 7
+  m_Radius: 8.5
   m_Center: {x: 0.000000074505806, y: 0.115709245, z: 0.21923214}
 --- !u!1 &4178610660200081706
 GameObject:
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4176793541807244208}
   - component: {fileID: 4146921840592522196}
   - component: {fileID: 4155489296429940154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonB_Plate00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4176837954328291922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: TowerGun
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4176553507105595716}
   - component: {fileID: 2212557506312274436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FattyCannonB00
   m_TagString: TowerGun
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172628085442281448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 4172980404226715352}
   - component: {fileID: 4268136385361410408}
   - component: {fileID: 4267887789230984270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

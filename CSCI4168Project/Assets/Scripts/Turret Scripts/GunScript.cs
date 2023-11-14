@@ -61,9 +61,9 @@ public class GunScript : MonoBehaviour
             {
                 shoot = false;
                 // Create a bullet
-                Instantiate(bullet);
+                Instantiate(bullet, gunTipTransform.position, gunTipTransform.rotation);
                 // set the bullet starting point
-                bullet.transform.position = gunTipTransform.position;
+                //bullet.transform.position = gunTipTransform.position;
 
                 // pass the target to the bullet script. 
                 BulletScript bulletScript = bullet.GetComponent<BulletScript>();
