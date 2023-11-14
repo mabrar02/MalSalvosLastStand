@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
 
     private void GameManagerStateChange(GameState state) {
         buildMenu.SetActive(state == GameState.BuildPhase);
-        battleMenu.SetActive(state == GameState.BattlePhase || state == GameState.SpawnPhase);
+        battleMenu.SetActive(state != GameState.BuildPhase);
     }
 
     public void StartBuild() {

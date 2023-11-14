@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        Debug.Log("CURRENT STATE: " +  newState);
         State = newState;
 
         switch (newState) {
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviour
                 HandleSpawnPhase(); 
                 break;
             case GameState.BattlePhase:
-                HandleBattlePhase();
                 break;
             case GameState.CooldownPhase:
+                StartCoroutine(HandleCooldownPhase());
                 break;
         }
 
@@ -61,9 +62,11 @@ public class GameManager : MonoBehaviour
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
     }
 
-    private void HandleBattlePhase() {
+    private IEnumerator HandleCooldownPhase() {
 
+        yield return new WaitForSeconds(10f);
 
+        UpdateGameState(GameState.BuildPhase);
     }
 
 
