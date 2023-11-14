@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         player.SetActive(true);
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
 
-        await Task.Delay(5000);
+        await Task.Delay(20000);
         AddGears(50);
         UpdateGameState(GameState.BuildPhase);
     }
