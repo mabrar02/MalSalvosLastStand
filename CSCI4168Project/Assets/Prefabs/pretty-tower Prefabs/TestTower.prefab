@@ -5426,6 +5426,7 @@ MonoBehaviour:
   shootingInterval: 2
   tagToTarget: Enemy
   targets: []
+  turretAnim: {fileID: 2043723423127297649}
 --- !u!114 &1045463744491867820
 MonoBehaviour:
   m_ObjectHideFlags: 0
