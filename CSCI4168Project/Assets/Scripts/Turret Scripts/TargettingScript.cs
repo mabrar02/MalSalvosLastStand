@@ -10,7 +10,7 @@ public class TargettingScript : MonoBehaviour
 
 
     /* PRIVATE VARIABLES */
-    private List<Transform> transforms; // all the targets
+    public List<GameObject> targets; // all the targets
     private float shotTimer = 0.0f; // time since you last shot
     private int currentTargetIndex = 0; // which target your need to shoot at next
     private GunScript gunScript; // the gun script
@@ -19,24 +19,24 @@ public class TargettingScript : MonoBehaviour
     void Start()
     {
         gunScript = GetComponent<GunScript>(); // find the gun script
-        transforms = new List<Transform>();
+        targets = new List<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // if there are any enemies to target
-        if (transforms.Count > 0)
+        if (targets.Count > 0)
         {
             // if the timer has gone over the interval
             if (shotTimer >= shootingInterval)
             {
-                currentTargetIndex = currentTargetIndex < transforms.Count ? currentTargetIndex : 0;
+                //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
                 // shoot the gun
-                shootGun(transforms[currentTargetIndex]);
+                shootGun(targets[0]);
 
                 // move to next target in list or go back to 0
-                currentTargetIndex = (currentTargetIndex + 1) % transforms.Count;
+                //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
                 // reset timer
                 shotTimer = 0.0f;
@@ -50,7 +50,7 @@ public class TargettingScript : MonoBehaviour
         }
     }
 
-    private void shootGun(Transform target)
+    private void shootGun(GameObject target)
     {
         gunScript.target = target;
         gunScript.shoot = true;
@@ -61,8 +61,7 @@ public class TargettingScript : MonoBehaviour
     {
         if (other.tag == tagToTarget)
         {
-            transforms.Add(other.transform);
-            Debug.Log("Entering " + other.tag + " len:" + transforms.Count);
+            targets.Add(other.gameObject);
         }
     }
 
@@ -70,8 +69,7 @@ public class TargettingScript : MonoBehaviour
     {
         if (other.tag == tagToTarget)
         {
-            transforms.Remove(other.transform);
-            Debug.Log("Exiting "+other.tag+" len:"+transforms.Count);
+            targets.Remove(other.gameObject);
         }
     }
 }

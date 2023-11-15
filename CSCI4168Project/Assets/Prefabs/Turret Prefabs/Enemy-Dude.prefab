@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rotationSpeed: 5.5
-  projectileSpeed: 60
+  projectileSpeed: 30
   bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
   gunTipTransform: {fileID: 550095345973728015}
   shoot: 0
@@ -118,7 +118,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!1 &919358093895472080
 GameObject:
@@ -236,10 +236,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461062734422265120}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7082563, z: -0, w: 0.7059554}
+  m_LocalRotation: {x: 0, y: -0.70825356, z: 0, w: 0.7059581}
   m_LocalPosition: {x: 96.94446, y: -124.09577, z: 14.24939}
-  m_LocalScale: {x: 4.746437, y: 4.746437, z: 4.746437}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: -8679921383154817045}
   m_Father: {fileID: 0}
@@ -327,7 +327,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

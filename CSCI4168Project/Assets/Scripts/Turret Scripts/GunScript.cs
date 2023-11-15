@@ -7,7 +7,7 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
-    public Transform target; // should maybe be an array?
+    public GameObject target; // should maybe be an array?
     public float rotationSpeed; //todo
     public float projectileSpeed;
     public GameObject bullet;
@@ -34,7 +34,7 @@ public class GunScript : MonoBehaviour
             if (gunBelongsToEnemy)
             {
                 // get target without y
-                enemyTarget = target.position;
+                enemyTarget = target.transform.position;
                 enemyTarget.y = transform.parent.position.y;
                 
                 // Have the enemy look at the target
@@ -50,7 +50,7 @@ public class GunScript : MonoBehaviour
             }
             
                 // Calculate the rotation to look at the enemy's target
-                Quaternion gunRotation = Quaternion.LookRotation(target.position - transform.position);
+                Quaternion gunRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 
                 // smoothly rotate
                 transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
@@ -61,12 +61,12 @@ public class GunScript : MonoBehaviour
             {
                 shoot = false;
                 // Create a bullet
-                Instantiate(bullet);
+                GameObject bulletObj = Instantiate(bullet, gunTipTransform.position, gunTipTransform.rotation);
                 // set the bullet starting point
-                bullet.transform.position = gunTipTransform.position;
+                //bullet.transform.position = gunTipTransform.position;
 
                 // pass the target to the bullet script. 
-                BulletScript bulletScript = bullet.GetComponent<BulletScript>();
+                BulletScript bulletScript = bulletObj.GetComponent<BulletScript>();
 
                 // Set variables on bulletScript
                 bulletScript.target = target;

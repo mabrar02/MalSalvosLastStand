@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
@@ -20,11 +21,13 @@ public class PlacementSystem : MonoBehaviour
     private Vector3 mousePos;
     private Vector3Int gridPos;
 
-    [SerializeField] private Vector3 spaceReq;
+    [SerializeField] private float towerRadius;
+    [SerializeField] private float pathRadius;
 
     [SerializeField] private PreviewSystem preview; 
 
     private Vector3Int lastDetectedPos = Vector3Int.zero;
+
 
     private void Start() {
         StopPlacement();
@@ -48,7 +51,11 @@ public class PlacementSystem : MonoBehaviour
         }
 
         bool placementValidity = CheckPlacementValidity();
-        if(!placementValidity) {
+        bool pathValidity = CheckPathPlacementValidity();
+
+   
+        if(!placementValidity || !pathValidity) {
+
             return;
         }
 
@@ -61,12 +68,25 @@ public class PlacementSystem : MonoBehaviour
         if(GameManager.Instance.GetGears() - turretCost < 0) {
             StopPlacement();
         }
+
     }
 
     private bool CheckPlacementValidity() {
-        Collider[] hitColliders = Physics.OverlapBox(mousePos, spaceReq, Quaternion.identity, ~LayerMask.GetMask("ground"));
+        int excludeLayers = LayerMask.GetMask("ground", "path");
+        Collider[] hitColliders = Physics.OverlapSphere(mousePos, towerRadius, ~excludeLayers);
+        CapsuleCollider[] capsuleColliders = hitColliders
+            .Select(col => col.GetComponent<CapsuleCollider>())
+            .Where(collider => collider != null)
+            .ToArray();
+        return capsuleColliders.Length == 0;
+    }
+
+    private bool CheckPathPlacementValidity() {
+        Collider[] hitColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("path"));
+
         return hitColliders.Length == 0;
     }
+
 
     public void StopPlacement() {
         selectedObjectIndex = -1;
@@ -85,9 +105,10 @@ public class PlacementSystem : MonoBehaviour
         gridPos = grid.WorldToCell(mousePos);
         if(lastDetectedPos != gridPos) {
             bool placementValidity = CheckPlacementValidity();
+            bool pathValiditity = CheckPathPlacementValidity();
 
             mouseIndicator.transform.position = mousePos;
-            preview.UpdatePosition(grid.CellToWorld(gridPos), placementValidity);
+            preview.UpdatePosition(grid.CellToWorld(gridPos), placementValidity && pathValiditity);
             lastDetectedPos = gridPos;
         }
 
