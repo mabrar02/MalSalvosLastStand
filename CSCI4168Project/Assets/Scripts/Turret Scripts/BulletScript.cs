@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
-    public Transform target;
+    public GameObject target;
     public float speed;
 
     // Start is called before the first frame update
@@ -20,10 +20,10 @@ public class BulletScript : MonoBehaviour
         if (target != null && speed>0)
         {
             // point at target
-            transform.LookAt(target);
+            transform.LookAt(target.transform);
            
             // movement direction
-            Vector3 movementDirection = target.position - transform.position;
+            Vector3 movementDirection = target.transform.position - transform.position;
 
             // Maintains direction but sets magnitude to 1, so if you're going up and left it's not faster than going up!
             movementDirection.Normalize();
@@ -41,11 +41,18 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if(target == null) {
+/*        else if(target == null) {
             Destroy(gameObject);
-        }
+        }*/
 
     }
+
+    public void InitializeBullet(GameObject target, float speed) {
+        this.target = target;
+        this.speed = speed;
+    }
+
+
 
 
 }

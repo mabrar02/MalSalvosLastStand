@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
@@ -73,11 +74,16 @@ public class PlacementSystem : MonoBehaviour
     private bool CheckPlacementValidity() {
         int excludeLayers = LayerMask.GetMask("ground", "path");
         Collider[] hitColliders = Physics.OverlapSphere(mousePos, towerRadius, ~excludeLayers);
-        return hitColliders.Length == 0;
+        CapsuleCollider[] capsuleColliders = hitColliders
+            .Select(col => col.GetComponent<CapsuleCollider>())
+            .Where(collider => collider != null)
+            .ToArray();
+        return capsuleColliders.Length == 0;
     }
 
     private bool CheckPathPlacementValidity() {
         Collider[] hitColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("path"));
+
         return hitColliders.Length == 0;
     }
 
@@ -106,11 +112,5 @@ public class PlacementSystem : MonoBehaviour
             lastDetectedPos = gridPos;
         }
 
-    }
-
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(mousePos, towerRadius);
     }
 }
