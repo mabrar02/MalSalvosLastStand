@@ -10,6 +10,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private InputManager inputManager;
 
     [SerializeField] private GameObject turretPref;
+    [SerializeField] private GameObject turretPreview;
     [SerializeField] private int turretCost;
 
     [SerializeField] private GameObject player;
@@ -24,7 +25,8 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private float towerRadius;
     [SerializeField] private float pathRadius;
 
-    [SerializeField] private PreviewSystem preview; 
+    [SerializeField] private PreviewSystem preview;
+    [SerializeField] private AudioSource placementSE;
 
     private Vector3Int lastDetectedPos = Vector3Int.zero;
 
@@ -40,7 +42,7 @@ public class PlacementSystem : MonoBehaviour
         }
         StopPlacement();
         selectedObjectIndex = 0;
-        preview.StartShowingPlacementPreview(turretPref);
+        preview.StartShowingPlacementPreview(turretPreview);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
@@ -60,6 +62,8 @@ public class PlacementSystem : MonoBehaviour
         }
 
         GameObject turret = Instantiate(turretPref);
+        placementSE.Play();
+
         turret.transform.position = grid.CellToWorld(gridPos);
 
         preview.UpdatePosition(grid.CellToWorld(gridPos), false);

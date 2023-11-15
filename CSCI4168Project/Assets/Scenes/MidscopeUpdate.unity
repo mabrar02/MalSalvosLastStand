@@ -321,6 +321,102 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4562686340546444700, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
   m_PrefabInstance: {fileID: 1991449972682737971}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &112797810
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112797808}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4c196cf729ccf0849b2cddd0dc16be3c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.212
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &217481524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,9 +2937,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2864682821127194337, guid: 1f9f2c982e637b24494c30d24da3b5db, type: 3}
     - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
+      propertyPath: placementSE
+      value: 
+      objectReference: {fileID: 112797810}
+    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: towerRadius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
+      propertyPath: turretPreview
+      value: 
+      objectReference: {fileID: 2864682821127194337, guid: 00f0963cbdd1ef74cb2bdbba2f3ce90c, type: 3}
     - target: {fileID: 2846221684273086869, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2871,7 +2975,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4562686340546444700, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 112797810}
   m_SourcePrefab: {fileID: 100100000, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
 --- !u!114 &2467105132649284639
 MonoBehaviour:
@@ -3241,6 +3348,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259643069944344210, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_Volume
+      value: 0.485
+      objectReference: {fileID: 0}
     - target: {fileID: 3059594476388844188, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: fpsCam
       value: 
@@ -3255,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667244117435507936, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765085905094784346, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: moveSpeed
