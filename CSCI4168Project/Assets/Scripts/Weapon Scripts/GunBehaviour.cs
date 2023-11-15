@@ -42,7 +42,7 @@ public class GunBehaviour : MonoBehaviour {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.Damage(gunDamage);
+                    enemy.TakeDamage(gunDamage);
                 }
                 
                 

@@ -27,7 +27,9 @@ public class GunScript : MonoBehaviour
     {
         shoot = false;
         turretStats = GetComponent<TurretStats>();
-
+        if(turretStats != null) {
+            SetTurretStats();
+        }
     }
 
     public void SetTurretStats() {

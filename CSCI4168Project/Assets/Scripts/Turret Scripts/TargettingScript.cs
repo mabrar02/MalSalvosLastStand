@@ -25,6 +25,7 @@ public class TargettingScript : MonoBehaviour
 
         if (turretStats != null) {
             Debug.Log("TURRET STATS FOUND");
+            SetTurretStats();
         }
         else {
             Debug.Log("TURRET STATS BROKEN");
@@ -33,9 +34,8 @@ public class TargettingScript : MonoBehaviour
     }
 
     public void SetTurretStats() {
-
         shootingInterval = turretStats.fireRate;
-        gunScript.SetTurretStats();
+
     }
 
     // Update is called once per frame
@@ -44,24 +44,26 @@ public class TargettingScript : MonoBehaviour
         // if there are any enemies to target
         if (targets.Count > 0)
         {
-            // if the timer has gone over the interval
-            if (shotTimer >= shootingInterval)
-            {
-                //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
-                // shoot the gun
-                shootGun(targets[0]);
+            if (targets[0] == null) targets.Remove(targets[0]);
+            else {
+                // if the timer has gone over the interval
+                if (shotTimer >= shootingInterval) {
+                    //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
+                    // shoot the gun
+                    shootGun(targets[0]);
 
-                // move to next target in list or go back to 0
-                //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
+                    // move to next target in list or go back to 0
+                    //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
-                // reset timer
-                shotTimer = 0.0f;
+                    // reset timer
+                    shotTimer = 0.0f;
+                }
+                else {
+                    // increment the timer
+                    shotTimer += Time.deltaTime;
+                }
             }
-            else
-            {
-                // increment the timer
-                shotTimer += Time.deltaTime;
-            }
+
 
         }
     }

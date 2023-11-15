@@ -39,19 +39,20 @@ public class BulletScript : MonoBehaviour
 
             if (distanceToTarget < 0.5f)
             {
+                if (target.CompareTag("Enemy")) {
+                    target.GetComponent<Enemy>().TakeDamage(damage);
+                    Debug.Log(target.GetComponent<Enemy>()._health);
+                }
+
                 Destroy(gameObject);
             }
         }
-/*        else if(target == null) {
+        else if (target == null) {
             Destroy(gameObject);
-        }*/
+        }
 
     }
 
-    public void InitializeBullet(GameObject target, float speed) {
-        this.target = target;
-        this.speed = speed;
-    }
 
 
 

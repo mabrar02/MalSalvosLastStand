@@ -61,7 +61,6 @@ public class PlacementSystem : MonoBehaviour
 
         GameObject turret = Instantiate(turretPref);
         turret.transform.position = grid.CellToWorld(gridPos);
-        turret.GetComponentInChildren<TargettingScript>().SetTurretStats();
 
         preview.UpdatePosition(grid.CellToWorld(gridPos), false);
         GameManager.Instance.UseGears(turretCost);
