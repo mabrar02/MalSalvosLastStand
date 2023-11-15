@@ -17,6 +17,8 @@ public class TargettingScript : MonoBehaviour
 
     private TurretStats turretStats;
     [SerializeField] private Animator turretAnim;
+    [SerializeField] private AudioSource shootSE;
+
     // Start is called before the first frame update
     void Start() {
         gunScript = GetComponent<GunScript>(); // find the gun script
@@ -71,6 +73,7 @@ public class TargettingScript : MonoBehaviour
 
     private void shootGun(GameObject target)
     {
+        shootSE.Play(); 
         turretAnim.SetTrigger("Fire");
         gunScript.target = target;
         gunScript.shoot = true;

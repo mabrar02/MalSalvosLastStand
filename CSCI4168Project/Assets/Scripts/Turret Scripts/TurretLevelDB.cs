@@ -26,4 +26,7 @@ public class TurretLevel {
     [field: SerializeField]
     public int gearCost { get; private set; }
 
+    [field: SerializeField]
+    public Mesh turretMesh { get; private set; }
+
 }

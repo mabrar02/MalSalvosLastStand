@@ -10,6 +10,7 @@ public class TurretStats : MonoBehaviour
     public int damage;
     public int health;
     private int level;
+    private Mesh turretMesh;
 
     [SerializeField] private TurretLevelDB turretDB;
     
@@ -20,6 +21,7 @@ public class TurretStats : MonoBehaviour
         damage = turretDB.turretLevels[0].damage;
         health = turretDB.turretLevels[0].health;
         level = turretDB.turretLevels[0].level;
+        turretMesh = turretDB.turretLevels[0].turretMesh;
 
     }
 
