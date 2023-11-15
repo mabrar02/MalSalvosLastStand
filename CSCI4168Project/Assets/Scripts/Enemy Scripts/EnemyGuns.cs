@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Note: refered to this StackOverflow question to get the gun rotation right: https://stackoverflow.com/a/56570217
 
-public class GunScript : MonoBehaviour
+public class EnemyGuns : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     public GameObject target; // should maybe be an array?
@@ -16,7 +16,6 @@ public class GunScript : MonoBehaviour
 
     /* PRIVATE VARIABLES */
     private Vector3 enemyTarget;
-    private TurretStats turretStats;
 
     public int bulletDamage;
 
@@ -26,25 +25,38 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         shoot = false;
-        turretStats = GetComponent<TurretStats>();
 
     }
 
-    public void SetTurretStats() {
-        bulletDamage = turretStats.damage;
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (gunTipTransform != null && target != null)
         {
-            
-                // Calculate the rotation to look at the enemy's target
-                Quaternion gunRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 
-                // smoothly rotate
-                transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
+            
+            // get target without y
+            enemyTarget = target.transform.position;
+            enemyTarget.y = transform.parent.position.y;
+                
+            // Have the enemy look at the target
+
+            // Calculate the rotation to look at the enemy's target
+            Quaternion enemyRotation = Quaternion.LookRotation(enemyTarget - transform.parent.position);
+
+            // smoothly rotate
+            transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, enemyRotation, Time.deltaTime * rotationSpeed);
+
+            // Have the gun point at the target
+            //transform.LookAt(target);
+            
+            
+            // Calculate the rotation to look at the enemy's target
+            Quaternion gunRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+
+            // smoothly rotate
+            transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
            
 
             // Shoot the gun

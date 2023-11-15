@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: -8679921383154817045}
-  - component: {fileID: 4864998905262093603}
-  - component: {fileID: 1491618733688535918}
   - component: {fileID: 403235772775223281}
+  - component: {fileID: 518094975526508972}
+  - component: {fileID: 1721813593357163431}
   m_Layer: 0
   m_Name: blasterA
   m_TagString: Gun
@@ -67,38 +67,6 @@ Transform:
   - {fileID: 550095345973728015}
   m_Father: {fileID: 6653605303928274677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4864998905262093603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be423fd57946985478a84eecd4b326a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  rotationSpeed: 5.5
-  projectileSpeed: 30
-  bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
-  gunTipTransform: {fileID: 550095345973728015}
-  shoot: 0
---- !u!114 &1491618733688535918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440ff0f522ec9294a8322ccb440e4f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootingInterval: 1
-  tagToTarget: TowerGun
 --- !u!135 &403235772775223281
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +88,40 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: -0.000015258789}
+--- !u!114 &518094975526508972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e6c7b42302ad544bd7ec20cbfc8ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingInterval: 1
+  tagToTarget: TowerGun
+  targets: []
+--- !u!114 &1721813593357163431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a11aec85e06b144b412f5b7ca00f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rotationSpeed: 5.5
+  projectileSpeed: 30
+  bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
+  gunTipTransform: {fileID: 550095345973728015}
+  shoot: 0
+  bulletDamage: 0
 --- !u!1 &919358093895472080
 GameObject:
   m_ObjectHideFlags: 0

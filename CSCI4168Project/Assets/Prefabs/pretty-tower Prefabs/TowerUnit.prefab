@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2864682821127194337}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.069, y: 3.62, z: -17.397}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4176791195303126844}
   - component: {fileID: 4147447533274604458}
   - component: {fileID: 4156234891712276848}
+  - component: {fileID: 7124978331081325133}
   - component: {fileID: 4104001013968610812}
   - component: {fileID: 6212064169903663292}
   - component: {fileID: 278477225528513229}
@@ -195,6 +196,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7124978331081325133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178532543231479218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669a1d920f7b5da4994add876e0c5e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0
+  damage: 0
+  health: 0
+  turretDB: {fileID: 11400000, guid: 791e053fa0ae9584da71b55f42089791, type: 2}
 --- !u!114 &4104001013968610812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440ff0f522ec9294a8322ccb440e4f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 1
+  shootingInterval: 2
   tagToTarget: Enemy
+  targets: []
 --- !u!114 &6212064169903663292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +245,7 @@ MonoBehaviour:
   bullet: {fileID: 2029728111821696289, guid: ffb26cc356dcf8f4daa825f1f12d2c36, type: 3}
   gunTipTransform: {fileID: 4172628085442281448}
   shoot: 0
+  bulletDamage: 0
 --- !u!135 &278477225528513229
 SphereCollider:
   m_ObjectHideFlags: 0

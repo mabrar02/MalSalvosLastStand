@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
     /* PUBLIC VARIABLES */
     public GameObject target;
     public float speed;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()

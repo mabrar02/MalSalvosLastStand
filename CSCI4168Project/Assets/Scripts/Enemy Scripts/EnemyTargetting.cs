@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargettingScript : MonoBehaviour
+public class EnemyTargetting : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     public float shootingInterval; // how long between shots
@@ -13,30 +13,17 @@ public class TargettingScript : MonoBehaviour
     public List<GameObject> targets; // all the targets
     private float shotTimer = 0.0f; // time since you last shot
     private int currentTargetIndex = 0; // which target your need to shoot at next
-    private GunScript gunScript; // the gun script
+    private EnemyGuns gunScript; // the gun script
 
-    private TurretStats turretStats;
+
     // Start is called before the first frame update
-    void Start() {
-        gunScript = GetComponent<GunScript>(); // find the gun script
+    void Start()
+    {
+        gunScript = GetComponent<EnemyGuns>(); // find the gun script
         targets = new List<GameObject>();
 
-        turretStats = GetComponent<TurretStats>();
-
-        if (turretStats != null) {
-            Debug.Log("TURRET STATS FOUND");
-        }
-        else {
-            Debug.Log("TURRET STATS BROKEN");
-        }
-
     }
 
-    public void SetTurretStats() {
-
-        shootingInterval = turretStats.fireRate;
-        gunScript.SetTurretStats();
-    }
 
     // Update is called once per frame
     void Update()
