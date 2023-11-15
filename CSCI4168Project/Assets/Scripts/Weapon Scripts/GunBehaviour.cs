@@ -37,22 +37,25 @@ public class GunBehaviour : MonoBehaviour {
             gunSound.Play();
             muzzleFlash.Play();
             // Check if our raycast has hit anything
-            if (Physics.Raycast (rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+            int excludeLayers = LayerMask.GetMask("ground", "path");
+            if (Physics.Raycast (rayOrigin, fpsCam.transform.forward, out hit, weaponRange, ~excludeLayers))
             {
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                if (enemy != null)
+                Debug.Log("HIT: " + hit.transform.name);
+                if (hit.transform.CompareTag("Enemy"))
                 {
-                    enemy.Damage(gunDamage);
+                    Enemy enemy = hit.transform.GetComponent<Enemy>();
+                    enemy.TakeDamage(gunDamage);
                 }
                 
                 
-                // Check if the object we hit has a rigidbody attached
+/*                // Check if the object we hit has a rigidbody attached
                 if (hit.rigidbody != null)
                 {
                     // Add force to the rigidbody we hit, in the direction from which it was hit
                     hit.rigidbody.AddForce (-hit.normal * hitForce);
-                }
+                }*/
             }
         }
     }
 }
+

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88ca26827054ac44b11f92fbd104f01, type: 3}
+  m_Name: TurretDB
+  m_EditorClassIdentifier: 
+  turretLevels:
+  - <level>k__BackingField: 1
+    <health>k__BackingField: 500
+    <damage>k__BackingField: 25
+    <fireRate>k__BackingField: 1
+    <gearCost>k__BackingField: 0
+    <turretMesh>k__BackingField: {fileID: 4300000, guid: 74e53efdd85e648419d41302fdd9ec82, type: 3}
+  - <level>k__BackingField: 2
+    <health>k__BackingField: 750
+    <damage>k__BackingField: 45
+    <fireRate>k__BackingField: 0.9
+    <gearCost>k__BackingField: 25
+    <turretMesh>k__BackingField: {fileID: 4300000, guid: 244fb059f50befd48bb3f84ce986462d, type: 3}
+  - <level>k__BackingField: 3
+    <health>k__BackingField: 1000
+    <damage>k__BackingField: 65
+    <fireRate>k__BackingField: 0.8
+    <gearCost>k__BackingField: 50
+    <turretMesh>k__BackingField: {fileID: 4300000, guid: 4488dd5fd92fe064ab6cb948bf222a82, type: 3}
+  - <level>k__BackingField: 4
+    <health>k__BackingField: 1500
+    <damage>k__BackingField: 100
+    <fireRate>k__BackingField: 0.5
+    <gearCost>k__BackingField: 100
+    <turretMesh>k__BackingField: {fileID: 4300000, guid: 545badd010251b143a37795a61f7926e, type: 3}
