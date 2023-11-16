@@ -32,7 +32,7 @@ public class GunBehaviour : MonoBehaviour
             RaycastHit hit;
 
             // Perform the raycast
-            int excludeLayers = LayerMask.GetMask("ground", "path", "Triggers");
+            int excludeLayers = LayerMask.GetMask("ground", "path", "Triggers", "Towers");
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, ~excludeLayers))
             {
                 Debug.Log("HIT: " + hit.transform.name);

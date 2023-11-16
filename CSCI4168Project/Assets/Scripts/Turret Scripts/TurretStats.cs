@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurretStats : MonoBehaviour
 {
-
+    [SerializeField] AudioSource upgradeSE;
+    [SerializeField] AudioSource repairSE;
 
     public float fireRate;
     public int damage;
@@ -15,6 +16,7 @@ public class TurretStats : MonoBehaviour
     public int currentHealth;
 
     [SerializeField] private TurretLevelDB turretDB;
+    [SerializeField] private int repairCost;
     private int upgradeIndex = 0;
 
     private TargettingScript targetScript;
@@ -37,12 +39,37 @@ public class TurretStats : MonoBehaviour
 
         if (GameManager.Instance.UseGears(turretDB.turretLevels[upgradeIndex + 1].gearCost)) {
             upgradeIndex++;
+            upgradeSE.Play();
             UpdateStats();
 
             if(targetScript != null) {
                 targetScript.SetTurretStats();
             }
             if(gunScript != null) {
+                gunScript.SetTurretStats();
+            }
+
+        }
+        else {
+            Debug.Log("NOT ENOUGH GEARS");
+        }
+    }
+
+    public void Repair() {
+        if(currentHealth == health) {
+            Debug.Log("FULL HEALTH ALREDY");
+            return;
+        }
+
+        if (GameManager.Instance.UseGears(repairCost)) {
+            currentHealth = health;
+            repairSE.Play();
+            UpdateStats();
+
+            if (targetScript != null) {
+                targetScript.SetTurretStats();
+            }
+            if (gunScript != null) {
                 gunScript.SetTurretStats();
             }
 
