@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /*
@@ -12,12 +13,18 @@ public class GunBehaviour : MonoBehaviour {
     public float weaponRange = 50f;                                        // Distance in Unity units over which the player can fire
     public float hitForce = 100f;                                        // Amount of force which will be added to objects with a rigidbody shot by the player
     public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
-    public Camera fpsCam;                                               // Holds a reference to the first person camera
+                                                   
     public AudioSource gunSound;
     public ParticleSystem muzzleFlash;
     
+    private Camera fpsCam;
     private float _nextFire;                                                // Float to store the time the player will be allowed to fire again, after firing
-    
+
+    void Start()
+    {
+        fpsCam = Camera.main;
+    }
+
     void Update () 
     {
         muzzleFlash.Stop();
