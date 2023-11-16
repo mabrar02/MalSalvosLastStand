@@ -41,7 +41,6 @@ public class BulletScript : MonoBehaviour
             {
                 if (target.CompareTag("Enemy")) {
                     target.GetComponent<Enemy>().TakeDamage(damage);
-                    Debug.Log(target.GetComponent<Enemy>()._health);
                 }
 
                 Destroy(gameObject);

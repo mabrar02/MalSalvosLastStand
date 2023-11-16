@@ -1875,7 +1875,7 @@ MonoBehaviour:
   placementSys: {fileID: 112797808}
   State: 0
   switchCam: {fileID: 4627032489566245456}
-  gears: 100
+  gears: 1000
   baseHeath: 100
 --- !u!1 &1110638095
 GameObject:
@@ -3734,14 +3734,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 259643069944344210, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: m_Volume
-      value: 0.485
+    - target: {fileID: 1520344817697614871, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: moveSpeed
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 3059594476388844188, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: fpsCam
-      value: 
-      objectReference: {fileID: 8466756085037677315}
+    - target: {fileID: 1520344817697614871, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: groundDrag
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3749,18 +3749,6 @@ PrefabInstance:
     - target: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5667244117435507936, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765085905094784346, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: moveSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765085905094784346, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: groundDrag
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5828949067232625864, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3801,6 +3789,14 @@ PrefabInstance:
     - target: {fileID: 5828949067232625864, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225506811030456609, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225506811030456609, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.564
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3968,11 +3964,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!20 &8466756085037677315 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8949952153765541273, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
-  m_PrefabInstance: {fileID: 7817694161767218714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8574633252907117524
 MonoBehaviour:
   m_ObjectHideFlags: 0
