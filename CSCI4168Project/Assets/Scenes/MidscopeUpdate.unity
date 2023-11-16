@@ -2929,19 +2929,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
   m_PrefabInstance: {fileID: 6954981146955328619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1968536452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968536450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9684550ad5821e2479b84bb64f462841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInventory: {fileID: 11400000, guid: f7b537b282e9e5d47af0c70e4da96cd3, type: 2}
 --- !u!1 &2008061876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,10 +3734,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 259643069944344210, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: m_Volume
-      value: 0.485
-      objectReference: {fileID: 0}
     - target: {fileID: 1520344817697614871, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: moveSpeed
       value: 10
@@ -3759,10 +3742,6 @@ PrefabInstance:
       propertyPath: groundDrag
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 3059594476388844188, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: fpsCam
-      value: 
-      objectReference: {fileID: 8466756085037677315}
     - target: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3770,18 +3749,6 @@ PrefabInstance:
     - target: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5667244117435507936, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765085905094784346, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: moveSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765085905094784346, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      propertyPath: groundDrag
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5828949067232625864, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3832,14 +3799,9 @@ PrefabInstance:
       value: 0.564
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8736982237194414721, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-    - {fileID: 2954644615608901380, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1968536452}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
 --- !u!223 &7330355211151255922
 Canvas:
@@ -4002,11 +3964,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!20 &8466756085037677315 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8949952153765541273, guid: f6902a257cb9adc4cbf6c9697d1e7fab, type: 3}
-  m_PrefabInstance: {fileID: 7817694161767218714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8574633252907117524
 MonoBehaviour:
   m_ObjectHideFlags: 0

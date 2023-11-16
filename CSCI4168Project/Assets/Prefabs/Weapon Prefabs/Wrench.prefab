@@ -93,3 +93,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c121fe2868336c843a2847032f50c56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrenchRange: 10
+  highlightMaterial: {fileID: 2100000, guid: 068d1af20baa74041a3579585a4fdd29, type: 2}

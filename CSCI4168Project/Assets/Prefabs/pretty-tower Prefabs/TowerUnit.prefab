@@ -5323,7 +5323,7 @@ GameObject:
   - component: {fileID: 1045463744491867820}
   - component: {fileID: 4640558001985838202}
   - component: {fileID: 7628115244198753985}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CannonB_Barrel00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
