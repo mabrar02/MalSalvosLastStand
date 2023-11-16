@@ -9,20 +9,59 @@ public class TurretStats : MonoBehaviour
     public float fireRate;
     public int damage;
     public int health;
-    private int level;
+    public int level;
     private Mesh turretMesh;
 
+    public int currentHealth;
+
     [SerializeField] private TurretLevelDB turretDB;
+    private int upgradeIndex = 0;
+
+    private TargettingScript targetScript;
+    private GunScript gunScript;
     
 
     void Start()
     {
-        fireRate = turretDB.turretLevels[0].fireRate;
-        damage = turretDB.turretLevels[0].damage;
-        health = turretDB.turretLevels[0].health;
-        level = turretDB.turretLevels[0].level;
-        turretMesh = turretDB.turretLevels[0].turretMesh;
+        UpdateStats();
 
+        targetScript = gameObject.GetComponent<TargettingScript>();
+        gunScript = gameObject.GetComponent<GunScript>();
+    }
+
+    public void Upgrade() {
+        if (upgradeIndex + 1 >= turretDB.turretLevels.Count) {
+            Debug.Log("MAX LEVEL ALREADY");
+            return;
+        }
+
+        if (GameManager.Instance.UseGears(turretDB.turretLevels[upgradeIndex + 1].gearCost)) {
+            upgradeIndex++;
+            UpdateStats();
+
+            if(targetScript != null) {
+                targetScript.SetTurretStats();
+            }
+            if(gunScript != null) {
+                gunScript.SetTurretStats();
+            }
+
+        }
+        else {
+            Debug.Log("NOT ENOUGH GEARS");
+        }
+    }
+
+    private void UpdateStats() {
+        fireRate = turretDB.turretLevels[upgradeIndex].fireRate;
+        damage = turretDB.turretLevels[upgradeIndex].damage;
+        health = turretDB.turretLevels[upgradeIndex].health;
+        level = turretDB.turretLevels[upgradeIndex].level;
+        turretMesh = turretDB.turretLevels[upgradeIndex].turretMesh;
+
+        gameObject.GetComponent<MeshFilter>().mesh = turretMesh;
+
+        currentHealth = health;
     }
 
 

@@ -1875,7 +1875,7 @@ MonoBehaviour:
   placementSys: {fileID: 112797808}
   State: 0
   switchCam: {fileID: 4627032489566245456}
-  gears: 100
+  gears: 1000
   baseHeath: 100
 --- !u!1 &1110638095
 GameObject:

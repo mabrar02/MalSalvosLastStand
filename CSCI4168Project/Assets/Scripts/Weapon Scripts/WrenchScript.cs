@@ -8,9 +8,11 @@ public class WrenchScript : MonoBehaviour
     [SerializeField] private float wrenchRange;
     private GameObject lastHighlightedObject;
 
+
     private Camera cam;
     private RaycastHit hit;
     private LayerMask turretLayer;
+    private
 
   
     void Start()
@@ -18,6 +20,10 @@ public class WrenchScript : MonoBehaviour
         cam = Camera.main;
         turretLayer = LayerMask.GetMask("Tower");
         
+    }
+
+    private void OnDestroy() {
+        ResetHighlight();
     }
 
     // Update is called once per frame
@@ -35,17 +41,33 @@ public class WrenchScript : MonoBehaviour
             lastHighlightedObject = null;
         }
 
+        if (Input.GetButtonDown("Fire1") && lastHighlightedObject != null) {
+            lastHighlightedObject.GetComponentInChildren<TurretStats>().Upgrade();
+            Transform repairUITransform = lastHighlightedObject.transform.Find("RepairUI");
+            if(repairUITransform != null) {
+                repairUITransform.gameObject.GetComponent<RepairUI>().UpdateText();
+            }
+        }
+
     }
 
     private void HighlightObject(GameObject obj) {
         if (obj != null) {
             obj.GetComponent<Outline>().enabled = true;
+            Transform repairUITransform = obj.transform.Find("RepairUI");
+            if(repairUITransform != null) {
+                repairUITransform.gameObject.SetActive(true);
+            }
         }
     }
 
     private void ResetHighlight() {
         if(lastHighlightedObject != null) {
             lastHighlightedObject.GetComponent<Outline>().enabled = false;
+            Transform repairUITransform = lastHighlightedObject.transform.Find("RepairUI");
+            if (repairUITransform != null) {
+                repairUITransform.gameObject.SetActive(false);
+            }
         }
     }
 
