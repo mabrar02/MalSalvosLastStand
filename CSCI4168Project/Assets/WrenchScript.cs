@@ -24,17 +24,29 @@ public class WrenchScript : MonoBehaviour
     void Update()
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, wrenchRange, turretLayer)) {
-            if(hit.collider.gameObject !=  lastHighlightedObject) {
-                Debug.Log("TURRET DETECTED: " + hit.transform.name);
+            if (hit.collider.gameObject != lastHighlightedObject) {
+                ResetHighlight();
+                HighlightObject(hit.collider.gameObject);
                 lastHighlightedObject = hit.collider.gameObject;
             }
         }
         else {
+            ResetHighlight();
             lastHighlightedObject = null;
         }
 
-        
+    }
 
+    private void HighlightObject(GameObject obj) {
+        if (obj != null) {
+            obj.GetComponent<Outline>().enabled = true;
+        }
+    }
+
+    private void ResetHighlight() {
+        if(lastHighlightedObject != null) {
+            lastHighlightedObject.GetComponent<Outline>().enabled = false;
+        }
     }
 
 }
