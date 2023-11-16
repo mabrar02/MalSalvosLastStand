@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject placementSys;
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
+    public static event Action<int> OnGearValsChanged;
+    public static event Action<int> OnBaseHealthChanged;
 
     public GameObject switchCam;
 
     public int gears;
+    public int baseHeath;
 
     private void Awake() {
         Instance = this;
@@ -29,20 +32,33 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        Debug.Log("CURRENT STATE: " +  newState);
         State = newState;
 
         switch (newState) {
             case GameState.BuildPhase:
                 HandleBuildPhase();
                 break;
+            case GameState.SpawnPhase:
+                HandleSpawnPhase(); 
+                break;
             case GameState.BattlePhase:
-                HandleBattlePhase();
                 break;
             case GameState.CooldownPhase:
+                StartCoroutine(HandleCooldownPhase());
+                break;
+            case GameState.VictoryPhase:
+                break;
+            case GameState.LosePhase:
+                HandleLosePhase();
                 break;
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleLosePhase() {
+        Time.timeScale = 0;
     }
 
     private void HandleBuildPhase() {
@@ -51,14 +67,17 @@ public class GameManager : MonoBehaviour
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
     }
 
-    private async void HandleBattlePhase() {
+    private void HandleSpawnPhase() {
         placementSys.GetComponent<PlacementSystem>().StopPlacement();
         buildSys.SetActive(false);
         player.SetActive(true);
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
+    }
 
-        await Task.Delay(5000);
-        AddGears(50);
+    private IEnumerator HandleCooldownPhase() {
+
+        yield return new WaitForSeconds(10f);
+
         UpdateGameState(GameState.BuildPhase);
     }
 
@@ -66,6 +85,8 @@ public class GameManager : MonoBehaviour
     public bool UseGears(int cost) {
         if (gears - cost >= 0) {
             gears -= cost;
+
+            OnGearValsChanged?.Invoke(gears);
             return true;
         }
         else return false;
@@ -73,16 +94,34 @@ public class GameManager : MonoBehaviour
 
     public void AddGears(int bonus) {
         gears += bonus;
+        OnGearValsChanged?.Invoke(gears);
     }
 
     public int GetGears() {
         return gears;
     }
 
+    public int GetBaseHealth() {
+        return baseHeath;
+    }
+
+    public void TakeDamage(int damage) {
+        baseHeath -= damage;
+
+        OnBaseHealthChanged?.Invoke(baseHeath);
+
+        if(baseHeath <= 0) {
+            UpdateGameState(GameState.LosePhase); 
+        }
+    }
+
 }
 
 public enum GameState {
     BuildPhase,
+    SpawnPhase,
     BattlePhase,
-    CooldownPhase
+    CooldownPhase,
+    LosePhase,
+    VictoryPhase,
 }

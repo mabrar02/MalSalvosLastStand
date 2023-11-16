@@ -5,8 +5,9 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
-    public Transform target;
+    public GameObject target;
     public float speed;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,10 @@ public class BulletScript : MonoBehaviour
         if (target != null && speed>0)
         {
             // point at target
-            transform.LookAt(target);
-            // make sure it's rotated at the right angle
-            transform.Rotate(Vector3.right * 90);
+            transform.LookAt(target.transform);
+           
             // movement direction
-            Vector3 movementDirection = target.position - transform.position;
+            Vector3 movementDirection = target.transform.position - transform.position;
 
             // Maintains direction but sets magnitude to 1, so if you're going up and left it's not faster than going up!
             movementDirection.Normalize();
@@ -37,13 +37,24 @@ public class BulletScript : MonoBehaviour
 
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
 
-            if (distanceToTarget < 10)
+            if (distanceToTarget < 0.5f)
             {
+                if (target.CompareTag("Enemy")) {
+                    target.GetComponent<Enemy>().TakeDamage(damage);
+                    Debug.Log(target.GetComponent<Enemy>()._health);
+                }
+
                 Destroy(gameObject);
             }
         }
+        else if (target == null) {
+            Destroy(gameObject);
+        }
 
     }
+
+
+
 
 
 }

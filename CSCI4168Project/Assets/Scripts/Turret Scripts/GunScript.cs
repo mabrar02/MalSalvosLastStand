@@ -7,7 +7,7 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
-    public Transform target; // should maybe be an array?
+    public GameObject target; // should maybe be an array?
     public float rotationSpeed; //todo
     public float projectileSpeed;
     public GameObject bullet;
@@ -15,6 +15,10 @@ public class GunScript : MonoBehaviour
     public bool shoot;
 
     /* PRIVATE VARIABLES */
+    private Vector3 enemyTarget;
+    private TurretStats turretStats;
+
+    public int bulletDamage;
 
 
 
@@ -22,6 +26,14 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         shoot = false;
+        turretStats = GetComponent<TurretStats>();
+        if(turretStats != null) {
+            SetTurretStats();
+        }
+    }
+
+    public void SetTurretStats() {
+        bulletDamage = turretStats.damage;
     }
 
     // Update is called once per frame
@@ -29,27 +41,30 @@ public class GunScript : MonoBehaviour
     {
         if (gunTipTransform != null && target != null)
         {
-            // Have the gun point at the target
-            transform.LookAt(target);
-            // make sure it's rotated at the right angle
-            transform.Rotate(Vector3.right * 90);
-
             
+                // Calculate the rotation to look at the enemy's target
+                Quaternion gunRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 
+                // smoothly rotate
+                transform.rotation = Quaternion.Slerp(transform.rotation, gunRotation, Time.deltaTime * rotationSpeed);
+           
+
+            // Shoot the gun
             if (shoot)
             {
                 shoot = false;
                 // Create a bullet
-                Instantiate(bullet);
+                GameObject bulletObj = Instantiate(bullet, gunTipTransform.position, gunTipTransform.rotation);
                 // set the bullet starting point
-                bullet.transform.position = gunTipTransform.position;
+                //bullet.transform.position = gunTipTransform.position;
 
                 // pass the target to the bullet script. 
-                BulletScript bulletScript = bullet.GetComponent<BulletScript>();
+                BulletScript bulletScript = bulletObj.GetComponent<BulletScript>();
 
                 // Set variables on bulletScript
                 bulletScript.target = target;
                 bulletScript.speed = projectileSpeed;
+                bulletScript.damage = bulletDamage;
             }
         }
     }

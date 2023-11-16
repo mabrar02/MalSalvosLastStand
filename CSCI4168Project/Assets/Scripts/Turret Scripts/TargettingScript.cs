@@ -10,48 +10,71 @@ public class TargettingScript : MonoBehaviour
 
 
     /* PRIVATE VARIABLES */
-    private List<Transform> transforms; // all the targets
+    public List<GameObject> targets; // all the targets
     private float shotTimer = 0.0f; // time since you last shot
     private int currentTargetIndex = 0; // which target your need to shoot at next
     private GunScript gunScript; // the gun script
 
+    private TurretStats turretStats;
+    [SerializeField] private Animator turretAnim;
+    [SerializeField] private AudioSource shootSE;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         gunScript = GetComponent<GunScript>(); // find the gun script
-        transforms = new List<Transform>();
+        targets = new List<GameObject>();
+
+        turretStats = GetComponent<TurretStats>();
+
+        if (turretStats != null) {
+            Debug.Log("TURRET STATS FOUND");
+            SetTurretStats();
+        }
+        else {
+            Debug.Log("TURRET STATS BROKEN");
+        }
+
+    }
+
+    public void SetTurretStats() {
+        shootingInterval = turretStats.fireRate;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // if there are any enemies to target
-        if (transforms.Count > 0)
+        if (targets.Count > 0)
         {
-            // if the timer has gone over the interval
-            if (shotTimer >= shootingInterval)
-            {
-                currentTargetIndex = currentTargetIndex < transforms.Count ? currentTargetIndex : 0;
-                // shoot the gun
-                shootGun(transforms[currentTargetIndex]);
+            if (targets[0] == null) targets.Remove(targets[0]);
+            else {
+                // if the timer has gone over the interval
+                if (shotTimer >= shootingInterval) {
+                    //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
+                    // shoot the gun
+                    shootGun(targets[0]);
 
-                // move to next target in list or go back to 0
-                currentTargetIndex = (currentTargetIndex + 1) % transforms.Count;
+                    // move to next target in list or go back to 0
+                    //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
-                // reset timer
-                shotTimer = 0.0f;
+                    // reset timer
+                    shotTimer = 0.0f;
+                }
+                else {
+                    // increment the timer
+                    shotTimer += Time.deltaTime;
+                }
             }
-            else
-            {
-                // increment the timer
-                shotTimer += Time.deltaTime;
-            }
+
 
         }
     }
 
-    private void shootGun(Transform target)
+    private void shootGun(GameObject target)
     {
+        shootSE.Play(); 
+        turretAnim.SetTrigger("Fire");
         gunScript.target = target;
         gunScript.shoot = true;
     }
@@ -61,8 +84,7 @@ public class TargettingScript : MonoBehaviour
     {
         if (other.tag == tagToTarget)
         {
-            transforms.Add(other.transform);
-            Debug.Log("Entering " + other.tag + " len:" + transforms.Count);
+            targets.Add(other.gameObject);
         }
     }
 
@@ -70,8 +92,7 @@ public class TargettingScript : MonoBehaviour
     {
         if (other.tag == tagToTarget)
         {
-            transforms.Remove(other.transform);
-            Debug.Log("Exiting "+other.tag+" len:"+transforms.Count);
+            targets.Remove(other.gameObject);
         }
     }
 }
