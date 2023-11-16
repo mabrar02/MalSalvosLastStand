@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GunBehaviour : MonoBehaviour
@@ -7,11 +8,15 @@ public class GunBehaviour : MonoBehaviour
     public float weaponRange = 50f;
     public float hitForce = 100f;
     public Transform gunEnd;
-    public Camera fpsCam;
+    private Camera fpsCam;
     public AudioSource gunSound;
     public ParticleSystem muzzleFlash;
 
     private float _nextFire;
+
+    private void Start(){
+        fpsCam = Camera.main;
+    }
 
     void Update()
     {

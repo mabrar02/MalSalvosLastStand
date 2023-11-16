@@ -2942,8 +2942,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInventory: {fileID: 11400000, guid: f7b537b282e9e5d47af0c70e4da96cd3, type: 2}
-  _currItem: -1
-  _pivotArm: {fileID: 0}
 --- !u!1 &2008061876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,6 +3751,14 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.485
       objectReference: {fileID: 0}
+    - target: {fileID: 1520344817697614871, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520344817697614871, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: groundDrag
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3059594476388844188, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: fpsCam
       value: 
@@ -3817,8 +3823,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6225506811030456609, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225506811030456609, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.564
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8736982237194414721, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+    - {fileID: 2954644615608901380, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4743979558537880263, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
