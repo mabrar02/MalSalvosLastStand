@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 1461062734422265120, guid: 2808bde30f92c7e4da5776f342eb532f, type: 3}
+    enemy: {fileID: 1461062734422265120, guid: 31b7ef99bbe0c6e45a26d71ebb0df530, type: 3}
     count: 20
     spawnRate: 0.5
   - name: Wave 2
