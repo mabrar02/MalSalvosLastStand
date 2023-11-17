@@ -87,8 +87,10 @@ public class PlacementSystem : MonoBehaviour
 
     private bool CheckPathPlacementValidity() {
         Collider[] hitColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("path"));
+        Collider[] wallColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("wall"));
+        Collider[] envColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("environment"));
 
-        return hitColliders.Length == 0;
+        return hitColliders.Length == 0 && wallColliders.Length == 0 && envColliders.Length == 0;
     }
 
 
