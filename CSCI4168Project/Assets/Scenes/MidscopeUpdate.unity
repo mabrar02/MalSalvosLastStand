@@ -3050,11 +3050,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+    enemy: {fileID: 1461062734422265120, guid: 2808bde30f92c7e4da5776f342eb532f, type: 3}
     count: 20
     spawnRate: 0.5
   - name: Wave 2
-    enemy: {fileID: 1461062734422265120, guid: 1547a3b2bd6b4fa47bdaf95851a6443d, type: 3}
+    enemy: {fileID: 1461062734422265120, guid: 2808bde30f92c7e4da5776f342eb532f, type: 3}
     count: 22
     spawnRate: 1
   spawnPoints:
@@ -7888,7 +7888,7 @@ PrefabInstance:
       objectReference: {fileID: 929920317}
     - target: {fileID: 7055492412993448072, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
