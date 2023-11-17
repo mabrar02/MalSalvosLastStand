@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d5f58e466652de4eba3601265143386, type: 3}
-  m_Name: Orb
+  m_Name: IceCore
   m_EditorClassIdentifier: 
-  itemName: Orb
-  description: Very cool orb.
+  itemName: IceCore
+  description: Icey upgrade core
   sprite: {fileID: 0}
-  model: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
+  model: {fileID: 7770139240375274764, guid: 4dad254f57d645142a37f1a24527d371, type: 3}
