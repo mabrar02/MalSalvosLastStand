@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5f58e466652de4eba3601265143386, type: 3}
+  m_Name: BlasterItem
+  m_EditorClassIdentifier: 
+  itemName: Blaster
+  description: MalSalvo's epic blaster.
+  sprite: {fileID: 0}
+  model: {fileID: 307566517699503695, guid: 5e3ef8f4998e74c4da0351dfdae59ccc, type: 3}
