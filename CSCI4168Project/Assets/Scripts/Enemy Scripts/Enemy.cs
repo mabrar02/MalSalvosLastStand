@@ -7,10 +7,11 @@ public class Enemy : MonoBehaviour
 {
 
     public float maxHealth;
-    private Animator animator;
-
+    public float deathTime=2.0f;
     public float _health;
     public GameObject floatingTextPref;
+
+    private Animator animator;
     void Start()
     {
         _health = maxHealth;
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
 
         void die()
         {
-            Destroy(gameObject, 2.5f);
+            Destroy(gameObject, deathTime);
             animator.SetTrigger("Die");
         }
     }
