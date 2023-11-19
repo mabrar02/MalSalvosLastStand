@@ -14,6 +14,7 @@ public class EnemyTargetting : MonoBehaviour
     private float shotTimer = 0.0f; // time since you last shot
     private int currentTargetIndex = 0; // which target your need to shoot at next
     private EnemyGuns gunScript; // the gun script
+    private GameObject goal;
 
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class EnemyTargetting : MonoBehaviour
     {
         gunScript = GetComponent<EnemyGuns>(); // find the gun script
         targets = new List<GameObject>();
-
+        goal = GetComponentInParent<MoveTo>().goal.gameObject;
     }
 
 
@@ -51,12 +52,21 @@ public class EnemyTargetting : MonoBehaviour
             }
 
         }
+        else
+        {
+            lookAtBase();
+        }
     }
 
     private void shootGun(GameObject target)
     {
         gunScript.target = target;
         gunScript.shoot = true;
+    }
+
+    private void lookAtBase()
+    {
+        gunScript.target = goal;
     }
 
 
