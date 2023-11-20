@@ -7,12 +7,15 @@ public class Enemy : MonoBehaviour
 {
 
     public float maxHealth;
-
+    public float deathTime=2.0f;
     public float _health;
     public GameObject floatingTextPref;
+
+    private Animator animator;
     void Start()
     {
         _health = maxHealth;
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void TakeDamage(float damage)
@@ -20,10 +23,16 @@ public class Enemy : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            die();
         }
         else {
             ShowFloatingText();
+        }
+
+        void die()
+        {
+            Destroy(gameObject, deathTime);
+            animator.SetTrigger("Die");
         }
     }
 

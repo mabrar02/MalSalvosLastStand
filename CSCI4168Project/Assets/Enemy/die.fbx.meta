@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: falling back death
+      name: die
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
