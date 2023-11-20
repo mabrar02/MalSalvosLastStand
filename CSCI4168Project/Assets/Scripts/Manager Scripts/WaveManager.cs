@@ -91,7 +91,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(GameObject _enemy) {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject enemyObj = Instantiate(_enemy, _sp.position, _sp.rotation);
+        GameObject enemyObj = Instantiate(_enemy, _sp.position, Quaternion.identity);
 
         MoveTo enemyMove = enemyObj.GetComponent<MoveTo>();
         if(enemyMove != null) {
