@@ -55,7 +55,4 @@ public class GunBehaviour : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * weaponRange);
-    }
 }
