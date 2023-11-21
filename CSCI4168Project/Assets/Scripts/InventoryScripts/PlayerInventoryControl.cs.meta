@@ -3,7 +3,9 @@ guid: 9684550ad5821e2479b84bb64f462841
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PlayerInventory: {fileID: 11400000, guid: f7b537b282e9e5d47af0c70e4da96cd3, type: 2}
+  - Rifle: {fileID: 11400000, guid: 439c92289001724449104db947b081d6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

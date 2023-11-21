@@ -7,9 +7,11 @@ using UnityEngine.Serialization;
 
 public class PlayerInventoryControl : MonoBehaviour
 {
-    public Inventory PlayerInventory;
+    [SerializeField] public Inventory PlayerInventory;
+    
     private int _currItem = -1;
     private Transform _pivotArm;
+    public HoldableItem Rifle;
 
     void Start()
     {
@@ -33,9 +35,9 @@ public class PlayerInventoryControl : MonoBehaviour
             Destroy(_pivotArm.GetChild(i).GameObject());
         }
 
-        if (PlayerInventory.items[newItemIndex].item != null)
+        if (PlayerInventory.GetItem(newItemIndex) != null)
         {
-            Instantiate(PlayerInventory.items[newItemIndex].item.model, _pivotArm);
+            Instantiate(PlayerInventory.GetItem(newItemIndex).model, _pivotArm);
         }
         _currItem = newItemIndex;
     }
@@ -44,7 +46,7 @@ public class PlayerInventoryControl : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (_currItem + 1 < PlayerInventory.size())
+            if (_currItem + 1 < PlayerInventory.Size())
             {
                 return _currItem + 1;
             }
@@ -106,6 +108,11 @@ public class PlayerInventoryControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             return 9;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerInventory.AddItem(new ItemInstance(Rifle));
         }
 
         return _currItem;
