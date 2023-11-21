@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // Note: refered to this StackOverflow question to get the gun rotation right: https://stackoverflow.com/a/56570217
@@ -19,7 +20,7 @@ public class GunScript : MonoBehaviour
     private TurretStats turretStats;
 
     public int bulletDamage;
-
+    public bool[] activeCores;
 
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class GunScript : MonoBehaviour
 
     public void SetTurretStats() {
         bulletDamage = turretStats.damage;
+        activeCores = turretStats.activeCores;
     }
 
     // Update is called once per frame
@@ -65,6 +67,7 @@ public class GunScript : MonoBehaviour
                 bulletScript.target = target;
                 bulletScript.speed = projectileSpeed;
                 bulletScript.damage = bulletDamage;
+                bulletScript.SetCores(activeCores.ToArray());
             }
         }
     }

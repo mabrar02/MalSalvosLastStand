@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceCore : MonoBehaviour
+public class TurretCore : MonoBehaviour
 {
     [SerializeField] private float coreRange;
+    [SerializeField] private int coreIndex;
     private GameObject lastHighlightedObject;
 
 
@@ -39,12 +40,9 @@ public class IceCore : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Fire1") && lastHighlightedObject != null) {
-            ApplyCore(lastHighlightedObject);
+            Debug.Log("CORE ACTIVE");
+            lastHighlightedObject.GetComponentInChildren<TurretStats>().SetCore(coreIndex);
         }
-
-    }
-
-    public virtual void ApplyCore(GameObject target) {
 
     }
 

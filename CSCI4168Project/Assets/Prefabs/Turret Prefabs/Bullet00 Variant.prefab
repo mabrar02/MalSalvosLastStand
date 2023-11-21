@@ -66,8 +66,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1974372343230886029, guid: 17c6113a6fd346240835e6edfed5f706, type: 3}
       propertyPath: speed
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1974372343230886029, guid: 17c6113a6fd346240835e6edfed5f706, type: 3}
+      propertyPath: bulletDB
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ea191a898ed8ea49982a18aff1bd4f6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

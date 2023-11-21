@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class EnemyBulletScript : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     public GameObject target;
-    [SerializeField] private BulletCores bulletDB;
     public float speed;
     public int damage;
-
-    public bool[] activeCores = new bool[3];
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -47,17 +43,6 @@ public class BulletScript : MonoBehaviour
                     target.GetComponent<Enemy>().TakeDamage(damage);
                 }
 
-               
-                if (activeCores[0] == true) {
-                    target.GetComponent<Enemy>().ChangeEnemySpeedCoroutine(bulletDB.slowingAmount, bulletDB.slowDuration);
-                }
-                if (activeCores[1] == true) {
-                    target.GetComponent<Enemy>().DamageOverTimeCoroutine(bulletDB.burnDamage, bulletDB.burnDuration, bulletDB.burnInterval);
-                }
-                if (activeCores[2] == true) {
-                    target.GetComponent<Enemy>().SplashDamage(bulletDB.splashDamage, bulletDB.splashRadius);
-                }
-
                 Destroy(gameObject);
             }
         }
@@ -67,9 +52,6 @@ public class BulletScript : MonoBehaviour
 
     }
 
-    public void SetCores(bool[] cores) {
-        activeCores = cores;
-    }
 
 
 

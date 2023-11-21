@@ -50,6 +50,13 @@ public class WrenchScript : MonoBehaviour
             }
         }
 
+        if(Input.GetButtonDown("Fire2") && lastHighlightedObject != null) {
+            lastHighlightedObject.GetComponentInChildren<TurretStats>().Repair();
+            Transform repairUITransform = lastHighlightedObject.transform.Find("RepairUI");
+            if (repairUITransform != null) {
+                repairUITransform.gameObject.GetComponent<RepairUI>().UpdateText();
+            }
+        }
     }
 
     private void HighlightObject(GameObject obj) {
