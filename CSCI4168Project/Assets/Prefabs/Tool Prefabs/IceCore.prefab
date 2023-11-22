@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coreRange: 10
   coreIndex: 0
+  coreAuraPrefab: {fileID: 3952470679092069651, guid: b3a83b74197f84b4eaffbfc09db6bc78, type: 3}

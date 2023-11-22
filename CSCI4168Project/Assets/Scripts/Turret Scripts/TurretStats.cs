@@ -80,9 +80,10 @@ public class TurretStats : MonoBehaviour
         }
     }
 
-    public void SetCore(int coreIndex) {
+    public bool SetCore(int coreIndex) {
         if (activeCores[coreIndex] == true) {
             Debug.Log("CORE ALREADY SET!");
+            return false;
         }
         else {
             activeCores[coreIndex] = true;
@@ -91,7 +92,7 @@ public class TurretStats : MonoBehaviour
         if (gunScript != null) {
             gunScript.SetTurretStats();
         }
-
+        return true;
     }
 
     private void UpdateStats() {

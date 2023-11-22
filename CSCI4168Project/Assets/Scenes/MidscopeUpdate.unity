@@ -3051,7 +3051,7 @@ MonoBehaviour:
   waves:
   - name: Wave 1
     enemy: {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    count: 30
+    count: 22
     spawnRate: 2
   - name: Wave 2
     enemy: {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
@@ -3059,7 +3059,7 @@ MonoBehaviour:
     spawnRate: 1
   spawnPoints:
   - {fileID: 408772464}
-  waveStartTime: 1
+  waveStartTime: 10
   waveCountDown: 0
   homebase: {fileID: 697835563}
 --- !u!1 &814172586
