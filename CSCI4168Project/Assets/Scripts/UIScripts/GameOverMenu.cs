@@ -8,11 +8,9 @@ public class GameOverMenu : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        Debug.Log("Game Over");
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
-
-    private void OnDisable()
-    {
-        Cursor.visible = false;
-    }
+    
 }
