@@ -7,6 +7,7 @@ public class TurretCore : MonoBehaviour
     [SerializeField] private float coreRange;
     [SerializeField] private int coreIndex;
     [SerializeField] private GameObject coreAuraPrefab;
+    [SerializeField] private AudioSource applyCoreSE;
     private GameObject lastHighlightedObject;
 
 
@@ -43,7 +44,7 @@ public class TurretCore : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && lastHighlightedObject != null) {
             if (lastHighlightedObject.GetComponentInChildren<TurretStats>().SetCore(coreIndex)) {
                 Instantiate(coreAuraPrefab, lastHighlightedObject.transform.position, Quaternion.identity, lastHighlightedObject.transform);
-                Debug.Log("AURA ADDED");
+                AudioSource.PlayClipAtPoint(applyCoreSE.clip, transform.position);
             };
         }
 

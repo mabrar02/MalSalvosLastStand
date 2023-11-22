@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private bool burning;
     private SkinnedMeshRenderer[] skinRenderers;
     [SerializeField] private float colorIntensity;
+    [SerializeField] private int gearAddition;
 
     private Animator animator;
     void Start()
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
 
         void die()
         {
+            GameManager.Instance.AddGears(gearAddition);
             Destroy(gameObject, deathTime);
             animator.SetTrigger("Die");
         }

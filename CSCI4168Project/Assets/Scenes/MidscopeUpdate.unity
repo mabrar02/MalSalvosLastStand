@@ -3059,6 +3059,9 @@ MonoBehaviour:
     spawnRate: 1
   spawnPoints:
   - {fileID: 408772464}
+  - {fileID: 282109939}
+  - {fileID: 217481525}
+  - {fileID: 365938977}
   waveStartTime: 10
   waveCountDown: 0
   homebase: {fileID: 697835563}
