@@ -1,16 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventoryUI : MonoBehaviour
 {
-    
-    private Inventory _playerInventory;
-    private GameObject[] _slots;
+    struct InventorySlot
+    {
+        public InventorySlot(GameObject slotObject, Sprite sprite)
+        {
+            this.slotObject = slotObject;
+            this.sprite = sprite;
+        }
+        public GameObject slotObject;
+        public Sprite sprite;
+    }
 
+    private PlayerInventoryControl inventoryControl;
+    private Inventory playerInventory;
+    private InventorySlot[] slots;
+    private int currItemSlot;
+    
     private void Start()
     {
+        inventoryControl = PlayerInventoryControl.instance;
+        playerInventory = inventoryControl.PlayerInventory;
+        slots = new InventorySlot[playerInventory.Size()];
         
     }
 
@@ -19,19 +35,26 @@ public class PlayerInventoryUI : MonoBehaviour
         
     }
 
+    void OnItemChange()
+    {
+        currItemSlot = inventoryControl.GetHeldItemIndex();
+    }
+
     private void Awake()
     {
-        if (_playerInventory != null)
+        if (playerInventory != null)
         {
-            _playerInventory.InventoryUpdate += OnInventoryUpdate;
+            playerInventory.InventoryUpdate += OnInventoryUpdate;
+            inventoryControl.ItemChange += OnItemChange;
         }
     }
     
     private void OnDestroy()
     {
-        if (_playerInventory != null)
+        if (playerInventory != null)
         {
-            _playerInventory.InventoryUpdate -= OnInventoryUpdate;
+            playerInventory.InventoryUpdate -= OnInventoryUpdate;
+            inventoryControl.ItemChange -= OnItemChange;
         }
     }
 }

@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gearText;
     [SerializeField] private TextMeshProUGUI homebaseHealthText;
-    [SerializeField] private GameObject buildMenu, battleMenu;
+    [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu;
     [SerializeField] private GameObject switchCam;
 
     private void Start() {
@@ -41,10 +41,8 @@ public class MenuManager : MonoBehaviour
 
     private void GameManagerStateChange(GameState state) {
         buildMenu.SetActive(state == GameState.BuildPhase);
-        battleMenu.SetActive(state != GameState.BuildPhase);
-        if(state == GameState.LosePhase) {
-            Debug.Log("YOU LOSE!");
-        }
+        battleMenu.SetActive(state != GameState.BuildPhase && state != GameState.LosePhase);
+        gameOverMenu.SetActive(state == GameState.LosePhase);
     }
 
     public void StartBuild() {

@@ -28,7 +28,7 @@ public class Inventory : ScriptableObject
         return false;
     }
 
-    public bool removeItem(int index)
+    public bool RemoveItem(int index)
     {
         if (index < items.Length)
         {

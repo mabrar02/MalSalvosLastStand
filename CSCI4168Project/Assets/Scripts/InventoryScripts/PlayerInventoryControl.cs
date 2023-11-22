@@ -7,56 +7,67 @@ using UnityEngine.Serialization;
 
 public class PlayerInventoryControl : MonoBehaviour
 {
+    public static PlayerInventoryControl instance;
     [SerializeField] public Inventory PlayerInventory;
-    
-    private int _currItem = -1;
-    private Transform _pivotArm;
-    public HoldableItem Rifle;
+    public event Action ItemChange;
+    private int currItem = -1;
+    private Transform pivotArm;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-        _pivotArm = GameObject.Find("PivotArm").transform;
+        pivotArm = GameObject.Find("PivotArm").transform;
     }
     void Update()
     {
         int item = GetItem();
 
-        if (item != _currItem)
+        if (item != currItem)
         {
             SwitchItem(item);
         }
     }
 
+    public int GetHeldItemIndex()
+    {
+        return currItem;
+    }
+
     private void SwitchItem(int newItemIndex)
     {
-        int numChildren = _pivotArm.childCount;
+        int numChildren = pivotArm.childCount;
         for (int i = 0; i < numChildren; i++)
         {
-            Destroy(_pivotArm.GetChild(i).GameObject());
+            Destroy(pivotArm.GetChild(i).GameObject());
         }
 
         if (PlayerInventory.GetItem(newItemIndex) != null)
         {
-            Instantiate(PlayerInventory.GetItem(newItemIndex).model, _pivotArm);
+            Instantiate(PlayerInventory.GetItem(newItemIndex).model, pivotArm);
+            ItemChange?.Invoke();
         }
-        _currItem = newItemIndex;
+        currItem = newItemIndex;
     }
     
     private int GetItem()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (_currItem + 1 < PlayerInventory.Size())
+            if (currItem + 1 < PlayerInventory.Size())
             {
-                return _currItem + 1;
+                return currItem + 1;
             }
             
         } 
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (_currItem - 1 >= 0)
+            if (currItem - 1 >= 0)
             {
-                return _currItem - 1;
+                return currItem - 1;
             }
         } 
         
@@ -110,12 +121,7 @@ public class PlayerInventoryControl : MonoBehaviour
             return 9;
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            PlayerInventory.AddItem(new ItemInstance(Rifle));
-        }
-
-        return _currItem;
+        return currItem;
     }
     
 }
