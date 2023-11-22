@@ -834,7 +834,9 @@ MonoBehaviour:
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
   agentSpeedOriginal: 3
+  dying: 0
   colorIntensity: 0.5
+  gearAddition: 50
 --- !u!1 &4436603593459518359
 GameObject:
   m_ObjectHideFlags: 0
