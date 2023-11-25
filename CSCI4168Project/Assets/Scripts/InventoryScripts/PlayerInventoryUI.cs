@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerInventoryUI : MonoBehaviour
 {
 
+    private TextMeshProUGUI itemText;
     private PlayerInventoryControl inventoryControl;
     private Inventory playerInventory;
     private GameObject[] slots;
@@ -20,6 +22,7 @@ public class PlayerInventoryUI : MonoBehaviour
         inventoryControl = PlayerInventoryControl.instance;
         playerInventory = inventoryControl.PlayerInventory;
         currItemSlot = inventoryControl.GetHeldItemIndex();
+        itemText = GameObject.Find("ItemHeldText").GetComponent<TextMeshProUGUI>();
 
         for (int i = 0; i < playerInventory.Size(); i++)
         {
@@ -45,7 +48,7 @@ public class PlayerInventoryUI : MonoBehaviour
             
             currItemSlot = inventoryControl.GetHeldItemIndex();
             GetSlotImage(currItemSlot).color = green;
-            
+            itemText.text = playerInventory.GetItem(currItemSlot).itemName;
         }
         
     }

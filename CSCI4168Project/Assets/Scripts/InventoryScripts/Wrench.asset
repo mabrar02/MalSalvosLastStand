@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wrench
   description: Used for upgrading and repairing
-  sprite: {fileID: 0}
+  image: {fileID: 2800000, guid: 112f7ce2e10a7fc41926deef6be4f7c0, type: 3}
   model: {fileID: 55260631727587250, guid: 25fe60e29bd8c7c41afcc3027e086afe, type: 3}
