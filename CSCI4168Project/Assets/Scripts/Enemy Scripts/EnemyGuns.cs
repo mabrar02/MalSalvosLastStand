@@ -69,7 +69,7 @@ public class EnemyGuns : MonoBehaviour
                 //bullet.transform.position = gunTipTransform.position;
 
                 // pass the target to the bullet script. 
-                BulletScript bulletScript = bulletObj.GetComponent<BulletScript>();
+                EnemyBulletScript bulletScript = bulletObj.GetComponent<EnemyBulletScript>();
 
                 // Set variables on bulletScript
                 bulletScript.target = target;

@@ -6146,6 +6146,8 @@ MonoBehaviour:
   level: 0
   currentHealth: 0
   turretDB: {fileID: 11400000, guid: 791e053fa0ae9584da71b55f42089791, type: 2}
+  repairCost: 0
+  activeCores: 
 --- !u!114 &5399873287234510089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6182,6 +6184,7 @@ MonoBehaviour:
   gunTipTransform: {fileID: 2091814682712590217}
   shoot: 0
   bulletDamage: 0
+  activeCores: 
 --- !u!135 &4640558001985838202
 SphereCollider:
   m_ObjectHideFlags: 0

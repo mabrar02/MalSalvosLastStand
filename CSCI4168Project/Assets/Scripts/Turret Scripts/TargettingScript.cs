@@ -48,6 +48,7 @@ public class TargettingScript : MonoBehaviour
         if (targets.Count > 0)
         {
             if (targets[0] == null) targets.Remove(targets[0]);
+            else if (targets[0].GetComponent<Enemy>().dying) targets.Remove(targets[0]);
             else {
                 // if the timer has gone over the interval
                 if (shotTimer >= shootingInterval) {

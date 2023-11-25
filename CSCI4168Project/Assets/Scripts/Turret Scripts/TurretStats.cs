@@ -21,7 +21,7 @@ public class TurretStats : MonoBehaviour
 
     private TargettingScript targetScript;
     private GunScript gunScript;
-    
+    public bool[] activeCores;
 
     void Start()
     {
@@ -29,6 +29,7 @@ public class TurretStats : MonoBehaviour
 
         targetScript = gameObject.GetComponent<TargettingScript>();
         gunScript = gameObject.GetComponent<GunScript>();
+        activeCores = new bool[3];
     }
 
     public void Upgrade() {
@@ -77,6 +78,21 @@ public class TurretStats : MonoBehaviour
         else {
             Debug.Log("NOT ENOUGH GEARS");
         }
+    }
+
+    public bool SetCore(int coreIndex) {
+        if (activeCores[coreIndex] == true) {
+            Debug.Log("CORE ALREADY SET!");
+            return false;
+        }
+        else {
+            activeCores[coreIndex] = true;
+          
+        }
+        if (gunScript != null) {
+            gunScript.SetTurretStats();
+        }
+        return true;
     }
 
     private void UpdateStats() {

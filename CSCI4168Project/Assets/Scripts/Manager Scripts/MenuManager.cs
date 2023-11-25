@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
     [SerializeField] private TextMeshProUGUI gearText;
     [SerializeField] private TextMeshProUGUI homebaseHealthText;
     [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu;
     [SerializeField] private GameObject switchCam;
+
+    private ShopItem currentItemData;
+    [SerializeField] private GameObject shopConfirmPopup;
+    [SerializeField] private TextMeshProUGUI shopItemName;
+    [SerializeField] private TextMeshProUGUI shopItemDescription;
+
+    [SerializeField] private GameObject placementSys;
+
 
     private void Start() {
         gearText.text = GameManager.Instance.GetGears().ToString();
@@ -20,6 +29,7 @@ public class MenuManager : MonoBehaviour
     }
 
     private void Awake() {
+        Instance = this;
         GameManager.OnGameStateChanged += GameManagerStateChange;
         GameManager.OnGearValsChanged += GameManagerGearChange;
         GameManager.OnBaseHealthChanged += GameManagerHealthChange;
@@ -50,5 +60,21 @@ public class MenuManager : MonoBehaviour
     }
     public void StartBattle() {
         GameManager.Instance.UpdateGameState(GameState.SpawnPhase);
+    }
+
+    public void OnShopItemClick(ShopItem shopItem) {
+        placementSys.GetComponent<PlacementSystem>().StopPlacement();
+        currentItemData = shopItem;
+        shopConfirmPopup.SetActive(true);
+        UpdatePopup();
+    }
+
+    public void UpdatePopup() {
+        shopItemName.text = currentItemData.itemName;
+        shopItemDescription.text = currentItemData.itemDescription;
+    }
+
+    public void ClosePopup() {
+        shopConfirmPopup.SetActive(false);
     }
 }
