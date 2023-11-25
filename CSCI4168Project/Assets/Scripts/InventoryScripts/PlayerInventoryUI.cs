@@ -3,30 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventoryUI : MonoBehaviour
 {
-    struct InventorySlot
-    {
-        public InventorySlot(GameObject slotObject, Sprite sprite)
-        {
-            this.slotObject = slotObject;
-            this.sprite = sprite;
-        }
-        public GameObject slotObject;
-        public Sprite sprite;
-    }
 
     private PlayerInventoryControl inventoryControl;
     private Inventory playerInventory;
-    private InventorySlot[] slots;
+    private GameObject[] slots;
     private int currItemSlot;
+    private Color white = new Color(1f, 1f, 1f, (float)(175.0/255.0));
+    private Color green = new Color(0, 1f, 0, (float)(175.0/255.0));
     
     private void Start()
     {
         inventoryControl = PlayerInventoryControl.instance;
         playerInventory = inventoryControl.PlayerInventory;
-        slots = new InventorySlot[playerInventory.Size()];
+        currItemSlot = inventoryControl.GetHeldItemIndex();
+
+        for (int i = 0; i < playerInventory.Size(); i++)
+        {
+            HoldableItem item = playerInventory.GetItem(i);
+            if (item != null && item.image != null)
+            {
+                RawImage itemImage = GetSlotItemImage(i);
+                itemImage.texture = item.image;
+                itemImage.color = Color.white;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (currItemSlot != inventoryControl.GetHeldItemIndex())
+        {
+            if (currItemSlot >= 0 && currItemSlot < playerInventory.Size())
+            {
+                GetSlotImage(currItemSlot).color = white;
+
+            }
+            
+            currItemSlot = inventoryControl.GetHeldItemIndex();
+            GetSlotImage(currItemSlot).color = green;
+            
+        }
         
     }
 
@@ -35,17 +55,11 @@ public class PlayerInventoryUI : MonoBehaviour
         
     }
 
-    void OnItemChange()
-    {
-        currItemSlot = inventoryControl.GetHeldItemIndex();
-    }
-
     private void Awake()
     {
         if (playerInventory != null)
         {
             playerInventory.InventoryUpdate += OnInventoryUpdate;
-            inventoryControl.ItemChange += OnItemChange;
         }
     }
     
@@ -54,7 +68,17 @@ public class PlayerInventoryUI : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.InventoryUpdate -= OnInventoryUpdate;
-            inventoryControl.ItemChange -= OnItemChange;
         }
     }
+
+    private Image GetSlotImage(int index)
+    {
+        return transform.GetChild(index).GameObject().GetComponent<Image>();
+    }
+
+    private RawImage GetSlotItemImage(int index)
+    {
+        return transform.GetChild(index).GetChild(0).GetComponent<RawImage>();
+    }
+    
 }

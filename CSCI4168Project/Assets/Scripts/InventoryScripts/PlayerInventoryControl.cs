@@ -9,7 +9,6 @@ public class PlayerInventoryControl : MonoBehaviour
 {
     public static PlayerInventoryControl instance;
     [SerializeField] public Inventory PlayerInventory;
-    public event Action ItemChange;
     private int currItem = -1;
     private Transform pivotArm;
 
@@ -48,7 +47,6 @@ public class PlayerInventoryControl : MonoBehaviour
         if (PlayerInventory.GetItem(newItemIndex) != null)
         {
             Instantiate(PlayerInventory.GetItem(newItemIndex).model, pivotArm);
-            ItemChange?.Invoke();
         }
         currItem = newItemIndex;
     }
@@ -104,21 +102,6 @@ public class PlayerInventoryControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             return 6;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            return 7;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            return 8;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            return 9;
         }
 
         return currItem;

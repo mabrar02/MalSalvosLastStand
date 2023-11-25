@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Blaster
   description: MalSalvo's epic blaster.
-  sprite: {fileID: 0}
+  image: {fileID: 2800000, guid: c3401012962b7954392c55f5dd76b8be, type: 3}
   model: {fileID: 307566517699503695, guid: 5e3ef8f4998e74c4da0351dfdae59ccc, type: 3}
