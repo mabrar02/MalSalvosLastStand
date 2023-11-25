@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0054672165, g: 0.020076044, b: 0.004604739, a: 1}
+  m_IndirectSpecularColor: {r: 0.0054865433, g: 0.020067977, b: 0.004624783, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4363,7 +4363,7 @@ MonoBehaviour:
   waves:
   - name: Wave 1
     enemy: {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    count: 20
+    count: 1
     spawnRate: 2
   - name: Wave 2
     enemy: {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
@@ -6889,6 +6889,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4191312479828286, guid: b8ca6433e7a78e346904aef72892f856, type: 3}
   m_PrefabInstance: {fileID: 1171591319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1183839302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5920754036078811197, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_Name
+      value: FireDude
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.080942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.548959
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7059581
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70825356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.186
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981721042911938297, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
 --- !u!1 &1188936337
 GameObject:
   m_ObjectHideFlags: 0
@@ -12005,3 +12062,4 @@ SceneRoots:
   - {fileID: 283223495}
   - {fileID: 7510730623978516297}
   - {fileID: 1831587590}
+  - {fileID: 1183839302}
