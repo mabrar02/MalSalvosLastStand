@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public int gears;
     public int baseHeath;
 
+    public int playerHealth;
+
     private void Awake() {
         Instance = this;
     }
@@ -115,6 +117,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayerTakeDamage(int damage) {
+        playerHealth -= damage;
+        if(playerHealth <= 0) {
+            playerHealth = 0;
+        }
+    }
 }
 
 public enum GameState {

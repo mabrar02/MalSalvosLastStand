@@ -42,6 +42,9 @@ public class EnemyBulletScript : MonoBehaviour
                 if (target.CompareTag("TowerGun")) {
                     target.GetComponentInChildren<TurretStats>().TakeDamage(damage);
                 }
+                else if (target.CompareTag("Player")) {
+
+                }
 
                 Destroy(gameObject);
             }

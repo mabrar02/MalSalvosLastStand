@@ -520,7 +520,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1241,8 +1241,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6833610468758746227}
   - component: {fileID: 8903186514628934855}
-  - component: {fileID: 3873255316313475351}
   - component: {fileID: 6702344163497257634}
+  - component: {fileID: 5138655677738266251}
   m_Layer: 10
   m_Name: blasterA
   m_TagString: Gun
@@ -1288,21 +1288,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: -0.000015258789}
---- !u!114 &3873255316313475351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092701242579118842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e6c7b42302ad544bd7ec20cbfc8ce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootingInterval: 1
-  tagToTarget: TowerGun
-  targets: []
 --- !u!114 &6702344163497257634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1307,21 @@ MonoBehaviour:
   gunTipTransform: {fileID: 5689344696150953566}
   shoot: 0
   bulletDamage: 200
+--- !u!114 &5138655677738266251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092701242579118842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ac62769b58cc840bbeda40cb2e43ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingInterval: 0
+  tagToTarget: Player
+  target: {fileID: 0}
 --- !u!1 &7139608933270031791
 GameObject:
   m_ObjectHideFlags: 0
