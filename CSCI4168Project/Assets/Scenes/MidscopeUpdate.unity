@@ -2824,7 +2824,7 @@ Transform:
   m_GameObject: {fileID: 408772463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.57, y: 11.52, z: 120.49}
+  m_LocalPosition: {x: 47.57, y: 1, z: 120.49}
   m_LocalScale: {x: 0.59341, y: 0.59341, z: 0.17496693}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4706,13 +4706,13 @@ MonoBehaviour:
   waves:
   - name: Wave 1
     enemies:
+    - {fileID: 2691451471508781891, guid: fdf6af30375a4354d8b62bd6bb26efc6, type: 3}
+    - {fileID: 1848396747764073069, guid: 87dcc6dce0ea0e240974dadad51b3c9f, type: 3}
     - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    spawnRate: 0.25
+    spawnRate: 1
   spawnPoints:
   - {fileID: 408772464}
-  waveStartTime: 10
+  waveStartTime: 2
   waveCountDown: 0
   homebase: {fileID: 697835563}
 --- !u!1 &808362531
