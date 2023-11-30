@@ -9,8 +9,7 @@ public class WaveManager : MonoBehaviour
     [System.Serializable]
     public class Wave {
         public string name;
-        public GameObject enemy;
-        public int count;
+        public GameObject[] enemies;
         public float spawnRate;
     }
 
@@ -81,8 +80,8 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Spawning wave " + _wave.name);
         GameManager.Instance.UpdateGameState(GameState.BattlePhase);
         
-        for(int i = 0; i< _wave.count; i++) {
-            SpawnEnemy(_wave.enemy);
+        for(int i = 0; i< _wave.enemies.Length; i++) {
+            SpawnEnemy(_wave.enemies[i]);
             yield return new WaitForSeconds(1f / _wave.spawnRate);
         }
 
