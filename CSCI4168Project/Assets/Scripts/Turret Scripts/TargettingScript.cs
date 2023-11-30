@@ -56,6 +56,11 @@ public class TargettingScript : MonoBehaviour
                     // shoot the gun
                     shootGun(targets[0]);
 
+                    if (turretStats.activeCores[3] == true) {
+                        Invoke(nameof(DoubleShot), 0.1f);
+                    }    
+
+
                     // move to next target in list or go back to 0
                     //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
@@ -78,6 +83,11 @@ public class TargettingScript : MonoBehaviour
         turretAnim.SetTrigger("Fire");
         gunScript.target = target;
         gunScript.shoot = true;
+    }
+
+    private void DoubleShot() {
+        shootSE.Play();
+        gunScript.DoubleShot();
     }
 
 

@@ -29,7 +29,7 @@ public class TurretStats : MonoBehaviour
 
         targetScript = gameObject.GetComponent<TargettingScript>();
         gunScript = gameObject.GetComponent<GunScript>();
-        activeCores = new bool[3];
+        activeCores = new bool[4];
     }
 
     public void Upgrade() {

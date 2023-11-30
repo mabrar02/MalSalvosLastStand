@@ -68,7 +68,25 @@ public class GunScript : MonoBehaviour
                 bulletScript.speed = projectileSpeed;
                 bulletScript.damage = bulletDamage;
                 bulletScript.SetCores(activeCores.ToArray());
+
             }
         }
+    }
+
+
+    public void DoubleShot() {
+        // Create a bullet
+        GameObject bulletObj = Instantiate(bullet, gunTipTransform.position, gunTipTransform.rotation);
+        // set the bullet starting point
+        //bullet.transform.position = gunTipTransform.position;
+
+        // pass the target to the bullet script. 
+        BulletScript bulletScript = bulletObj.GetComponent<BulletScript>();
+
+        // Set variables on bulletScript
+        bulletScript.target = target;
+        bulletScript.speed = projectileSpeed;
+        bulletScript.damage = bulletDamage/4;
+        bulletScript.SetCores(activeCores.ToArray());
     }
 }
