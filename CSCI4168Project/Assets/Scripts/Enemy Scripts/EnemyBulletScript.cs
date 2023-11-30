@@ -39,8 +39,8 @@ public class EnemyBulletScript : MonoBehaviour
 
             if (distanceToTarget < 0.5f)
             {
-                if (target.CompareTag("Enemy")) {
-                    target.GetComponent<Enemy>().TakeDamage(damage);
+                if (target.CompareTag("TowerGun")) {
+                    target.GetComponentInChildren<TurretStats>().TakeDamage(damage);
                 }
 
                 Destroy(gameObject);

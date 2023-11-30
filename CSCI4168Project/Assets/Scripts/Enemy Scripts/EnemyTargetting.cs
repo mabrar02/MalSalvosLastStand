@@ -29,9 +29,11 @@ public class EnemyTargetting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // if there are any enemies to target
         if (targets.Count > 0)
         {
+            if (targets[0].GetComponentInChildren<TurretStats>().disabled) targets.Remove(targets[0]);
             // if the timer has gone over the interval
             if (shotTimer >= shootingInterval)
             {

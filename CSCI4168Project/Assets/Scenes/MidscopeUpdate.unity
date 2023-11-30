@@ -4707,9 +4707,9 @@ MonoBehaviour:
   - name: Wave 1
     enemies:
     - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
-    - {fileID: 5920754036078811197, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
-    - {fileID: 7888334612089891174, guid: be067d501dcea78428103f473a970656, type: 3}
-    spawnRate: 1
+    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
+    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
+    spawnRate: 0.25
   spawnPoints:
   - {fileID: 408772464}
   waveStartTime: 10
@@ -12056,7 +12056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471476563445172470, guid: 72f37fd43c031e748b116fc10e27c9e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.69
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 2471476563445172470, guid: 72f37fd43c031e748b116fc10e27c9e2, type: 3}
       propertyPath: m_LocalPosition.z

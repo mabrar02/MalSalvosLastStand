@@ -57,6 +57,7 @@ public class WrenchScript : MonoBehaviour
                 repairUITransform.gameObject.GetComponent<RepairUI>().UpdateText();
             }
         }
+
     }
 
     private void HighlightObject(GameObject obj) {
