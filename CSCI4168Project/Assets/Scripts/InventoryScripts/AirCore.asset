@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: AirCore
   description: Airy Upgrade Core
-  sprite: {fileID: 0}
+  image: {fileID: 2800000, guid: dbdb07fff60c32b49af7af0e17af65ef, type: 3}
   model: {fileID: 2185057630744240929, guid: db02d4eb9353b524dbbcf67d349bb4f1, type: 3}
