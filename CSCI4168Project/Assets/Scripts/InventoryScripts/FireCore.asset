@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Flaming Upgrade
   image: {fileID: 2800000, guid: e8df9fc94505e0646913a76ebb1ba0e3, type: 3}
   model: {fileID: 1245425803904641354, guid: 1a264a49591130143838902b9bbe4b9e, type: 3}
+  drawSound: {fileID: 8300000, guid: 6a55b1210d28e48f9be508821dfab1d3, type: 3}

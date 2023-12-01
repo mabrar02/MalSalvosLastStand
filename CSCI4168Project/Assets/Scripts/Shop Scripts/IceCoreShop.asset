@@ -16,3 +16,4 @@ MonoBehaviour:
   itemDescription: This upgrade slows down your enemies movement! Extremely effective
     against rushers, not so much against icy foes...
   cost: 200
+  HoldableItem: {fileID: 11400000, guid: 952c2de607ef1b94284d02ddc37ba5c3, type: 2}

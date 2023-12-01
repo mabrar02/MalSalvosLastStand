@@ -16,3 +16,4 @@ MonoBehaviour:
   itemDescription: This upgrade leaves a shockwave of damage, hurting enemies around
     the target! Great against hoards, not so much against single target giants...
   cost: 200
+  HoldableItem: {fileID: 11400000, guid: 2a273e1ec997f3d41bf1ec85813379c3, type: 2}

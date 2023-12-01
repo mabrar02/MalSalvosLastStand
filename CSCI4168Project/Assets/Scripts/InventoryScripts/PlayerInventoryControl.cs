@@ -11,6 +11,7 @@ public class PlayerInventoryControl : MonoBehaviour
     private Inventory playerInventory;
     private int currItem = -1;
     private Transform pivotArm;
+    private AudioSource drawSoundSource;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class PlayerInventoryControl : MonoBehaviour
     {
         pivotArm = GameObject.Find("PivotArm").transform;
         playerInventory = InventoryManager.Instance.GetInventory();
-        
+        drawSoundSource = this.GameObject().GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -58,9 +59,17 @@ public class PlayerInventoryControl : MonoBehaviour
     {
         RemoveHeldItemFromPlayer();
 
-        if (playerInventory.GetItem(newItemIndex) != null)
+        HoldableItem item = playerInventory.GetItem(newItemIndex);
+        if (item != null)
         {
-            Instantiate(playerInventory.GetItem(newItemIndex).model, pivotArm);
+            Instantiate(item.model, pivotArm);
+            if (item.drawSound != null)
+            {
+                drawSoundSource.Stop();
+                drawSoundSource.clip = item.drawSound;
+                drawSoundSource.Play();
+            }
+            
         }
         currItem = newItemIndex;
     }
