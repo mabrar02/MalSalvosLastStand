@@ -67,6 +67,7 @@ public class PlayerInventoryControl : MonoBehaviour
             {
                 drawSoundSource.Stop();
                 drawSoundSource.clip = item.drawSound;
+                drawSoundSource.volume = 0.2f;
                 drawSoundSource.Play();
             }
             

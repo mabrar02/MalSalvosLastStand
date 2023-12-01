@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
     private void HandleVictoryPhase() {
+        AudioManager.Instance.Play("VictorySound");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleLosePhase() {
+        AudioManager.Instance.Play("DefeatSound");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
@@ -152,7 +154,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
+        if (baseHealth <= 0) return;
         baseHealth -= damage;
+        AudioManager.Instance.Play("BaseDamage");
 
         if(baseHealth <= 0) {
             baseHealth = 0;
@@ -164,6 +168,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTakeDamage(int damage) {
         if (playerHealth <= 0) return;
+        AudioManager.Instance.Play("PlayerDamage");
         playerHealth -= damage;
 
         if (playerHealth <= 0) {

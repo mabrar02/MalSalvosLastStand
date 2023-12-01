@@ -16,4 +16,4 @@ MonoBehaviour:
   description: MalSalvo's weapon of choice. Perfect for blasting attacking enemies.
   image: {fileID: 0}
   model: {fileID: 5267957736107079203, guid: 73fd2d8d163f88746b5b0040d8ecf9f5, type: 3}
-  drawSound: {fileID: 8300000, guid: 79629289ae9896c4aa8c965e9701d811, type: 3}
+  drawSound: {fileID: 8300000, guid: 52bfeed3fb975e5498b371d80ec03378, type: 3}
