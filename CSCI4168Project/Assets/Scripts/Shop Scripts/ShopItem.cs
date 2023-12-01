@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class ShopItem : ScriptableObject
+public class ShopItem : Shoppable
 {
-    public string itemName;
-    public string itemDescription;
-    public int cost;
     public HoldableItem HoldableItem;
+
+    public override bool OnPurchase()
+    {
+        if (HoldableItem != null && InventoryManager.Instance.AddItem(HoldableItem))
+        {
+            return GameManager.Instance.UseGears(cost);
+        }
+
+        return false;
+
+    }
 }

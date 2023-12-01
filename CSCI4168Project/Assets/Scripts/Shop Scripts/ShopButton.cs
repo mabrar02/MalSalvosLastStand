@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
 {
-    public ShopItem shopItem;
+    public Shoppable shopItem;
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnButtonClick);

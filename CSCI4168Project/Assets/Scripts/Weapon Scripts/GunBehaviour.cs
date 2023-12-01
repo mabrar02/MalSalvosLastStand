@@ -11,8 +11,8 @@ public class GunBehaviour : MonoBehaviour
     private Camera fpsCam;
     public AudioSource gunSound;
     public ParticleSystem muzzleFlash;
-
     private float _nextFire;
+    
 
     private void Start(){
         fpsCam = Camera.main;
@@ -39,7 +39,7 @@ public class GunBehaviour : MonoBehaviour
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     Enemy enemy = hit.transform.GetComponent<Enemy>();
-                    enemy.TakeDamage(gunDamage);
+                    enemy.TakeDamage(gunDamage + InventoryManager.Instance.blasterDamageUpgrade);
                 }
 
                 // Uncomment this part if you want to add force to the hit object
