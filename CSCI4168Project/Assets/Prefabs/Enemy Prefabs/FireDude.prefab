@@ -264,7 +264,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.8836636, b: 0, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.59
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -779,7 +779,7 @@ Transform:
   m_GameObject: {fileID: 5372529944243974333}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26643386, y: -0.00000011920929, z: 0.0008648187, w: 0.9638528}
-  m_LocalPosition: {x: 0.0041971207, y: -1.6399999, z: 1.2929332}
+  m_LocalPosition: {x: 0.0041971207, y: -0.859, z: 1.2929332}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -952,7 +952,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 10
+  m_Height: 6.7
   m_BaseOffset: 5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
