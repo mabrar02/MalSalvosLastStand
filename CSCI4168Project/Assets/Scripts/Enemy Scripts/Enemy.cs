@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private SkinnedMeshRenderer[] skinRenderers;
     [SerializeField] private float colorIntensity;
     [SerializeField] private int gearAddition;
+    [SerializeField] private AudioSource deathSE;
 
     private Animator animator;
     void Start()
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (dying) return;
         _health -= damage;
         if (_health <= 0)
         {
@@ -53,6 +55,8 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.AddGears(gearAddition);
             Destroy(gameObject, deathTime);
             animator.SetTrigger("Die");
+            deathSE.Play();
+            
         }
     }
 
