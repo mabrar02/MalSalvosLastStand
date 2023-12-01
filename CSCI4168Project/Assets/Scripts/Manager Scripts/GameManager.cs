@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject buildSys;
     public GameObject placementSys;
+    public GameObject respawnCountdown;
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<int> OnGearValsChanged;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public int playerHealth;
     public float timer = 0;
-    public float spawnTime = 5;
+    public float maxTime = 5;
 
     private void Awake() {
         Instance = this;
@@ -37,9 +38,10 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         timer += Time.deltaTime;
-        if (timer > spawnTime)
+        if (timer > maxTime)
         {
             player.SetActive(true);
+            respawnCountdown.SetActive(false);
             timer = 0;
         }
     }
@@ -144,6 +146,7 @@ public class GameManager : MonoBehaviour
 
         if (playerHealth <= 0) {
             respawnPlayer();
+            respawnCountdown.SetActive(true);
         }
     }
     public void respawnPlayer() {

@@ -1306,7 +1306,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
   gunTipTransform: {fileID: 5689344696150953566}
   shoot: 0
-  bulletDamage: 200
+  bulletDamage: 20
 --- !u!114 &5138655677738266251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ac62769b58cc840bbeda40cb2e43ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 0
+  shootingInterval: 1
   tagToTarget: Player
   target: {fileID: 0}
 --- !u!1 &7139608933270031791
