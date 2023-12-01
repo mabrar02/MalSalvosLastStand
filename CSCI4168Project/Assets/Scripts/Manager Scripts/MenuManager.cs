@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI homebaseHealthText;
     [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu, victoryMenu;
     //add^ for playerHealthText
-    [SerializeField] private Slider playerHealthText;
+    [SerializeField] private Slider playerHealthSlider;
     [SerializeField] private TextMeshProUGUI playerHealth;
     [SerializeField] private GameObject switchCam;
 
@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
         homebaseHealthText.text = GameManager.Instance.GetBaseHealth().ToString();
         playerHealth.text = GameManager.Instance.GetPlayerHealth().ToString();
         //add^ for playerHealthText
-        playerHealthText.value = GameManager.Instance.GetPlayerHealth();
+        playerHealthSlider.value = GameManager.Instance.GetPlayerHealth();
     }
 
     void Update()
@@ -60,7 +60,10 @@ public class MenuManager : MonoBehaviour
 
     //add^ for playerHealthText
     private void GameManagerPlayerHealthChange(int val){
-        playerHealthText.value = val;
+        if(val > playerHealthSlider.maxValue) {
+            playerHealthSlider.maxValue = val;
+        }
+        playerHealthSlider.value = val;
         playerHealth.text = val.ToString();
     }
 

@@ -6,7 +6,10 @@ public abstract class Shoppable : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
-    public int cost;
+    public abstract int cost {
+        get;
+        set;
+    }
 
     public abstract bool OnPurchase();
     

@@ -6,15 +6,20 @@ using UnityEngine;
 public class ShopItem : Shoppable
 {
     public HoldableItem HoldableItem;
+    public int shopCost;
 
-    public override bool OnPurchase()
-    {
-        if (HoldableItem != null && InventoryManager.Instance.AddItem(HoldableItem))
-        {
-            return GameManager.Instance.UseGears(cost);
+    public override bool OnPurchase() {
+        if (HoldableItem != null && InventoryManager.Instance.AddItem(HoldableItem)) {
+            return true;
         }
 
         return false;
 
     }
+
+    public override int cost {
+        get => shopCost;
+        set => shopCost = value;
+    }
+
 }

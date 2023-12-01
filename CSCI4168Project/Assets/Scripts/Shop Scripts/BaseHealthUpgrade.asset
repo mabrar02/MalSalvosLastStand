@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6459bb556635f4e956954c70a25077, type: 3}
+  m_Name: BaseHealthUpgrade
+  m_EditorClassIdentifier: 
+  itemName: Base Health Increase
+  itemDescription: This upgrade increases your laboratory's max health! The best
+    offense is defense...
+  shopCost: 50
+  increaseAmount: 25
+  playerIncrease: 0
+  baseIncrease: 1

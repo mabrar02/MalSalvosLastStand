@@ -76,7 +76,7 @@ public class PlayerInventoryControl : MonoBehaviour
     
     private int GetItem()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             if (currItem + 1 < playerInventory.Size())
             {
@@ -84,7 +84,7 @@ public class PlayerInventoryControl : MonoBehaviour
             }
             
         } 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (currItem - 1 >= 0)
             {

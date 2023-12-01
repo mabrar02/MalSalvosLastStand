@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject switchCam;
 
     public int gears;
-    private int baseHeath;
+    private int baseHealth;
     private int playerHealth;
 
     public int maxPlayerHealth;
@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         UpdateGameState(GameState.BuildPhase);
-        baseHeath = maxBaseHealth;
+        baseHealth = maxBaseHealth;
         playerHealth = maxPlayerHealth;
         OnPlayerHealthChanged?.Invoke(playerHealth);
-        OnBaseHealthChanged?.Invoke(baseHeath);
+        OnBaseHealthChanged?.Invoke(baseHealth);
     }
 
     public void UpdateGameState(GameState newState)
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetBaseHealth() {
-        return baseHeath;
+        return baseHealth;
     }
 
     public int GetPlayerHealth()
@@ -138,14 +138,27 @@ public class GameManager : MonoBehaviour
         return playerHealth;
     }
 
-    public void TakeDamage(int damage) {
-        baseHeath -= damage;
+    public void IncreasePlayerHealth(int amount) {
+        maxPlayerHealth += amount;
+        playerHealth = maxPlayerHealth;
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+    }
 
-        if(baseHeath <= 0) {
-            baseHeath = 0;
+    public void IncreaseHomebaseHealth(int amount) {
+        maxBaseHealth += amount;
+        baseHealth = maxBaseHealth;
+
+        OnBaseHealthChanged?.Invoke(baseHealth);
+    }
+
+    public void TakeDamage(int damage) {
+        baseHealth -= damage;
+
+        if(baseHealth <= 0) {
+            baseHealth = 0;
             UpdateGameState(GameState.LosePhase); 
         }
-        OnBaseHealthChanged?.Invoke(baseHeath);
+        OnBaseHealthChanged?.Invoke(baseHealth);
     }
 
 
