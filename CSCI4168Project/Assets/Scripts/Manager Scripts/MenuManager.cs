@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI shopItemDescription;
 
     [SerializeField] private GameObject placementSys;
+    [SerializeField] private GameObject errorText;
 
 
     private void Start() {
@@ -106,4 +107,9 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.Play("ButtonPress");
         ClosePopup();
     }
+
+    public void SetError(string msg) {
+        errorText.GetComponent<ErrorText>().ShowErrorMessage(msg);
+    }
+
 }

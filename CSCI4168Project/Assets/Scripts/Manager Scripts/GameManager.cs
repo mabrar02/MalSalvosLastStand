@@ -102,7 +102,10 @@ public class GameManager : MonoBehaviour
             OnGearValsChanged?.Invoke(gears);
             return true;
         }
-        else return false;
+        else {
+            MenuManager.Instance.SetError("Not enough gears!");
+            return false;
+        }
     }
 
     public void AddGears(int bonus) {
