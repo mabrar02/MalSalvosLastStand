@@ -6442,6 +6442,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1927065707697929761, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.7234955
+      objectReference: {fileID: 0}
     - target: {fileID: 2334068603550963264, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6521,6 +6525,14 @@ PrefabInstance:
     - target: {fileID: 2334068603550963264, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977293473791565023, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977293473791565023, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8716292555927082585, guid: b13bc653e1a4c7345879c8d57eff52cd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6676,7 +6688,7 @@ MonoBehaviour:
   switchCam: {fileID: 4627032489566245456}
   gears: 1000
   baseHeath: 100
-  playerHealth: 10000
+  playerHealth: 100
 --- !u!1001 &1097549019
 PrefabInstance:
   m_ObjectHideFlags: 0

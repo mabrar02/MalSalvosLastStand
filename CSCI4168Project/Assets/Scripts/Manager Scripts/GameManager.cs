@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int baseHeath;
 
     public int playerHealth;
+    public float timer = 0;
+    public float spawnTime = 5;
 
     private void Awake() {
         Instance = this;
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         UpdateGameState(GameState.BuildPhase);
+    }
+
+    private void Update() {
+        timer += Time.deltaTime;
+        if (timer > spawnTime)
+        {
+            player.SetActive(true);
+            timer = 0;
+        }
     }
 
 
@@ -132,10 +143,18 @@ public class GameManager : MonoBehaviour
         OnPlayerHealthChanged?.Invoke(playerHealth);
 
         if (playerHealth <= 0) {
-            playerHealth = 0;
+            respawnPlayer();
         }
     }
+    public void respawnPlayer() {
+        player.transform.position = new Vector3(4.6f, 5.11f, 3.4f);
+        playerHealth = 100;
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+        player.SetActive(false);
+        timer = 0;
+    }
 }
+
 
 public enum GameState {
     BuildPhase,
