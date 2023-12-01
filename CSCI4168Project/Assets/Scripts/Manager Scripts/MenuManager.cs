@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;
     [SerializeField] private TextMeshProUGUI gearText;
     [SerializeField] private TextMeshProUGUI homebaseHealthText;
-    [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu;
+    [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu, victoryMenu;
     [SerializeField] private GameObject switchCam;
 
     private ShopItem currentItemData;
@@ -52,13 +52,27 @@ public class MenuManager : MonoBehaviour
     private void GameManagerStateChange(GameState state) {
         buildMenu.SetActive(state == GameState.BuildPhase);
         battleMenu.SetActive(state != GameState.BuildPhase && state != GameState.LosePhase);
-        gameOverMenu.SetActive(state == GameState.LosePhase);
+        if(state == GameState.LosePhase) {
+            Invoke(nameof(Defeat), 3f);
+        }
+        if(state == GameState.VictoryPhase) {
+            Invoke(nameof(Victory), 3f);
+        }
+    }
+
+    private void Victory() {
+        victoryMenu.SetActive(true);
+    }
+
+    private void Defeat() {
+        gameOverMenu.SetActive(true);
     }
 
     public void StartBuild() {
         GameManager.Instance.UpdateGameState(GameState.BuildPhase);
     }
     public void StartBattle() {
+        AudioManager.Instance.Play("ButtonPress");
         GameManager.Instance.UpdateGameState(GameState.SpawnPhase);
     }
 
@@ -80,8 +94,16 @@ public class MenuManager : MonoBehaviour
 
     public void AcceptPopup()
     {
+        if (GameManager.Instance.UseGears(currentItemData.cost)) {
+            AudioManager.Instance.Play("ShopBuy");
+            InventoryManager.Instance.AddItem(currentItemData.HoldableItem);
+            ClosePopup();
+        }
+
+    }
+
+    public void DeclinePopup() {
+        AudioManager.Instance.Play("ButtonPress");
         ClosePopup();
-        GameManager.Instance.UseGears(currentItemData.cost);
-        InventoryManager.Instance.AddItem(currentItemData.HoldableItem);
     }
 }

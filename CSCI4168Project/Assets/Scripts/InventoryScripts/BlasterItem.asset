@@ -16,3 +16,4 @@ MonoBehaviour:
   description: MalSalvo's epic blaster.
   image: {fileID: 2800000, guid: c3401012962b7954392c55f5dd76b8be, type: 3}
   model: {fileID: 307566517699503695, guid: 5e3ef8f4998e74c4da0351dfdae59ccc, type: 3}
+  drawSound: {fileID: 8300000, guid: 79629289ae9896c4aa8c965e9701d811, type: 3}

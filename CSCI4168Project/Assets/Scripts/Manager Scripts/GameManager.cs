@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int playerHealth;
 
     private void Awake() {
+        Time.timeScale = 1;
         Instance = this;
     }
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(HandleCooldownPhase());
                 break;
             case GameState.VictoryPhase:
+                Invoke(nameof(HandleVictoryPhase), 3f);
                 break;
             case GameState.LosePhase:
                 HandleLosePhase();
@@ -58,9 +60,18 @@ public class GameManager : MonoBehaviour
 
         OnGameStateChanged?.Invoke(newState);
     }
+    private void HandleVictoryPhase() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        AudioManager.Instance.Stop("BattleTheme");
+    }
 
     private void HandleLosePhase() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0;
+        AudioManager.Instance.Stop("BattleTheme");
     }
 
     private void HandleBuildPhase() {

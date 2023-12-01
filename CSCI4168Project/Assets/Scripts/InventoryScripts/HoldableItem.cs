@@ -12,5 +12,6 @@ public class HoldableItem : ScriptableObject
     public string description;
     public Texture2D image;
     public GameObject model;
+    public AudioClip drawSound;
 
 }

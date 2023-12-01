@@ -13,5 +13,7 @@ public class ShopButton : MonoBehaviour
 
     private void OnButtonClick() {
         MenuManager.Instance.OnShopItemClick(shopItem);
+
+        AudioManager.Instance.Play("ButtonPress");
     }
 }
