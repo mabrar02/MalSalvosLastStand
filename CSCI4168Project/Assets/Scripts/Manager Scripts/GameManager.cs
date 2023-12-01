@@ -22,9 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject switchCam;
 
     public int gears;
-    public int baseHeath;
+    private int baseHeath;
+    private int playerHealth;
 
-    public int playerHealth;
+    public int maxPlayerHealth;
+    public int maxBaseHealth;
     public float timer = 0;
     public float maxTime = 5;
 
@@ -35,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         UpdateGameState(GameState.BuildPhase);
+        baseHeath = maxBaseHealth;
+        playerHealth = maxPlayerHealth;
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+        OnBaseHealthChanged?.Invoke(baseHeath);
     }
 
     public void UpdateGameState(GameState newState)
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
                 Invoke(nameof(HandleVictoryPhase), 3f);
                 break;
             case GameState.LosePhase:
-                HandleLosePhase();
+                Invoke(nameof(HandleLosePhase), 3f);
                 break;
         }
 
@@ -68,6 +74,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
+        player.SetActive(false);
         AudioManager.Instance.Stop("BattleTheme");
     }
 
@@ -75,6 +82,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
+        player.SetActive(false);
         AudioManager.Instance.Stop("BattleTheme");
     }
 
@@ -93,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator HandleCooldownPhase() {
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
 
         UpdateGameState(GameState.BuildPhase);
     }
@@ -133,11 +141,11 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int damage) {
         baseHeath -= damage;
 
-        OnBaseHealthChanged?.Invoke(baseHeath);
-
         if(baseHeath <= 0) {
+            baseHeath = 0;
             UpdateGameState(GameState.LosePhase); 
         }
+        OnBaseHealthChanged?.Invoke(baseHeath);
     }
 
 
@@ -145,23 +153,26 @@ public class GameManager : MonoBehaviour
         if (playerHealth <= 0) return;
         playerHealth -= damage;
 
-        //add^ for playerHealth
-        OnPlayerHealthChanged?.Invoke(playerHealth);
-
         if (playerHealth <= 0) {
+            playerHealth = 0;
             player.SetActive(false);
             player.transform.Find("PlayerObj").gameObject.SetActive(false);
             Invoke(nameof(respawnPlayer), 5f);
             //respawnCountdown.SetActive(true);
         }
+
+        //add^ for playerHealth
+        OnPlayerHealthChanged?.Invoke(playerHealth);
     }
     public void respawnPlayer() {
         player.transform.position = new Vector3(4.6f, 5.11f, 3.4f);
-        playerHealth = 100;
+        playerHealth = maxPlayerHealth;
         OnPlayerHealthChanged?.Invoke(playerHealth);
         player.transform.Find("PlayerObj").gameObject.SetActive(true);
-        player.SetActive(true);
 
+        if(State == GameState.BattlePhase) {
+            player.SetActive(true);
+        }       
     }
 }
 

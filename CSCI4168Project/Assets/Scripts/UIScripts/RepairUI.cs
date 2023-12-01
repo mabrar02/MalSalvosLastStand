@@ -10,6 +10,9 @@ public class RepairUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI repairCost;
+    [SerializeField] private TextMeshProUGUI upgradeCost;
+
     void Start()
     {
         
@@ -34,9 +37,18 @@ public class RepairUI : MonoBehaviour
     }
 
     public void UpdateText() {
-        levelText.text = "LVL\n" + turretStats.level;
+        if(turretStats.level == 4) {
+            levelText.text = "LVL\nMAX";
+            upgradeCost.text = string.Empty;
+        }
+        else {
+            levelText.text = "LVL\n" + turretStats.level;
+            upgradeCost.text = turretStats.upgradeCost.ToString();
+        }
+
         healthText.text = "HP\n" + turretStats.currentHealth;
         damageText.text = "DMG\n" + turretStats.damage;
+        repairCost.text = turretStats.repairCost.ToString();
     }
 
 }

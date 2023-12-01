@@ -27,6 +27,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start() {
         waveCountDown = waveStartTime;
+        MenuManager.Instance.UpdateWaveText("Wave: " + (nextWave + 1) + "/" + waves.Length);
     }
 
     private void Update() {
@@ -59,6 +60,7 @@ public class WaveManager : MonoBehaviour
         else {
             nextWave++;
             GameManager.Instance.UpdateGameState(GameState.CooldownPhase);
+            MenuManager.Instance.UpdateWaveText("Wave: " + (nextWave + 1) + "/" + waves.Length);
         }
 
         waveCountDown = waveStartTime;
@@ -76,7 +78,6 @@ public class WaveManager : MonoBehaviour
     }
 
     IEnumerator SpawnWave(Wave _wave) {
-
         Debug.Log("Spawning wave " + _wave.name);
         GameManager.Instance.UpdateGameState(GameState.BattlePhase);
         

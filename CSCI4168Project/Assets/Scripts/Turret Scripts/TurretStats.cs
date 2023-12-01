@@ -13,13 +13,15 @@ public class TurretStats : MonoBehaviour
     public int damage;
     public int health;
     public int level;
+
     private Mesh turretMesh;
     public MeshRenderer baseMesh;
 
     public int currentHealth;
 
     [SerializeField] private TurretLevelDB turretDB;
-    [SerializeField] private int repairCost;
+    public int repairCost;
+    public int upgradeCost;
     private int upgradeIndex = 0;
 
     private TargettingScript targetScript;
@@ -43,7 +45,7 @@ public class TurretStats : MonoBehaviour
             return;
         }
 
-        if (GameManager.Instance.UseGears(turretDB.turretLevels[upgradeIndex + 1].gearCost)) {
+        if (GameManager.Instance.UseGears(upgradeCost)) {
             upgradeIndex++;
             upgradeSE.Play();
             UpdateStats();
@@ -107,6 +109,12 @@ public class TurretStats : MonoBehaviour
         health = turretDB.turretLevels[upgradeIndex].health;
         level = turretDB.turretLevels[upgradeIndex].level;
         turretMesh = turretDB.turretLevels[upgradeIndex].turretMesh;
+        if(level == 4) {
+            upgradeCost = -1;
+        }
+        else {
+            upgradeCost = turretDB.turretLevels[upgradeIndex + 1].gearCost;
+        }
 
         gameObject.GetComponent<MeshFilter>().mesh = turretMesh;
 

@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu, victoryMenu;
     //add^ for playerHealthText
     [SerializeField] private Slider playerHealthText;
+    [SerializeField] private TextMeshProUGUI playerHealth;
     [SerializeField] private GameObject switchCam;
 
     private Shoppable currentItemData;
@@ -21,11 +22,13 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private GameObject placementSys;
     [SerializeField] private GameObject errorText;
+    [SerializeField] private TextMeshProUGUI waveText;
 
 
     private void Start() {
         gearText.text = GameManager.Instance.GetGears().ToString();
         homebaseHealthText.text = GameManager.Instance.GetBaseHealth().ToString();
+        playerHealth.text = GameManager.Instance.GetPlayerHealth().ToString();
         //add^ for playerHealthText
         playerHealthText.value = GameManager.Instance.GetPlayerHealth();
     }
@@ -58,6 +61,7 @@ public class MenuManager : MonoBehaviour
     //add^ for playerHealthText
     private void GameManagerPlayerHealthChange(int val){
         playerHealthText.value = val;
+        playerHealth.text = val.ToString();
     }
 
     private void GameManagerGearChange(int val) {
@@ -116,8 +120,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-
-
     public void DeclinePopup() {
         AudioManager.Instance.Play("ButtonPress");
         ClosePopup();
@@ -125,6 +127,10 @@ public class MenuManager : MonoBehaviour
 
     public void SetError(string msg) {
         errorText.GetComponent<ErrorText>().ShowErrorMessage(msg);
+    }
+
+    public void UpdateWaveText(string waveInfo) {
+        waveText.text = waveInfo;
     }
 
 }
