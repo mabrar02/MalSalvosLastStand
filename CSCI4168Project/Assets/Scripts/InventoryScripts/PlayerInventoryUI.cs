@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class PlayerInventoryUI : MonoBehaviour
 {
-
     private TextMeshProUGUI itemText;
     private PlayerInventoryControl inventoryControl;
     private Inventory playerInventory;
@@ -20,20 +19,15 @@ public class PlayerInventoryUI : MonoBehaviour
     private void Start()
     {
         inventoryControl = PlayerInventoryControl.instance;
-        playerInventory = inventoryControl.PlayerInventory;
+        playerInventory = InventoryManager.Instance.GetInventory();
         currItemSlot = inventoryControl.GetHeldItemIndex();
         itemText = GameObject.Find("ItemHeldText").GetComponent<TextMeshProUGUI>();
-
-        for (int i = 0; i < playerInventory.Size(); i++)
+        OnInventoryUpdate();
+        if (playerInventory != null)
         {
-            HoldableItem item = playerInventory.GetItem(i);
-            if (item != null && item.image != null)
-            {
-                RawImage itemImage = GetSlotItemImage(i);
-                itemImage.texture = item.image;
-                itemImage.color = Color.white;
-            }
+            playerInventory.InventoryUpdate += OnInventoryUpdate;
         }
+        
     }
 
     private void Update()
@@ -48,21 +42,36 @@ public class PlayerInventoryUI : MonoBehaviour
             
             currItemSlot = inventoryControl.GetHeldItemIndex();
             GetSlotImage(currItemSlot).color = green;
-            itemText.text = playerInventory.GetItem(currItemSlot).itemName;
+            if (playerInventory.GetItem(currItemSlot) != null)
+            {
+                itemText.text = playerInventory.GetItem(currItemSlot).itemName;
+            }
+            else
+            {
+                itemText.text = "";
+            }
+            
         }
         
     }
 
     void OnInventoryUpdate()
     {
-        
-    }
-
-    private void Awake()
-    {
-        if (playerInventory != null)
+        Debug.Log("Inventory Updated");
+        for (int i = 0; i < playerInventory.Size(); i++)
         {
-            playerInventory.InventoryUpdate += OnInventoryUpdate;
+            HoldableItem item = playerInventory.GetItem(i);
+            RawImage itemImage = GetSlotItemImage(i);
+            if (item != null && item.image != null)
+            {
+                itemImage.texture = item.image;
+                itemImage.color = Color.white;
+            }
+            else
+            {
+                itemImage.texture = null;
+                itemImage.color = Color.clear;
+            }
         }
     }
     

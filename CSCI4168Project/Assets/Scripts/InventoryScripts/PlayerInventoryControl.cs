@@ -8,18 +8,21 @@ using UnityEngine.Serialization;
 public class PlayerInventoryControl : MonoBehaviour
 {
     public static PlayerInventoryControl instance;
-    [SerializeField] public Inventory PlayerInventory;
+    private Inventory playerInventory;
     private int currItem = -1;
     private Transform pivotArm;
 
     private void Awake()
     {
         instance = this;
+        
     }
 
     void Start()
     {
         pivotArm = GameObject.Find("PivotArm").transform;
+        playerInventory = InventoryManager.Instance.GetInventory();
+        
     }
     void Update()
     {
@@ -36,17 +39,28 @@ public class PlayerInventoryControl : MonoBehaviour
         return currItem;
     }
 
-    private void SwitchItem(int newItemIndex)
+    public void RemoveHeldItemFromInventory()
+    {
+        RemoveHeldItemFromPlayer();
+        playerInventory.RemoveItem(currItem);
+    }
+
+    public void RemoveHeldItemFromPlayer()
     {
         int numChildren = pivotArm.childCount;
         for (int i = 0; i < numChildren; i++)
         {
             Destroy(pivotArm.GetChild(i).GameObject());
         }
+    }
 
-        if (PlayerInventory.GetItem(newItemIndex) != null)
+    private void SwitchItem(int newItemIndex)
+    {
+        RemoveHeldItemFromPlayer();
+
+        if (playerInventory.GetItem(newItemIndex) != null)
         {
-            Instantiate(PlayerInventory.GetItem(newItemIndex).model, pivotArm);
+            Instantiate(playerInventory.GetItem(newItemIndex).model, pivotArm);
         }
         currItem = newItemIndex;
     }
@@ -55,7 +69,7 @@ public class PlayerInventoryControl : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (currItem + 1 < PlayerInventory.Size())
+            if (currItem + 1 < playerInventory.Size())
             {
                 return currItem + 1;
             }

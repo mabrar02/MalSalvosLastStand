@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Fire Core
   itemDescription: This upgrade burns your enemies, dealing damage over time! Prevents
     regeneration, fails against shields...
+  cost: 200

@@ -77,4 +77,10 @@ public class MenuManager : MonoBehaviour
     public void ClosePopup() {
         shopConfirmPopup.SetActive(false);
     }
+
+    public void AcceptPopup()
+    {
+        ClosePopup();
+        GameManager.Instance.UseGears(currentItemData.cost);
+    }
 }

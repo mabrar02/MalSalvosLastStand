@@ -9,7 +9,7 @@ public class Inventory : ScriptableObject
     public string InventoryName;
     public ItemInstance[] items = new ItemInstance[10];
     public event Action InventoryUpdate;
-
+    
     public bool AddItem(ItemInstance itemToAdd)
     {
         // Finds an empty slot if there is one
@@ -32,7 +32,7 @@ public class Inventory : ScriptableObject
     {
         if (index < items.Length)
         {
-            items[index] = null;
+            items[index].item = null;
             InventoryUpdate?.Invoke();
             return true;
         }
