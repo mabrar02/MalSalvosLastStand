@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Used for upgrading and repairing
   image: {fileID: 2800000, guid: 112f7ce2e10a7fc41926deef6be4f7c0, type: 3}
   model: {fileID: 55260631727587250, guid: 25fe60e29bd8c7c41afcc3027e086afe, type: 3}
+  drawSound: {fileID: 8300000, guid: 9c2c20343d09878438fcbfd9210af5c7, type: 3}
