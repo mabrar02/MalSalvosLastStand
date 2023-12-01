@@ -8,4 +8,5 @@ public class ShopItem : ScriptableObject
     public string itemName;
     public string itemDescription;
     public int cost;
+    public HoldableItem HoldableItem;
 }
