@@ -6,9 +6,9 @@ using UnityEngine;
 public class ItemInstance
 {
     public HoldableItem item;
-
     public ItemInstance(HoldableItem item)
     {
         this.item = item;
     }
+
 }

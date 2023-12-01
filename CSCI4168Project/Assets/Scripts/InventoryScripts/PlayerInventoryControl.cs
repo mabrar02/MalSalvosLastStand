@@ -7,54 +7,79 @@ using UnityEngine.Serialization;
 
 public class PlayerInventoryControl : MonoBehaviour
 {
-    public Inventory PlayerInventory;
-    private int _currItem = -1;
-    private Transform _pivotArm;
+    public static PlayerInventoryControl instance;
+    private Inventory playerInventory;
+    private int currItem = -1;
+    private Transform pivotArm;
+
+    private void Awake()
+    {
+        instance = this;
+        
+    }
 
     void Start()
     {
-        _pivotArm = GameObject.Find("PivotArm").transform;
+        pivotArm = GameObject.Find("PivotArm").transform;
+        playerInventory = InventoryManager.Instance.GetInventory();
+        
     }
     void Update()
     {
         int item = GetItem();
 
-        if (item != _currItem)
+        if (item != currItem)
         {
             SwitchItem(item);
         }
     }
 
-    private void SwitchItem(int newItemIndex)
+    public int GetHeldItemIndex()
     {
-        int numChildren = _pivotArm.childCount;
+        return currItem;
+    }
+
+    public void RemoveHeldItemFromInventory()
+    {
+        RemoveHeldItemFromPlayer();
+        playerInventory.RemoveItem(currItem);
+    }
+
+    public void RemoveHeldItemFromPlayer()
+    {
+        int numChildren = pivotArm.childCount;
         for (int i = 0; i < numChildren; i++)
         {
-            Destroy(_pivotArm.GetChild(i).GameObject());
+            Destroy(pivotArm.GetChild(i).GameObject());
         }
+    }
 
-        if (PlayerInventory.items[newItemIndex].item != null)
+    private void SwitchItem(int newItemIndex)
+    {
+        RemoveHeldItemFromPlayer();
+
+        if (playerInventory.GetItem(newItemIndex) != null)
         {
-            Instantiate(PlayerInventory.items[newItemIndex].item.model, _pivotArm);
+            Instantiate(playerInventory.GetItem(newItemIndex).model, pivotArm);
         }
-        _currItem = newItemIndex;
+        currItem = newItemIndex;
     }
     
     private int GetItem()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (_currItem + 1 < PlayerInventory.size())
+            if (currItem + 1 < playerInventory.Size())
             {
-                return _currItem + 1;
+                return currItem + 1;
             }
             
         } 
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (_currItem - 1 >= 0)
+            if (currItem - 1 >= 0)
             {
-                return _currItem - 1;
+                return currItem - 1;
             }
         } 
         
@@ -93,22 +118,7 @@ public class PlayerInventoryControl : MonoBehaviour
             return 6;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            return 7;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            return 8;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            return 9;
-        }
-
-        return _currItem;
+        return currItem;
     }
     
 }

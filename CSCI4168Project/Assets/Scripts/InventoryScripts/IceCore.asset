@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f58e466652de4eba3601265143386, type: 3}
   m_Name: IceCore
   m_EditorClassIdentifier: 
-  itemName: IceCore
+  itemName: Ice Core
   description: Icey upgrade core
-  sprite: {fileID: 0}
+  image: {fileID: 2800000, guid: 10ae6964536eca049a1cd367fc2a8d3b, type: 3}
   model: {fileID: 7770139240375274764, guid: 4dad254f57d645142a37f1a24527d371, type: 3}

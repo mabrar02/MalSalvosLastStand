@@ -9,7 +9,6 @@ public class ShopButton : MonoBehaviour
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
-        
     }
 
     private void OnButtonClick() {

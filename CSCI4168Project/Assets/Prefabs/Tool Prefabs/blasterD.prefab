@@ -5152,39 +5152,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28
+      value: 0.5490588
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.29337978
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.373
+      value: 0.5082773
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.057155214
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.0028691462
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9971056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0500539
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 5.748
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 173.439
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 551d7c19c04a6ab4bb98902bcbf0f8a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538bba7c7ce04a44c8e17e081520c260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 1
+  gunDamage: 10
   fireRate: 0.25
   weaponRange: 50
   hitForce: 100

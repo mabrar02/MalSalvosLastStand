@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretCore : MonoBehaviour
 {
+
     [SerializeField] private float coreRange;
     [SerializeField] private int coreIndex;
     [SerializeField] private GameObject coreAuraPrefab;
@@ -43,6 +45,7 @@ public class TurretCore : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && lastHighlightedObject != null) {
             if (lastHighlightedObject.GetComponentInChildren<TurretStats>().SetCore(coreIndex)) {
+                PlayerInventoryControl.instance.RemoveHeldItemFromInventory();
                 Instantiate(coreAuraPrefab, lastHighlightedObject.transform.position, Quaternion.identity, lastHighlightedObject.transform);
                 AudioSource.PlayClipAtPoint(applyCoreSE.clip, transform.position);
             };

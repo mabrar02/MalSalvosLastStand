@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f58e466652de4eba3601265143386, type: 3}
   m_Name: EarthCore
   m_EditorClassIdentifier: 
-  itemName: EarthCore
+  itemName: Earth Core
   description: Rocky upgrade core
-  sprite: {fileID: 0}
+  image: {fileID: 2800000, guid: f059bb9216f957d4b88179b2280eeab9, type: 3}
   model: {fileID: 6383944138974640700, guid: de26de213f404d345b41b86c09d1bd6f, type: 3}

@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Ice Core
   itemDescription: This upgrade slows down your enemies movement! Extremely effective
     against rushers, not so much against icy foes...
+  cost: 200

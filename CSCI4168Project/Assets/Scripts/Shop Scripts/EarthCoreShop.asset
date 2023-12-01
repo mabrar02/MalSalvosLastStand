@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Earth Core
   itemDescription: This upgrade leaves a shockwave of damage, hurting enemies around
     the target! Great against hoards, not so much against single target giants...
+  cost: 200
