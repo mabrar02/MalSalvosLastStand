@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
     public Inventory playerStartingInventory;
+    public int blasterDamageUpgrade = 0;
     private Inventory playerInventory;
     private List<TurretCore> cores;
     private void Awake()
@@ -15,14 +16,24 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
         playerInventory = Instantiate(playerStartingInventory);
     }
-    
-    public void AddItem(HoldableItem item)
+
+    private void OnDisable()
     {
-        playerInventory.AddItem(new ItemInstance(item));
+        blasterDamageUpgrade = 0;
+    }
+
+    public bool AddItem(HoldableItem item)
+    {
+        return playerInventory.AddItem(new ItemInstance(item));
     }
 
     public Inventory GetInventory()
     {
         return playerInventory;
+    }
+
+    public HoldableItem GetFirstItem()
+    {
+        return playerInventory.GetItem(0);
     }
 }

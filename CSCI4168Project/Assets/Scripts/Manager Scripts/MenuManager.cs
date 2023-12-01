@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider playerHealthText;
     [SerializeField] private GameObject switchCam;
 
-    private ShopItem currentItemData;
+    private Shoppable currentItemData;
     [SerializeField] private GameObject shopConfirmPopup;
     [SerializeField] private TextMeshProUGUI shopItemName;
     [SerializeField] private TextMeshProUGUI shopItemDescription;
@@ -91,7 +91,7 @@ public class MenuManager : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.SpawnPhase);
     }
 
-    public void OnShopItemClick(ShopItem shopItem) {
+    public void OnShopItemClick(Shoppable shopItem) {
         placementSys.GetComponent<PlacementSystem>().StopPlacement();
         currentItemData = shopItem;
         shopConfirmPopup.SetActive(true);
@@ -111,11 +111,12 @@ public class MenuManager : MonoBehaviour
     {
         if (GameManager.Instance.UseGears(currentItemData.cost)) {
             AudioManager.Instance.Play("ShopBuy");
-            InventoryManager.Instance.AddItem(currentItemData.HoldableItem);
+            currentItemData.OnPurchase();
             ClosePopup();
         }
-
     }
+
+
 
     public void DeclinePopup() {
         AudioManager.Instance.Play("ButtonPress");

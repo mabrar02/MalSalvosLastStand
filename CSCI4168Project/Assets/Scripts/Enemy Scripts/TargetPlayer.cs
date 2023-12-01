@@ -25,28 +25,30 @@ public class TargetPlayer : MonoBehaviour {
     void Update() {
 
         // if there are any enemies to target
-        if (target != null) {
-            // if the timer has gone over the interval
-            if (shotTimer >= shootingInterval) {
-                //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
-                // shoot the gun
-                shootGun(target);
+        if(target == null || !target.activeSelf) {
+            target = null;
+            lookAtBase();
+            return;
+        }
+  
+        // if the timer has gone over the interval
+        if (shotTimer >= shootingInterval) {
+            //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
+            // shoot the gun
+            shootGun(target);
 
-                // move to next target in list or go back to 0
-                //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
+            // move to next target in list or go back to 0
+            //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
-                // reset timer
-                shotTimer = 0.0f;
-            }
-            else {
-                // increment the timer
-                shotTimer += Time.deltaTime;
-            }
-
+            // reset timer
+            shotTimer = 0.0f;
         }
         else {
-            lookAtBase();
+            // increment the timer
+            shotTimer += Time.deltaTime;
         }
+
+
     }
 
     private void shootGun(GameObject target) {

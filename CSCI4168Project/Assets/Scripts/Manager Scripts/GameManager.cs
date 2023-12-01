@@ -37,16 +37,6 @@ public class GameManager : MonoBehaviour
         UpdateGameState(GameState.BuildPhase);
     }
 
-    private void Update() {
-        timer += Time.deltaTime;
-        if (timer > maxTime)
-        {
-            player.SetActive(true);
-            //respawnCountdown.SetActive(false);
-            timer = 0;
-        }
-    }
-
     public void UpdateGameState(GameState newState)
     {
         Debug.Log("CURRENT STATE: " +  newState);
@@ -152,13 +142,16 @@ public class GameManager : MonoBehaviour
 
 
     public void PlayerTakeDamage(int damage) {
+        if (playerHealth <= 0) return;
         playerHealth -= damage;
 
         //add^ for playerHealth
         OnPlayerHealthChanged?.Invoke(playerHealth);
 
         if (playerHealth <= 0) {
-            respawnPlayer();
+            player.SetActive(false);
+            player.transform.Find("PlayerObj").gameObject.SetActive(false);
+            Invoke(nameof(respawnPlayer), 5f);
             //respawnCountdown.SetActive(true);
         }
     }
@@ -166,8 +159,9 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(4.6f, 5.11f, 3.4f);
         playerHealth = 100;
         OnPlayerHealthChanged?.Invoke(playerHealth);
-        player.SetActive(false);
-        timer = 0;
+        player.transform.Find("PlayerObj").gameObject.SetActive(true);
+        player.SetActive(true);
+
     }
 }
 
