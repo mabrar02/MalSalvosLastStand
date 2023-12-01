@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public void LoadForestScene(){
-        SceneManager.LoadScene("MidscopeUpdate");
+        SceneManager.LoadScene("GreenPlanet");
     }
 
     public void LoadSceneSelecter(){
