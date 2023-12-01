@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<int> OnGearValsChanged;
     public static event Action<int> OnBaseHealthChanged;
+    //add^ for playerHealth
+    public static event Action<int> OnPlayerHealthChanged;
 
     public GameObject switchCam;
 
@@ -22,6 +25,8 @@ public class GameManager : MonoBehaviour
     public int baseHeath;
 
     public int playerHealth;
+    public float timer = 0;
+    public float maxTime = 5;
 
     private void Awake() {
         Time.timeScale = 1;
@@ -32,6 +37,15 @@ public class GameManager : MonoBehaviour
         UpdateGameState(GameState.BuildPhase);
     }
 
+    private void Update() {
+        timer += Time.deltaTime;
+        if (timer > maxTime)
+        {
+            player.SetActive(true);
+            //respawnCountdown.SetActive(false);
+            timer = 0;
+        }
+    }
 
     public void UpdateGameState(GameState newState)
     {
@@ -121,6 +135,11 @@ public class GameManager : MonoBehaviour
         return baseHeath;
     }
 
+    public int GetPlayerHealth()
+    {
+        return playerHealth;
+    }
+
     public void TakeDamage(int damage) {
         baseHeath -= damage;
 
@@ -131,12 +150,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void PlayerTakeDamage(int damage) {
         playerHealth -= damage;
-        if(playerHealth <= 0) {
-            playerHealth = 0;
+
+        //add^ for playerHealth
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+
+        if (playerHealth <= 0) {
+            respawnPlayer();
+            //respawnCountdown.SetActive(true);
         }
-        Debug.Log(playerHealth);
+    }
+    public void respawnPlayer() {
+        player.transform.position = new Vector3(4.6f, 5.11f, 3.4f);
+        playerHealth = 100;
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+        player.SetActive(false);
+        timer = 0;
     }
 }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gearText;
     [SerializeField] private TextMeshProUGUI homebaseHealthText;
     [SerializeField] private GameObject buildMenu, battleMenu, gameOverMenu, victoryMenu;
+    //add^ for playerHealthText
+    [SerializeField] private Slider playerHealthText;
     [SerializeField] private GameObject switchCam;
 
     private ShopItem currentItemData;
@@ -23,6 +26,8 @@ public class MenuManager : MonoBehaviour
     private void Start() {
         gearText.text = GameManager.Instance.GetGears().ToString();
         homebaseHealthText.text = GameManager.Instance.GetBaseHealth().ToString();
+        //add^ for playerHealthText
+        playerHealthText.value = GameManager.Instance.GetPlayerHealth();
     }
 
     void Update()
@@ -34,16 +39,25 @@ public class MenuManager : MonoBehaviour
         GameManager.OnGameStateChanged += GameManagerStateChange;
         GameManager.OnGearValsChanged += GameManagerGearChange;
         GameManager.OnBaseHealthChanged += GameManagerHealthChange;
+        //add^ for playerHealthText
+        GameManager.OnPlayerHealthChanged += GameManagerPlayerHealthChange;
     }
 
     private void OnDestroy() {
         GameManager.OnGameStateChanged -= GameManagerStateChange;
         GameManager.OnGearValsChanged -= GameManagerGearChange;
         GameManager.OnBaseHealthChanged -= GameManagerHealthChange;
+        //add^ for playerHealthText
+        GameManager.OnPlayerHealthChanged -= GameManagerPlayerHealthChange;
     }
 
     private void GameManagerHealthChange(int val) {
         homebaseHealthText.text = val.ToString();
+    }
+
+    //add^ for playerHealthText
+    private void GameManagerPlayerHealthChange(int val){
+        playerHealthText.value = val;
     }
 
     private void GameManagerGearChange(int val) {

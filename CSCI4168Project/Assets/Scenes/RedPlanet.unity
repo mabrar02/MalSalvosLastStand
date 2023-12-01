@@ -1831,6 +1831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gearText: {fileID: 2467105132649284639}
   homebaseHealthText: {fileID: 1386494171}
+  playerHealthText: {fileID: 2110247241}
   buildMenu: {fileID: 2008061876}
   battleMenu: {fileID: 1110638095}
   gameOverMenu: {fileID: 0}
@@ -3210,6 +3211,7 @@ RectTransform:
   - {fileID: 1552962666501844323}
   - {fileID: 1386494170}
   - {fileID: 746635279}
+  - {fileID: 2110247240}
   m_Father: {fileID: 1957965708765132816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
