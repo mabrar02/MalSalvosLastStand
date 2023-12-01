@@ -2546,12 +2546,13 @@ MonoBehaviour:
   waves:
   - name: Wave 1
     enemies:
+    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
+    - {fileID: 1848396747764073069, guid: 87dcc6dce0ea0e240974dadad51b3c9f, type: 3}
+    - {fileID: 2691451471508781891, guid: fdf6af30375a4354d8b62bd6bb26efc6, type: 3}
+    - {fileID: 5920754036078811197, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
+    - {fileID: 7888334612089891174, guid: be067d501dcea78428103f473a970656, type: 3}
     - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
-    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
-    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
-    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
-    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
-    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
+    - {fileID: 4418958602763893459, guid: ffefcbfed36b21d4da5069a91539eb3d, type: 3}
     spawnRate: 1
   spawnPoints:
   - {fileID: 408772464}
