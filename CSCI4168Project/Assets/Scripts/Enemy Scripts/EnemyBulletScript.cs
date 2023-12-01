@@ -43,7 +43,7 @@ public class EnemyBulletScript : MonoBehaviour
                     target.GetComponentInChildren<TurretStats>().TakeDamage(damage);
                 }
                 else if (target.CompareTag("Player")) {
-
+                    GameManager.Instance.PlayerTakeDamage(damage);
                 }
 
                 Destroy(gameObject);

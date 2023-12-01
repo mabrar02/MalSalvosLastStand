@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<int> OnGearValsChanged;
     public static event Action<int> OnBaseHealthChanged;
+    //add^ for playerHealth
+    public static event Action<int> OnPlayerHealthChanged;
 
     public GameObject switchCam;
 
@@ -107,6 +109,12 @@ public class GameManager : MonoBehaviour
         return baseHeath;
     }
 
+    //add^ for playerHealth
+    public int GetPlayerHealth()
+    {
+        return playerHealth;
+    }
+
     public void TakeDamage(int damage) {
         baseHeath -= damage;
 
@@ -119,7 +127,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTakeDamage(int damage) {
         playerHealth -= damage;
-        if(playerHealth <= 0) {
+
+        //add^ for playerHealth
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+
+        if (playerHealth <= 0) {
             playerHealth = 0;
         }
     }
