@@ -2,39 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChasePlayer : MonoBehaviour
-{
+public class TargetPlayer : MonoBehaviour {
     /* PUBLIC VARIABLES */
     public float shootingInterval; // how long between shots
-    public string tagToTarget;
 
 
     /* PRIVATE VARIABLES */
     public GameObject target; // all the targets
     private float shotTimer = 0.0f; // time since you last shot
-    private int currentTargetIndex = 0; // which target your need to shoot at next
     private EnemyGuns gunScript; // the gun script
-    private MoveTo moveToScript;
+    private GameObject goal;
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        gunScript = GetComponent<EnemyGuns>(); 
-        moveToScript = GetComponentInParent<MoveTo>();
+    void Start() {
+        gunScript = GetComponent<EnemyGuns>(); // find the gun script
+        goal = GetComponentInParent<MoveToPlayer>().goal.gameObject;
     }
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
         // if there are any enemies to target
-        if (target != null)
-        {
+        if (target != null) {
             // if the timer has gone over the interval
-            if (shotTimer >= shootingInterval)
-            {
+            if (shotTimer >= shootingInterval) {
                 //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
                 // shoot the gun
                 shootGun(target);
@@ -45,45 +38,35 @@ public class ChasePlayer : MonoBehaviour
                 // reset timer
                 shotTimer = 0.0f;
             }
-            else
-            {
+            else {
                 // increment the timer
                 shotTimer += Time.deltaTime;
             }
 
         }
-        else
-        {
+        else {
             lookAtBase();
         }
     }
 
-    private void shootGun(GameObject target)
-    {
+    private void shootGun(GameObject target) {
         gunScript.target = target;
         gunScript.shoot = true;
     }
 
-    private void lookAtBase()
-    {
-        gunScript.target = moveToScript.goal.gameObject;
+    private void lookAtBase() {
+        gunScript.target = goal;
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == tagToTarget)
-        {
-            Debug.Log("ENTERED");
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Player")) {
             target = other.gameObject;
-            moveToScript.goal = target.transform;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == tagToTarget)
-        {
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Player")) {
             target = null;
         }
     }

@@ -6554,6 +6554,7 @@ MonoBehaviour:
   switchCam: {fileID: 4627032489566245456}
   gears: 1000
   baseHeath: 100
+  playerHealth: 0
 --- !u!1001 &1097549019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12012,6 +12013,10 @@ PrefabInstance:
     - target: {fileID: 6225506811030456609, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.564
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988735926106270619, guid: 7e6e71f2cface9b45b3e6643c900d5ec, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

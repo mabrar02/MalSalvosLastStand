@@ -35,7 +35,6 @@ public class GunBehaviour : MonoBehaviour
             int excludeLayers = LayerMask.GetMask("ground", "path", "Triggers", "Towers");
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, ~excludeLayers))
             {
-                Debug.Log("HIT: " + hit.transform.name);
 
                 if (hit.transform.CompareTag("Enemy"))
                 {

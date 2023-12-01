@@ -460,9 +460,9 @@ GameObject:
   - component: {fileID: 2813892900630373540}
   - component: {fileID: 5802035006025101544}
   - component: {fileID: 3812520678543850854}
-  - component: {fileID: 8096506393925859832}
   - component: {fileID: 8746441020589072195}
   - component: {fileID: 1574244475901072056}
+  - component: {fileID: 1581670099083260517}
   m_Layer: 0
   m_Name: Enemy-Dude 3
   m_TagString: Enemy
@@ -520,7 +520,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -532,19 +532,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8096506393925859832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2691451471508781891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b455565c3c8a43b7b873d03761ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {fileID: 0}
 --- !u!54 &8746441020589072195
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -593,6 +580,19 @@ MonoBehaviour:
   dying: 0
   colorIntensity: 0.5
   gearAddition: 50
+--- !u!114 &1581670099083260517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691451471508781891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2d19d70278df94fbc189410ccbe754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 0}
 --- !u!1 &2706484924878157178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 6833610468758746227}
   - component: {fileID: 8903186514628934855}
   - component: {fileID: 6702344163497257634}
-  - component: {fileID: 5138655677738266251}
+  - component: {fileID: 238968375045364679}
   m_Layer: 10
   m_Name: blasterA
   m_TagString: Gun
@@ -1286,7 +1286,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 8
   m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!114 &6702344163497257634
 MonoBehaviour:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   gunTipTransform: {fileID: 5689344696150953566}
   shoot: 0
   bulletDamage: 200
---- !u!114 &5138655677738266251
+--- !u!114 &238968375045364679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1319,8 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ac62769b58cc840bbeda40cb2e43ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 0
-  tagToTarget: Player
+  shootingInterval: 1
   target: {fileID: 0}
 --- !u!1 &7139608933270031791
 GameObject:

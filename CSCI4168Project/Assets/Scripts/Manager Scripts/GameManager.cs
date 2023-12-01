@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
         if(playerHealth <= 0) {
             playerHealth = 0;
         }
+        Debug.Log(playerHealth);
     }
 }
 

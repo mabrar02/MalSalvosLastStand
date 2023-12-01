@@ -12,7 +12,6 @@ public class EnemyTargetting : MonoBehaviour
     /* PRIVATE VARIABLES */
     public List<GameObject> targets; // all the targets
     private float shotTimer = 0.0f; // time since you last shot
-    private int currentTargetIndex = 0; // which target your need to shoot at next
     private EnemyGuns gunScript; // the gun script
     private GameObject goal;
 

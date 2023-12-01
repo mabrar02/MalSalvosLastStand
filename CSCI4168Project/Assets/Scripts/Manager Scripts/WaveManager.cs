@@ -93,11 +93,15 @@ public class WaveManager : MonoBehaviour
         GameObject enemyObj = Instantiate(_enemy, _sp.position, Quaternion.identity);
 
         MoveTo enemyMove = enemyObj.GetComponent<MoveTo>();
+        MoveToPlayer enemyMoveToPlayer = enemyObj.GetComponent<MoveToPlayer>();
         if(enemyMove != null) {
             enemyMove.goal = homebase;
         }
+        else if(enemyMoveToPlayer != null){
+            enemyMoveToPlayer.goal = homebase;
+        }
         else {
-            Debug.Log("ERROR SETTING HOMEBASE FOR ENEMY");
+            Debug.Log("ERROR SETTING MOVEMENT FOR ENEMY");
         }
     }
 
