@@ -467,11 +467,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4562686340546444700, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
   m_PrefabInstance: {fileID: 1991449972682737971}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &112797810 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7696450243792539231, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-  m_PrefabInstance: {fileID: 1991449972682737971}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &118326080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,9 +2541,15 @@ MonoBehaviour:
   waves:
   - name: Wave 1
     enemies:
+    - {fileID: 4161365069793271353, guid: 8dde2ab2e297aff48b1ce7eaac6a92ab, type: 3}
+    - {fileID: 1848396747764073069, guid: 87dcc6dce0ea0e240974dadad51b3c9f, type: 3}
+    - {fileID: 2691451471508781891, guid: fdf6af30375a4354d8b62bd6bb26efc6, type: 3}
+    - {fileID: 5920754036078811197, guid: 992ae1f876d710547a314427fe58f04f, type: 3}
     - {fileID: 320906968081337351, guid: a4c3b1944177e9f4584eba7191a7ee29, type: 3}
-    - {fileID: 320906968081337351, guid: a4c3b1944177e9f4584eba7191a7ee29, type: 3}
-    - {fileID: 320906968081337351, guid: a4c3b1944177e9f4584eba7191a7ee29, type: 3}
+    - {fileID: 2861270196889117427, guid: 8531366219a8239428a5291b7a7b8ac2, type: 3}
+    - {fileID: 7888334612089891174, guid: be067d501dcea78428103f473a970656, type: 3}
+    - {fileID: 4418958602763893459, guid: ffefcbfed36b21d4da5069a91539eb3d, type: 3}
+    - {fileID: 1549144579141296178, guid: d4d9e1fd1598c604888a3ed2dc6403a9, type: 3}
     spawnRate: 1
   spawnPoints:
   - {fileID: 408772464}
@@ -6098,10 +6099,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 1015307327532580034, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1200060870299895030, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.029621
@@ -6142,50 +6139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1384726831165556029, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1384726831165556029, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1384726831165556029, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1384726831165556029, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1968536450}
-    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: pathRadius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: turretPref
-      value: 
-      objectReference: {fileID: 3797994108859881852, guid: f43e56774f9a3754b9036f48031aa2b9, type: 3}
-    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: placementSE
-      value: 
-      objectReference: {fileID: 112797810}
-    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: towerRadius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2751290603946538430, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: turretPreview
-      value: 
-      objectReference: {fileID: 2864682821127194337, guid: 00f0963cbdd1ef74cb2bdbba2f3ce90c, type: 3}
-    - target: {fileID: 2846221684273086869, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 3756786603024153764, guid: 6a02953fd0445614693e560936cc1d66, type: 3}
       propertyPath: placementCam
       value: 

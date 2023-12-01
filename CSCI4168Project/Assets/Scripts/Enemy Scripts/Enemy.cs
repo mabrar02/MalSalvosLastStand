@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int gearAddition;
     [SerializeField] private AudioSource deathSE;
 
+    private EnemyGuns enemyAttackScript;
+
     private Animator animator;
     void Start()
     {

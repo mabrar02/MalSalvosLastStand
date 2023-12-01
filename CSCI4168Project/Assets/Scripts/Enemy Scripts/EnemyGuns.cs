@@ -19,12 +19,17 @@ public class EnemyGuns : MonoBehaviour
 
     public int bulletDamage;
 
+    [SerializeField] private AudioSource shootSE;
+
+    private Enemy enemyScript;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         shoot = false;
+        enemyScript = GetComponentInParent<Enemy>();
 
     }
 
@@ -60,8 +65,9 @@ public class EnemyGuns : MonoBehaviour
            
 
             // Shoot the gun
-            if (shoot)
+            if (shoot && !enemyScript.dying)
             {
+                shootSE.Play();
                 shoot = false;
                 // Create a bullet
                 GameObject bulletObj = Instantiate(bullet, gunTipTransform.position, gunTipTransform.rotation);
