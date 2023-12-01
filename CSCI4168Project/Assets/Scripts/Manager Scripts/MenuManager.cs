@@ -82,5 +82,6 @@ public class MenuManager : MonoBehaviour
     {
         ClosePopup();
         GameManager.Instance.UseGears(currentItemData.cost);
+        InventoryManager.Instance.AddItem(currentItemData.HoldableItem);
     }
 }
