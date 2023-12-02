@@ -521,7 +521,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 9
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -577,7 +577,7 @@ MonoBehaviour:
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
-  agentSpeedOriginal: 10
+  agentSpeedOriginal: 9
   dying: 0
   colorIntensity: 0.5
   gearAddition: 25

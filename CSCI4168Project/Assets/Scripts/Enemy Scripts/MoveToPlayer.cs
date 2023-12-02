@@ -21,7 +21,7 @@ public class MoveToPlayer : MonoBehaviour
     {
         if(targetPlayerScript.target != null) {
             transform.LookAt(targetPlayerScript.target.transform);
-            transform.position += transform.forward * agent.speed * 0.75f * Time.deltaTime;
+            transform.position += transform.forward * agent.speed * 0.5f * Time.deltaTime;
         }
     }
 }
