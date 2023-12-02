@@ -8,13 +8,30 @@ public class WaveManager : MonoBehaviour
 
     [System.Serializable]
     public class Wave {
-        public string name;
-        public GameObject[] enemies;
-        public float spawnRate;
+        public string name; // name of wave
+        public GameObject[] enemies; // array of enemies
+        public float spawnRate; // rate at which they spawn
+        public float dropPercent; // Percent of GearDrop to drop
+        public float healthBoost; // Amount to boost health by
+        public float damageBoost; // Amount to boost damage by
     }
 
-    public Wave[] waves;
-    private int nextWave = 0;
+    public class Adjustments
+    {
+        public float dropPercent; // Percent of GearDrop to drop
+        public float healthBoost; // Amount to boost health by
+        public float damageBoost; // Amount to boost damage by
+
+        public Adjustments(float dropPercent, float healthBoost, float damageBoost)
+        {
+            this.dropPercent = dropPercent;
+            this.healthBoost = healthBoost;
+            this.damageBoost = damageBoost;
+        }
+    }
+
+    public Wave[] waves; // array of waves
+    private int nextWave = 0; 
 
     public Transform[] spawnPoints;
 
@@ -82,27 +99,60 @@ public class WaveManager : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.BattlePhase);
         
         for(int i = 0; i< _wave.enemies.Length; i++) {
-            SpawnEnemy(_wave.enemies[i]);
+            Adjustments toAdjust = new(_wave.dropPercent, _wave.healthBoost, _wave.damageBoost);
+            SpawnEnemy(_wave.enemies[i], toAdjust);
             yield return new WaitForSeconds(1f / _wave.spawnRate);
         }
 
         yield break;
     }
 
-    private void SpawnEnemy(GameObject _enemy) {
+    private void SpawnEnemy(GameObject _enemy, Adjustments adjustments)
+    {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject enemyObj = Instantiate(_enemy, _sp.position, Quaternion.identity);
 
         MoveTo enemyMove = enemyObj.GetComponent<MoveTo>();
         MoveToPlayer enemyMoveToPlayer = enemyObj.GetComponent<MoveToPlayer>();
-        if(enemyMove != null) {
+
+        makeAdjustments(adjustments, enemyObj);
+
+        if (enemyMove != null)
+        {
             enemyMove.goal = homebase;
         }
-        else if(enemyMoveToPlayer != null){
+        else if (enemyMoveToPlayer != null)
+        {
             enemyMoveToPlayer.goal = homebase;
         }
-        else {
+        else
+        {
             Debug.Log("ERROR SETTING MOVEMENT FOR ENEMY");
+        }
+
+        // Adjust the enemy stats according to wave settings.
+        static void makeAdjustments(Adjustments adjustments, GameObject enemyObj)
+        {
+            // Make adjustments according to wave settings
+            Enemy enemyScript = enemyObj.GetComponent<Enemy>();
+            // set gearAddition on enemy
+            if (adjustments.dropPercent != 0)
+            {
+                // decreasing
+                enemyScript.gearAddition = (int)(enemyScript.gearAddition * adjustments.dropPercent);
+            }
+            // set health on enemy
+            if (adjustments.healthBoost != 0)
+            {
+                //increasing 
+                enemyScript.maxHealth = enemyScript.maxHealth * (1.0f + adjustments.healthBoost);
+            }
+            // set damage on enemy
+            if (adjustments.damageBoost != 0)
+            {
+                // increasing
+                enemyScript.damageToBase = (int)(enemyScript.damageToBase * (1.0f + adjustments.damageBoost));
+            }
         }
     }
 

@@ -19,8 +19,8 @@ public class Enemy : MonoBehaviour
     private bool burning;
     private SkinnedMeshRenderer[] skinRenderers;
     [SerializeField] private float colorIntensity;
-    [SerializeField] private int gearAddition;
     [SerializeField] private AudioSource deathSE;
+    public int gearAddition;
     public int damageToBase;
 
     private EnemyGuns enemyAttackScript;

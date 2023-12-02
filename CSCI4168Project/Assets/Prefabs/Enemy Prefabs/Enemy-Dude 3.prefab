@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fedd0a2445bc743be3c99a0f311ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   deathTime: 2
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
@@ -580,9 +580,9 @@ MonoBehaviour:
   agentSpeedOriginal: 10
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 25
   deathSE: {fileID: -1705315711317495935}
-  damageToBase: 10
+  gearAddition: 25
+  damageToBase: 25
 --- !u!114 &1581670099083260517
 MonoBehaviour:
   m_ObjectHideFlags: 0
