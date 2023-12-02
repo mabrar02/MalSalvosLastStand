@@ -6421,7 +6421,7 @@ MonoBehaviour:
   baseMesh: {fileID: 6390932189804711085}
   currentHealth: 0
   turretDB: {fileID: 11400000, guid: 791e053fa0ae9584da71b55f42089791, type: 2}
-  repairCost: 100
+  repairCost: 35
   upgradeCost: 0
   activeCores: 
   disabled: 0
@@ -6481,7 +6481,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8.5
+  m_Radius: 14
   m_Center: {x: 0.000000074505806, y: -3.3, z: 0.21923214}
 --- !u!82 &7628115244198753985
 AudioSource:

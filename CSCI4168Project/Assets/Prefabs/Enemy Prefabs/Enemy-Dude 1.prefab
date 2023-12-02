@@ -829,16 +829,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fedd0a2445bc743be3c99a0f311ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 300
   deathTime: 2
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
-  agentSpeedOriginal: 3
+  agentSpeedOriginal: 5
   dying: 0
   colorIntensity: 0.5
   gearAddition: 50
   deathSE: {fileID: -8697825054435360269}
+  damageToBase: 25
 --- !u!82 &-8697825054435360269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1808,7 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e6c7b42302ad544bd7ec20cbfc8ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 1
+  shootingInterval: 1.5
   tagToTarget: TowerGun
   targets: []
 --- !u!114 &5045111956937995091
@@ -1829,7 +1830,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
   gunTipTransform: {fileID: 526183452369174013}
   shoot: 0
-  bulletDamage: 100
+  bulletDamage: 20
   shootSE: {fileID: 6614567092314778738}
 --- !u!82 &6614567092314778738
 AudioSource:

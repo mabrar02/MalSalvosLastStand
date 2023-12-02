@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float colorIntensity;
     [SerializeField] private int gearAddition;
     [SerializeField] private AudioSource deathSE;
+    public int damageToBase;
 
     private EnemyGuns enemyAttackScript;
 

@@ -15,7 +15,8 @@ MonoBehaviour:
   itemName: Base Health Increase
   itemDescription: This upgrade increases your laboratory's max health! The best
     offense is defense...
-  shopCost: 50
-  increaseAmount: 25
+  shopCost: 200
+  increaseAmount: 100
+  increaseIncrement: 50
   playerIncrease: 0
   baseIncrease: 1

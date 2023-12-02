@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretLevels:
   - <level>k__BackingField: 1
-    <health>k__BackingField: 500
-    <damage>k__BackingField: 25
-    <fireRate>k__BackingField: 1
+    <health>k__BackingField: 300
+    <damage>k__BackingField: 50
+    <fireRate>k__BackingField: 1.5
     <gearCost>k__BackingField: 0
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 74e53efdd85e648419d41302fdd9ec82, type: 3}
   - <level>k__BackingField: 2
-    <health>k__BackingField: 750
-    <damage>k__BackingField: 45
-    <fireRate>k__BackingField: 0.9
-    <gearCost>k__BackingField: 25
+    <health>k__BackingField: 450
+    <damage>k__BackingField: 65
+    <fireRate>k__BackingField: 1.2
+    <gearCost>k__BackingField: 75
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 244fb059f50befd48bb3f84ce986462d, type: 3}
   - <level>k__BackingField: 3
-    <health>k__BackingField: 1000
-    <damage>k__BackingField: 65
-    <fireRate>k__BackingField: 0.8
-    <gearCost>k__BackingField: 50
+    <health>k__BackingField: 700
+    <damage>k__BackingField: 95
+    <fireRate>k__BackingField: 0.9
+    <gearCost>k__BackingField: 115
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 4488dd5fd92fe064ab6cb948bf222a82, type: 3}
   - <level>k__BackingField: 4
-    <health>k__BackingField: 1500
-    <damage>k__BackingField: 100
+    <health>k__BackingField: 1000
+    <damage>k__BackingField: 130
     <fireRate>k__BackingField: 0.5
-    <gearCost>k__BackingField: 100
+    <gearCost>k__BackingField: 200
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 545badd010251b143a37795a61f7926e, type: 3}

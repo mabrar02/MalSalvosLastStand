@@ -8,12 +8,10 @@ public class ShopBlasterDamageUpgrade : Shoppable
 {
     public int damageIncrement;
     public int shopCost;
-    public int increaseIncrement;
 
     public override bool OnPurchase()
     {
-        InventoryManager.Instance.blasterDamageUpgrade += 10;
-        shopCost += increaseIncrement;
+        InventoryManager.Instance.blasterDamageUpgrade += damageIncrement;
         return true;
     }
 

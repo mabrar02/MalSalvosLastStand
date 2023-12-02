@@ -12,6 +12,10 @@ public class ShopButton : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
         costText = GetComponentInChildren<TextMeshProUGUI>();
+
+    }
+
+    private void Update() {
         costText.text = shopItem.cost.ToString();
     }
 

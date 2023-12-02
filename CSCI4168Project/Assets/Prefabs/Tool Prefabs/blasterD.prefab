@@ -5228,9 +5228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538bba7c7ce04a44c8e17e081520c260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 10
-  fireRate: 0.25
-  weaponRange: 50
+  gunDamage: 5
+  fireRate: 0.35
+  weaponRange: 35
   hitForce: 100
   gunEnd: {fileID: 0}
   gunSound: {fileID: 7036873158813159619}
