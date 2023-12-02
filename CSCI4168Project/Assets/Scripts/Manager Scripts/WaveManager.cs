@@ -11,9 +11,6 @@ public class WaveManager : MonoBehaviour
         public string name; // name of wave
         public GameObject[] enemies; // array of enemies
         public float spawnRate; // rate at which they spawn
-        public float dropPercent; // Percent of GearDrop to drop
-        public float healthBoost; // Amount to boost health by
-        public float damageBoost; // Amount to boost damage by
     }
 
     public class Adjustments
@@ -58,7 +55,7 @@ public class WaveManager : MonoBehaviour
 
         if (waveCountDown <= 0) {
             if(GameManager.Instance.State == GameState.SpawnPhase) {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                StartCoroutine(SpawnWave(waves[nextWave], nextWave));
             }
         }
         else {
@@ -94,13 +91,22 @@ public class WaveManager : MonoBehaviour
         return true;
     }
 
-    IEnumerator SpawnWave(Wave _wave) {
+    IEnumerator SpawnWave(Wave _wave,  int waveNum) {
         Debug.Log("Spawning wave " + _wave.name);
         GameManager.Instance.UpdateGameState(GameState.BattlePhase);
         
         for(int i = 0; i< _wave.enemies.Length; i++) {
-            Adjustments toAdjust = new(_wave.dropPercent, _wave.healthBoost, _wave.damageBoost);
-            SpawnEnemy(_wave.enemies[i], toAdjust);
+            if (waveNum > 0)
+            {
+                Adjustments toAdjust = new(1 - waveNum / waves.Length, waveNum / waves.Length, waveNum / waves.Length);
+                SpawnEnemy(_wave.enemies[i], toAdjust);
+            }
+            else
+            {
+                Adjustments toAdjust = new(0, 0, 0);
+                SpawnEnemy(_wave.enemies[i], toAdjust);
+            }
+            
             yield return new WaitForSeconds(1f / _wave.spawnRate);
         }
 
