@@ -16,4 +16,4 @@ MonoBehaviour:
   itemDescription: This upgrade makes your turrets fire quickly thanks to the power
     of air!
   HoldableItem: {fileID: 11400000, guid: ea5fad107a1d0da44beaf695ad85eeea, type: 2}
-  shopCost: 125
+  shopCost: 100
