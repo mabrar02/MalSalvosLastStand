@@ -15,8 +15,7 @@ MonoBehaviour:
   itemName: Player Health Increase
   itemDescription: This upgrade increases MalSalvo's maximum health, some brawn is
     important afterall...
-  shopCost: 80
+  shopCost: 100
   increaseAmount: 25
-  increaseIncrement: 20
   playerIncrease: 1
   baseIncrease: 0

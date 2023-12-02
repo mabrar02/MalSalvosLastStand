@@ -15,5 +15,4 @@ MonoBehaviour:
   itemName: Blaster Damage Upgrade
   itemDescription: Upgrade for your blaster. Increases damage and fire rate slightly.
   damageIncrement: 5
-  shopCost: 100
-  increaseIncrement: 50
+  shopCost: 125
