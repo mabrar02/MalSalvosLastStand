@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.70825356, z: 0, w: 0.7059581}
   m_LocalPosition: {x: -14.141114, y: 4.46, z: -2.129879}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7621066576787822000}
@@ -72,7 +72,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -80,7 +80,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 6.7
+  m_Height: 9.2
   m_BaseOffset: 6.94
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -128,11 +128,12 @@ MonoBehaviour:
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
-  agentSpeedOriginal: 8
+  agentSpeedOriginal: 12
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 50
+  gearAddition: 25
   deathSE: {fileID: 3884968081657966845}
+  damageToBase: 10
 --- !u!82 &3884968081657966845
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1047,7 +1048,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 7
+  m_Radius: 8
   m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!114 &1688630890533308497
 MonoBehaviour:
@@ -1067,7 +1068,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: d8e9fb7db0ee5f745a222f81b5df5aa2, type: 3}
   gunTipTransform: {fileID: 5267471228846942189}
   shoot: 0
-  bulletDamage: 10
+  bulletDamage: 2
   shootSE: {fileID: 4485675656836385668}
 --- !u!114 &6508145624077248607
 MonoBehaviour:
@@ -1081,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ac62769b58cc840bbeda40cb2e43ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 1
+  shootingInterval: 0.5
   target: {fileID: 0}
 --- !u!82 &4485675656836385668
 AudioSource:
@@ -1095,7 +1096,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b8b4fc05c3e17d142b48f436f1823eb9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.288
+  m_Volume: 0.136
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1426,9 +1427,9 @@ Transform:
   m_GameObject: {fileID: 8568752168263534144}
   serializedVersion: 2
   m_LocalRotation: {x: -0.408602, y: 0.00081832864, z: -0.000818267, w: 0.912712}
-  m_LocalPosition: {x: -3.85, y: 2.61, z: 0.83}
-  m_LocalScale: {x: 47.28202, y: 44.2601, z: 447.6829}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -2.53, y: 1.79, z: 0.34}
+  m_LocalScale: {x: 32.55, y: 30.469643, z: 308.1949}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2003545436841801006}
   m_LocalEulerAnglesHint: {x: -48.234, y: 0.186, z: -0.186}

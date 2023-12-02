@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: FireCoreShop
   m_EditorClassIdentifier: 
   itemName: Fire Core
-  itemDescription: This upgrade burns your enemies, dealing damage over time! Prevents
-    regeneration, fails against shields...
+  itemDescription: This upgrade burns your enemies, dealing damage over time!
   HoldableItem: {fileID: 11400000, guid: 3d0e31bf13a4b3c4c9dab6aac4b52120, type: 2}
   shopCost: 300

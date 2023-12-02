@@ -231,7 +231,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -295,16 +295,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fedd0a2445bc743be3c99a0f311ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  deathTime: 2
+  maxHealth: 400
+  deathTime: 8
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
   agentSpeedOriginal: 2
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 50
+  gearAddition: 75
   deathSE: {fileID: 2377762094819719101}
+  damageToBase: 75
 --- !u!82 &2377762094819719101
 AudioSource:
   m_ObjectHideFlags: 0

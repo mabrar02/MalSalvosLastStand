@@ -41,7 +41,7 @@ public class TurretStats : MonoBehaviour
 
     public void Upgrade() {
         if (upgradeIndex + 1 >= turretDB.turretLevels.Count) {
-            Debug.Log("MAX LEVEL ALREADY");
+            MenuManager.Instance.SetError("Max level already!");
             return;
         }
 
@@ -49,8 +49,9 @@ public class TurretStats : MonoBehaviour
             upgradeIndex++;
             upgradeSE.Play();
             UpdateStats();
+            EnableTower();
 
-            if(targetScript != null) {
+            if (targetScript != null) {
                 targetScript.SetTurretStats();
             }
             if(gunScript != null) {
@@ -65,7 +66,7 @@ public class TurretStats : MonoBehaviour
 
     public void Repair() {
         if(currentHealth == health) {
-            Debug.Log("FULL HEALTH ALREDY");
+            MenuManager.Instance.SetError("Full health already!");
             return;
         }
 
@@ -90,7 +91,7 @@ public class TurretStats : MonoBehaviour
 
     public bool SetCore(int coreIndex) {
         if (activeCores[coreIndex] == true) {
-            Debug.Log("CORE ALREADY SET!");
+            MenuManager.Instance.SetError("Core already active!");
             return false;
         }
         else {

@@ -153,7 +153,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: -0.000015258789}
 --- !u!114 &6970029606745213805
 MonoBehaviour:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e6c7b42302ad544bd7ec20cbfc8ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 1
+  shootingInterval: 1.1
   tagToTarget: TowerGun
   targets: []
 --- !u!114 &2270369023486368687
@@ -188,7 +188,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: d8e9fb7db0ee5f745a222f81b5df5aa2, type: 3}
   gunTipTransform: {fileID: 1744848532352002487}
   shoot: 0
-  bulletDamage: 0
+  bulletDamage: 15
   shootSE: {fileID: 5985279236979347774}
 --- !u!82 &5985279236979347774
 AudioSource:
@@ -202,7 +202,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b8b4fc05c3e17d142b48f436f1823eb9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.288
+  m_Volume: 0.176
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -979,7 +979,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1043,16 +1043,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fedd0a2445bc743be3c99a0f311ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 250
   deathTime: 2
   _health: 0
   floatingTextPref: {fileID: 2938872274691840994, guid: 768b65a83305eb148ad5f43ebe90c73e, type: 3}
   _agent: {fileID: 0}
-  agentSpeedOriginal: 3
+  agentSpeedOriginal: 8
   dying: 0
   colorIntensity: 0.5
   gearAddition: 50
   deathSE: {fileID: -2340200871005783123}
+  damageToBase: 25
 --- !u!82 &-2340200871005783123
 AudioSource:
   m_ObjectHideFlags: 0

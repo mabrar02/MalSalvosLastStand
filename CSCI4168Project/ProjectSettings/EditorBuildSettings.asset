@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/GreenPlanet.unity
     guid: f8d5942848d0fb4449a11f6d537da228
   - enabled: 1
-    path: Assets/Scenes/zBluePlanet.unity
-    guid: 83f603ade7973f94b93e5ff01431d1ed
+    path: Assets/Scenes/BluePlanet.unity
+    guid: e07231bcb965cb444a78046b3c314715
+  - enabled: 1
+    path: Assets/Scenes/RedPlanet.unity
+    guid: cd6119c2626c25c4ebe4270172953f16
   - enabled: 1
     path: Assets/Scenes/SceneSelect.unity
     guid: 2701acf7a2f4df040ae8692005e5db44

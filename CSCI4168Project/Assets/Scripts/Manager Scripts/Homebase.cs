@@ -7,7 +7,9 @@ public class Homebase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Enemy")) {
-            int enemyDamage = other.GetComponentInChildren<Enemy>().damageToBase;
+            Enemy enemy = other.GetComponentInChildren<Enemy>();
+            if (enemy.dying) return;
+            int enemyDamage = enemy.damageToBase;
             GameManager.Instance.TakeDamage(enemyDamage);
             Destroy(other.gameObject);
         }

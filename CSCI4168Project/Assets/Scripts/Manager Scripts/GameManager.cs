@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
     private void HandleVictoryPhase() {
+        AudioManager.Instance.Stop("RespawnSound");
         AudioManager.Instance.Play("VictorySound");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleLosePhase() {
+        AudioManager.Instance.Stop("RespawnSound");
         AudioManager.Instance.Play("DefeatSound");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -175,7 +177,8 @@ public class GameManager : MonoBehaviour
             playerHealth = 0;
             player.SetActive(false);
             player.transform.Find("PlayerObj").gameObject.SetActive(false);
-            Invoke(nameof(respawnPlayer), 5f);
+            AudioManager.Instance.Play("RespawnSound");
+            Invoke(nameof(respawnPlayer), 6f);
             //respawnCountdown.SetActive(true);
         }
 

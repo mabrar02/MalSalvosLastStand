@@ -23,8 +23,7 @@ public class Inventory : ScriptableObject
                 return true;
             }
         }
-
-        Debug.Log("No space in Inventory " + InventoryName);
+        MenuManager.Instance.SetError("Inventory Full!");
         return false;
     }
 

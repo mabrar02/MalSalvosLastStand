@@ -56,9 +56,9 @@ public class Enemy : MonoBehaviour
         void die()
         {
             GameManager.Instance.AddGears(gearAddition);
+            deathSE.Play();
             Destroy(gameObject, deathTime);
             animator.SetTrigger("Die");
-            deathSE.Play();
             
         }
     }

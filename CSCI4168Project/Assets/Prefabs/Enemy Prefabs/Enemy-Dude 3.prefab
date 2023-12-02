@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ac62769b58cc840bbeda40cb2e43ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 0.5
+  shootingInterval: 1.25
   target: {fileID: 0}
 --- !u!82 &121470831997403032
 AudioSource:
