@@ -80,4 +80,8 @@ public class WrenchScript : MonoBehaviour
         }
     }
 
+    private void OnDisable() {
+        ResetHighlight();
+    }
+
 }

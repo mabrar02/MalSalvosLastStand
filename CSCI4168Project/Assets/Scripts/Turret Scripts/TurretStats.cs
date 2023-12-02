@@ -32,7 +32,6 @@ public class TurretStats : MonoBehaviour
     void Start()
     {
         UpdateStats();
-
         targetScript = gameObject.GetComponent<TargettingScript>();
         gunScript = gameObject.GetComponent<GunScript>();
         disabled = false;
@@ -108,6 +107,7 @@ public class TurretStats : MonoBehaviour
         fireRate = turretDB.turretLevels[upgradeIndex].fireRate;
         damage = turretDB.turretLevels[upgradeIndex].damage;
         health = turretDB.turretLevels[upgradeIndex].health;
+        currentHealth = health;
         level = turretDB.turretLevels[upgradeIndex].level;
         turretMesh = turretDB.turretLevels[upgradeIndex].turretMesh;
         if(level == 4) {
@@ -118,8 +118,6 @@ public class TurretStats : MonoBehaviour
         }
 
         gameObject.GetComponent<MeshFilter>().mesh = turretMesh;
-
-        currentHealth = health;
     }
 
     public void TakeDamage(int damage) {

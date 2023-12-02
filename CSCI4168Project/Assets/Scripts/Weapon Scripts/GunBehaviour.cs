@@ -39,6 +39,7 @@ public class GunBehaviour : MonoBehaviour
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     Enemy enemy = hit.transform.GetComponent<Enemy>();
+                    AudioManager.Instance.Play("HitMarker");
                     enemy.TakeDamage(gunDamage + InventoryManager.Instance.blasterDamageUpgrade);
                 }
 

@@ -11,6 +11,7 @@ public class Homebase : MonoBehaviour
             if (enemy.dying) return;
             int enemyDamage = enemy.damageToBase;
             GameManager.Instance.TakeDamage(enemyDamage);
+            GameManager.Instance.AddGears(enemy.gearAddition);
             Destroy(other.gameObject);
         }
     }

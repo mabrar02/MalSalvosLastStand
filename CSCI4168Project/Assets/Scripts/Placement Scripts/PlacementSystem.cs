@@ -37,7 +37,7 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement() {
         if (GameManager.Instance.GetGears() - turretCost < 0) {
-            Debug.Log("NOT ENOUGH GEARS!");
+            MenuManager.Instance.SetError("Not enough gears!");
             return;
         }
         StopPlacement();

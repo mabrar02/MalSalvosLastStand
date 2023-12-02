@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a354e3fa363614db3ded16b426f128, type: 3}
   m_Name: BulletDB
   m_EditorClassIdentifier: 
-  slowingAmount: 1.35
-  slowDuration: 0.75
+  slowingAmount: 2
+  slowDuration: 1
   burnDuration: 4
-  burnDamage: 2
+  burnDamage: 3
   burnInterval: 0.2
   splashRadius: 6
-  splashDamage: 10
+  splashDamage: 15

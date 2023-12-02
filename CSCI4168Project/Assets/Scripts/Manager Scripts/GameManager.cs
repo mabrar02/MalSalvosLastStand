@@ -94,6 +94,8 @@ public class GameManager : MonoBehaviour
         buildSys.SetActive(true);
         player.SetActive(false);
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
+        HealPlayer(10000);
+        HealBase(5);
     }
 
     private void HandleSpawnPhase() {
@@ -141,6 +143,23 @@ public class GameManager : MonoBehaviour
     {
         return playerHealth;
     }
+
+    public void HealPlayer(int amount) {
+        playerHealth += amount;
+        if(playerHealth > maxPlayerHealth) {
+            playerHealth = maxPlayerHealth;
+        }
+        OnPlayerHealthChanged?.Invoke(playerHealth);
+    }
+
+    public void HealBase(int amount) {
+        baseHealth += amount;
+        if (baseHealth > maxBaseHealth) {
+            baseHealth = maxBaseHealth;
+        }
+        OnBaseHealthChanged?.Invoke(baseHealth);
+    }
+
 
     public void IncreasePlayerHealth(int amount) {
         maxPlayerHealth += amount;

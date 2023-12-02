@@ -16,4 +16,4 @@ MonoBehaviour:
   itemDescription: This upgrade leaves a shockwave of damage, hurting enemies around
     the target!
   HoldableItem: {fileID: 11400000, guid: 2a273e1ec997f3d41bf1ec85813379c3, type: 2}
-  shopCost: 300
+  shopCost: 125

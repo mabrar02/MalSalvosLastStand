@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerHealthUpgrade
   m_EditorClassIdentifier: 
   itemName: Player Health Increase
-  itemDescription: This upgrade increases MalSalvo's maximum health, some brawn is
-    important afterall...
+  itemDescription: This upgrade heals and increases MalSalvo's maximum health, some
+    brawn is important afterall...
   shopCost: 100
   increaseAmount: 25
   playerIncrease: 1
