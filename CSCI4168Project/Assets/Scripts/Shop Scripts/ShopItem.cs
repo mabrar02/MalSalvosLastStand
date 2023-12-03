@@ -10,9 +10,10 @@ public class ShopItem : Shoppable
 
     public override bool OnPurchase() {
         if (HoldableItem != null && InventoryManager.Instance.AddItem(HoldableItem)) {
+            AudioManager.Instance.Play("ShopBuy");
             return true;
         }
-
+        GameManager.Instance.AddGears(shopCost);
         return false;
 
     }

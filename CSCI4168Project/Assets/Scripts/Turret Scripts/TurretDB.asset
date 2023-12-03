@@ -23,17 +23,17 @@ MonoBehaviour:
     <health>k__BackingField: 400
     <damage>k__BackingField: 65
     <fireRate>k__BackingField: 1.2
-    <gearCost>k__BackingField: 75
+    <gearCost>k__BackingField: 120
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 244fb059f50befd48bb3f84ce986462d, type: 3}
   - <level>k__BackingField: 3
     <health>k__BackingField: 600
     <damage>k__BackingField: 95
     <fireRate>k__BackingField: 0.9
-    <gearCost>k__BackingField: 130
+    <gearCost>k__BackingField: 200
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 4488dd5fd92fe064ab6cb948bf222a82, type: 3}
   - <level>k__BackingField: 4
     <health>k__BackingField: 850
     <damage>k__BackingField: 130
     <fireRate>k__BackingField: 0.5
-    <gearCost>k__BackingField: 200
+    <gearCost>k__BackingField: 300
     <turretMesh>k__BackingField: {fileID: 4300000, guid: 545badd010251b143a37795a61f7926e, type: 3}

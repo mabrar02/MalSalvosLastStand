@@ -11,6 +11,7 @@ public class ShopBlasterDamageUpgrade : Shoppable
 
     public override bool OnPurchase()
     {
+        AudioManager.Instance.Play("ShopBuy");
         InventoryManager.Instance.blasterDamageUpgrade += damageIncrement;
         return true;
     }

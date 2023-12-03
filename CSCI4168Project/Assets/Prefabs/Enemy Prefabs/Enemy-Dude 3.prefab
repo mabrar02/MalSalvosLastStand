@@ -580,7 +580,7 @@ MonoBehaviour:
   agentSpeedOriginal: 9
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 25
+  gearAddition: 20
   deathSE: {fileID: -1705315711317495935}
   damageToBase: 10
 --- !u!114 &1581670099083260517
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: 4c271eb30f292aa4f9ba09488fd28fd1, type: 3}
   gunTipTransform: {fileID: 5689344696150953566}
   shoot: 0
-  bulletDamage: 5
+  bulletDamage: 10
   shootSE: {fileID: 121470831997403032}
 --- !u!114 &238968375045364679
 MonoBehaviour:

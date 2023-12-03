@@ -86,7 +86,7 @@ public class GunScript : MonoBehaviour
         // Set variables on bulletScript
         bulletScript.target = target;
         bulletScript.speed = projectileSpeed;
-        bulletScript.damage = bulletDamage/4;
+        bulletScript.damage = bulletDamage/3;
         bulletScript.SetCores(activeCores.ToArray());
     }
 }

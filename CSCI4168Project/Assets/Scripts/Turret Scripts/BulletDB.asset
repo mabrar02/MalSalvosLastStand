@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BulletDB
   m_EditorClassIdentifier: 
   slowingAmount: 2
-  slowDuration: 1
+  slowDuration: 1.5
   burnDuration: 4
   burnDamage: 3
   burnInterval: 0.2
-  splashRadius: 6
-  splashDamage: 15
+  splashRadius: 7
+  splashDamage: 25

@@ -109,6 +109,7 @@ public class TurretStats : MonoBehaviour
         health = turretDB.turretLevels[upgradeIndex].health;
         currentHealth = health;
         level = turretDB.turretLevels[upgradeIndex].level;
+        repairCost = 10 + 25 * level;
         turretMesh = turretDB.turretLevels[upgradeIndex].turretMesh;
         if(level == 4) {
             upgradeCost = -1;

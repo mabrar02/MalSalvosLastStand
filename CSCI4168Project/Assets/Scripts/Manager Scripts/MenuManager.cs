@@ -117,7 +117,6 @@ public class MenuManager : MonoBehaviour
     public void AcceptPopup()
     {
         if (GameManager.Instance.UseGears(currentItemData.cost)) {
-            AudioManager.Instance.Play("ShopBuy");
             currentItemData.OnPurchase();
             ClosePopup();
         }

@@ -15,10 +15,12 @@ public class ShopHealthUpgrade : Shoppable
     public override bool OnPurchase()
     {
         if(baseIncrease) {
+            AudioManager.Instance.Play("ShopBuy");
             GameManager.Instance.IncreaseHomebaseHealth(increaseAmount);
             return true;
         }
         else if (playerIncrease) {
+            AudioManager.Instance.Play("ShopBuy");
             GameManager.Instance.IncreasePlayerHealth(increaseAmount);
             return true;
         }

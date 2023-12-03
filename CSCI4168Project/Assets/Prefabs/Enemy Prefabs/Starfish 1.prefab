@@ -450,7 +450,7 @@ MonoBehaviour:
   agentSpeedOriginal: 3
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 60
+  gearAddition: 55
   deathSE: {fileID: -2870749489909707313}
   damageToBase: 25
 --- !u!82 &-2870749489909707313

@@ -1068,7 +1068,7 @@ MonoBehaviour:
   bullet: {fileID: 7519304541739273578, guid: d8e9fb7db0ee5f745a222f81b5df5aa2, type: 3}
   gunTipTransform: {fileID: 5267471228846942189}
   shoot: 0
-  bulletDamage: 3
+  bulletDamage: 5
   shootSE: {fileID: 4485675656836385668}
 --- !u!114 &6508145624077248607
 MonoBehaviour:
