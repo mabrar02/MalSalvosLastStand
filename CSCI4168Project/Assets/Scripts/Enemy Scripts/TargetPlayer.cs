@@ -33,12 +33,10 @@ public class TargetPlayer : MonoBehaviour {
   
         // if the timer has gone over the interval
         if (shotTimer >= shootingInterval) {
-            //currentTargetIndex = currentTargetIndex < targets.Count ? currentTargetIndex : 0;
+
             // shoot the gun
             shootGun(target);
 
-            // move to next target in list or go back to 0
-            //currentTargetIndex = (currentTargetIndex + 1) % targets.Count;
 
             // reset timer
             shotTimer = 0.0f;

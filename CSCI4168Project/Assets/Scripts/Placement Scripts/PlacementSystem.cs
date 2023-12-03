@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * class used to place turrets on the map
+ */
 public class PlacementSystem : MonoBehaviour
 {
     [SerializeField] private GameObject mouseIndicator;
@@ -34,7 +37,8 @@ public class PlacementSystem : MonoBehaviour
     private void Start() {
         StopPlacement();
     }
-
+    
+    // if you have enough gears, you can start previewing where to place your tower
     public void StartPlacement() {
         if (GameManager.Instance.GetGears() - turretCost < 0) {
             MenuManager.Instance.SetError("Not enough gears!");
@@ -47,6 +51,7 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += StopPlacement;
     }
 
+    // check if the placement is valid, if so, place it
     private void PlaceStructure() {
         if (inputManager.IsPointerOverUI()) {
             return;
@@ -61,6 +66,7 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
+        // instantiate a turret at the world space converted from a grid
         GameObject turret = Instantiate(turretPref);
         placementSE.Play();
 
@@ -74,7 +80,8 @@ public class PlacementSystem : MonoBehaviour
         }
 
     }
-
+    
+    // check if the turret is being placed near any other towers
     private bool CheckPlacementValidity() {
         int excludeLayers = LayerMask.GetMask("ground", "path");
         Collider[] hitColliders = Physics.OverlapSphere(mousePos, towerRadius, ~excludeLayers);
@@ -85,6 +92,7 @@ public class PlacementSystem : MonoBehaviour
         return capsuleColliders.Length == 0;
     }
 
+    // check if the turret is being placed on a path
     private bool CheckPathPlacementValidity() {
         Collider[] hitColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("path"));
         Collider[] wallColliders = Physics.OverlapSphere(mousePos, pathRadius, LayerMask.GetMask("wall"));
@@ -93,7 +101,7 @@ public class PlacementSystem : MonoBehaviour
         return hitColliders.Length == 0 && wallColliders.Length == 0 && envColliders.Length == 0;
     }
 
-
+    // hide preview and delete the tower
     public void StopPlacement() {
         selectedObjectIndex = -1;
         preview.StopShowingPreview();
@@ -104,6 +112,7 @@ public class PlacementSystem : MonoBehaviour
 
     void Update()
     {
+        // based on where the mouse position is, convert grid pos to world pos
         if(selectedObjectIndex < 0) {
             return;
         }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/**
+ * class is used to manage the plays inventory
+ */
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
@@ -22,6 +25,7 @@ public class InventoryManager : MonoBehaviour
         blasterDamageUpgrade = 0;
     }
 
+    // add an item to the players inventory
     public bool AddItem(HoldableItem item)
     {
         return playerInventory.AddItem(new ItemInstance(item));
@@ -32,6 +36,7 @@ public class InventoryManager : MonoBehaviour
         return playerInventory;
     }
 
+    // get the first item in the players inventory
     public HoldableItem GetFirstItem()
     {
         return playerInventory.GetItem(0);

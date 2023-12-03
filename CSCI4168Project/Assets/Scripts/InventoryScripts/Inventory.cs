@@ -23,10 +23,13 @@ public class Inventory : ScriptableObject
                 return true;
             }
         }
+        
+        // send error to menu manager
         MenuManager.Instance.SetError("Inventory Full!");
         return false;
     }
 
+    // if item index is within range, remove it from the inventory
     public bool RemoveItem(int index)
     {
         if (index < items.Length)

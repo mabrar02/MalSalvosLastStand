@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * class used to give a preview of the turret before placing it
+ */
 public class PreviewSystem : MonoBehaviour
 {
     [SerializeField] private float previewYOffset = 0.06f;
@@ -15,11 +18,13 @@ public class PreviewSystem : MonoBehaviour
     private Renderer cellIndicatorRenderer;
 
     private void Start() {
+        // set the preview to look like transparent white
         previewMaterialInstance = new Material(previewMaterialsPrefab);
         cellIndicator.SetActive(false);
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
 
+    // showcase the turret preview object
     public void StartShowingPlacementPreview(GameObject prefab) {
         previewObject = Instantiate(prefab);
         PreparePreview(previewObject);
@@ -32,6 +37,7 @@ public class PreviewSystem : MonoBehaviour
 
     }
 
+    // change preview materials to be transparent white
     private void PreparePreview(GameObject previewObject) {
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers) {
@@ -59,6 +65,7 @@ public class PreviewSystem : MonoBehaviour
         ApplyFeedback(validity);
     }
 
+    // if the turret is valid placement, make it green otherwise make it red
     private void ApplyFeedback(bool validity) {
         Color indiciatorCol = validity ? Color.green : Color.red;
         Color previewCol = validity ? Color.white : Color.red;

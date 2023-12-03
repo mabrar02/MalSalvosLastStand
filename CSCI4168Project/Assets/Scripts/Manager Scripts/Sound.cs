@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+ * class represents a sound clip to be used by audio manager
+ */
 [System.Serializable]
 public class Sound
 {

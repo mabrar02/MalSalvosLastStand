@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * class used to handle interaction between enemies and homebase
+ */
 public class Homebase : MonoBehaviour
 {
-
+    // if an enemy which isn't currently dying enters the  hitbox of the base, kill the enemy, gain gears, and take damage
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Enemy")) {
             Enemy enemy = other.GetComponentInChildren<Enemy>();

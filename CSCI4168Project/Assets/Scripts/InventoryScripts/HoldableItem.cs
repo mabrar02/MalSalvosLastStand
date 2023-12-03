@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+/**
+ * Class describes an item that can be held in the inventory
+ */
 [CreateAssetMenu]
 public class HoldableItem : ScriptableObject
 {

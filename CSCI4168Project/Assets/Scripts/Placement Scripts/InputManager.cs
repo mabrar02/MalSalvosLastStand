@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/*
+ * class used to handle turret placement input
+ */
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private Camera placementCam;
@@ -22,9 +25,11 @@ public class InputManager : MonoBehaviour
             OnExit?.Invoke();
         }
     }
-
+    
+    // use event system to detect if mouse is over UI to not detect a click
     public bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
 
+    // based on where the player clicks, place the turret there
     public Vector3 GetSelectedMapPosition() {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = placementCam.nearClipPlane;

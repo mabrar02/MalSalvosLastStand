@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * class used to enable the player's movement
+ */
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -41,10 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // use a raycast  to check if player is grounded
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
 
 
-
+        // get movement input
         GetInput();
 
         ControlSpeed();
@@ -65,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    // if player is grounded, move with their directional input
     private void MovePlayer() {
         moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -77,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    // get directional input from keyboard, and check if player jumping
     private void GetInput() {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -89,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // limit speed so it can't infinitely climb
     private void ControlSpeed() {
         Vector3 velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         if(velocity.magnitude > moveSpeed) {
@@ -97,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // use impulse force to simulate a jump
     private void Jump() {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 

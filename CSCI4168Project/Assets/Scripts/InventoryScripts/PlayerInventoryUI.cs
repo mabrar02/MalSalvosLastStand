@@ -6,6 +6,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Class used to update the players inventory UI
+ */
 public class PlayerInventoryUI : MonoBehaviour
 {
     private TextMeshProUGUI itemText;
@@ -18,6 +21,7 @@ public class PlayerInventoryUI : MonoBehaviour
     
     private void Start()
     {
+        // initialize variables
         inventoryControl = PlayerInventoryControl.instance;
         playerInventory = InventoryManager.Instance.GetInventory();
         currItemSlot = inventoryControl.GetHeldItemIndex();
@@ -34,6 +38,7 @@ public class PlayerInventoryUI : MonoBehaviour
     {
         if (currItemSlot != inventoryControl.GetHeldItemIndex())
         {
+            // set held item to green box background
             if (currItemSlot >= 0 && currItemSlot < playerInventory.Size())
             {
                 GetSlotImage(currItemSlot).color = white;
@@ -54,7 +59,7 @@ public class PlayerInventoryUI : MonoBehaviour
         }
         
     }
-
+    // utility function to check if inventory got updated
     void OnInventoryUpdate()
     {
         Debug.Log("Inventory Updated");

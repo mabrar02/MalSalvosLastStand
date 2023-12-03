@@ -6,6 +6,9 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Manages the game logic for the entire game
+ */
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -16,7 +19,6 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<int> OnGearValsChanged;
     public static event Action<int> OnBaseHealthChanged;
-    //add^ for playerHealth
     public static event Action<int> OnPlayerHealthChanged;
 
     public GameObject switchCam;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        // initialize variables, start the build phase
         UpdateGameState(GameState.BuildPhase);
         baseHealth = maxBaseHealth;
         playerHealth = maxPlayerHealth;
@@ -43,9 +46,9 @@ public class GameManager : MonoBehaviour
         OnBaseHealthChanged?.Invoke(baseHealth);
     }
 
+    // method used to change the current game state of the game
     public void UpdateGameState(GameState newState)
     {
-        Debug.Log("CURRENT STATE: " +  newState);
         State = newState;
 
         switch (newState) {
@@ -68,8 +71,11 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        // trigger event
         OnGameStateChanged?.Invoke(newState);
     }
+
+    // on victory, freeze game and play victory sound effect
     private void HandleVictoryPhase() {
         AudioManager.Instance.Stop("RespawnSound");
         AudioManager.Instance.Play("VictorySound");
@@ -80,6 +86,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.Stop("BattleTheme");
     }
 
+    // on defeat, freeze game and play defeat sound effect
     private void HandleLosePhase() {
         AudioManager.Instance.Stop("RespawnSound");
         AudioManager.Instance.Play("DefeatSound");
@@ -90,6 +97,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.Stop("BattleTheme");
     }
 
+    // when building starts, disable player, switch cameras, and return player to full health
     private void HandleBuildPhase() {
         buildSys.SetActive(true);
         player.SetActive(false);
@@ -98,6 +106,7 @@ public class GameManager : MonoBehaviour
         HealBase(5);
     }
 
+    // when spawning starts, enable player, switch cameras
     private void HandleSpawnPhase() {
         placementSys.GetComponent<PlacementSystem>().StopPlacement();
         buildSys.SetActive(false);
@@ -105,6 +114,7 @@ public class GameManager : MonoBehaviour
         switchCam.GetComponent<SwitchCamera>().ChangeCamera();
     }
 
+    // wait 3 seconds then start build phase
     private IEnumerator HandleCooldownPhase() {
 
         yield return new WaitForSeconds(3f);
@@ -113,6 +123,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // if you have gears, use them and trigger the change event, else trigger an error notification
     public bool UseGears(int cost) {
         if (gears - cost >= 0) {
             gears -= cost;
@@ -126,6 +137,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // increases current amount of gears
     public void AddGears(int bonus) {
         gears += bonus;
         OnGearValsChanged?.Invoke(gears);
@@ -144,6 +156,7 @@ public class GameManager : MonoBehaviour
         return playerHealth;
     }
 
+    // heals player based on amount passed in as param
     public void HealPlayer(int amount) {
         playerHealth += amount;
         if(playerHealth > maxPlayerHealth) {
@@ -152,6 +165,7 @@ public class GameManager : MonoBehaviour
         OnPlayerHealthChanged?.Invoke(playerHealth);
     }
 
+    // heals base based on amount passed in as param
     public void HealBase(int amount) {
         baseHealth += amount;
         if (baseHealth > maxBaseHealth) {
@@ -160,13 +174,14 @@ public class GameManager : MonoBehaviour
         OnBaseHealthChanged?.Invoke(baseHealth);
     }
 
-
+    // used to increase player max health
     public void IncreasePlayerHealth(int amount) {
         maxPlayerHealth += amount;
         playerHealth = maxPlayerHealth;
         OnPlayerHealthChanged?.Invoke(playerHealth);
     }
 
+    // used to increase base max health
     public void IncreaseHomebaseHealth(int amount) {
         maxBaseHealth += amount;
         baseHealth = maxBaseHealth;
@@ -174,6 +189,7 @@ public class GameManager : MonoBehaviour
         OnBaseHealthChanged?.Invoke(baseHealth);
     }
 
+    // inflicts damage to homebase, if below 0, lose the game
     public void TakeDamage(int damage) {
         if (baseHealth <= 0) return;
         baseHealth -= damage;
@@ -187,6 +203,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // inflicts damage to player, if below 0, die and respawn
     public void PlayerTakeDamage(int damage) {
         if (playerHealth <= 0) return;
         AudioManager.Instance.Play("PlayerDamage");
@@ -198,12 +215,14 @@ public class GameManager : MonoBehaviour
             player.transform.Find("PlayerObj").gameObject.SetActive(false);
             AudioManager.Instance.Play("RespawnSound");
             Invoke(nameof(respawnPlayer), 6f);
-            //respawnCountdown.SetActive(true);
+
         }
 
-        //add^ for playerHealth
+
         OnPlayerHealthChanged?.Invoke(playerHealth);
     }
+
+    // reset players position and health as well as re-enable the player object
     public void respawnPlayer() {
         player.transform.position = new Vector3(4.6f, 5.11f, 3.4f);
         playerHealth = maxPlayerHealth;
@@ -216,6 +235,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
+// list of possible game states
 public enum GameState {
     BuildPhase,
     SpawnPhase,

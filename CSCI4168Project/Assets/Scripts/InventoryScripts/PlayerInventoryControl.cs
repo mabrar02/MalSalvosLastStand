@@ -35,17 +35,20 @@ public class PlayerInventoryControl : MonoBehaviour
         }
     }
 
+    // get current item
     public int GetHeldItemIndex()
     {
         return currItem;
     }
 
+    // remove players item from inventory, used for usable cores
     public void RemoveHeldItemFromInventory()
     {
         RemoveHeldItemFromPlayer();
         playerInventory.RemoveItem(currItem);
     }
 
+    // remove players item from the players arm
     public void RemoveHeldItemFromPlayer()
     {
         int numChildren = pivotArm.childCount;
@@ -55,6 +58,7 @@ public class PlayerInventoryControl : MonoBehaviour
         }
     }
 
+    // scroll or num keys swap item and trigger the corresponding sound effect
     private void SwitchItem(int newItemIndex)
     {
         RemoveHeldItemFromPlayer();
@@ -75,6 +79,7 @@ public class PlayerInventoryControl : MonoBehaviour
         currItem = newItemIndex;
     }
     
+    // swaps inventory item index either with num pad or scroll wheel
     private int GetItem()
     {
         if (Input.GetAxis("Mouse ScrollWheel") < 0)

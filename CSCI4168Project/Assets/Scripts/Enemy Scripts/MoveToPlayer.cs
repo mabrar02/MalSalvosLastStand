@@ -19,6 +19,7 @@ public class MoveToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if the player is nearby, start running towards them
         if(targetPlayerScript.target != null) {
             transform.LookAt(targetPlayerScript.target.transform);
             transform.position += transform.forward * agent.speed * 0.5f * Time.deltaTime;

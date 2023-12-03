@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
+/**
+ * This class represents general enemy characteristics
+ */
 public class Enemy : MonoBehaviour
 {
 
@@ -28,6 +31,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     void Start()
     {
+        //initialize variables
         _health = maxHealth;
         animator = GetComponentInChildren<Animator>();
         _agent = GetComponent<NavMeshAgent>();
@@ -39,6 +43,7 @@ public class Enemy : MonoBehaviour
         dying = false;
     }
 
+    // reduce the enemies health, if it goes past 0 initiate the die method
     public void TakeDamage(float damage)
     {
         if (dying) return;
@@ -55,6 +60,7 @@ public class Enemy : MonoBehaviour
 
         void die()
         {
+            // award player with gears upon enemy death, remove the object after sound effect plays
             GameManager.Instance.AddGears(gearAddition);
             deathSE.Play();
             Destroy(gameObject, deathTime);
@@ -63,23 +69,29 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // damage indicator is instantiated every time the enemy takes damage
     private void ShowFloatingText() {
         var text = Instantiate(floatingTextPref, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMesh>().text = _health.ToString();
 
     }
+
+    // if the enemy isn't currently getting slowed, reduce their speed
     public void ChangeEnemySpeedCoroutine(float speedReduction, float duration) {
         if(!slowing) StartCoroutine(ChangeEnemySpeed(speedReduction, duration));
     }
 
+    // if the enemy isn't currently getting burned, reduce their damage
     public void DamageOverTimeCoroutine(float damageAmount, float duration, float damageInterval) {
         if (!burning) StartCoroutine(DamageOverTime(damageAmount, duration, damageInterval));
     }
 
+    // reduce speed and turn emission to blue to indicate slowing
     public IEnumerator ChangeEnemySpeed(float speedReduction, float duration) {
         slowing = true;
         ChangeEmission(Color.blue, colorIntensity);
 
+        // slow until slow duration expired
         if (_agent != null) {
             _agent.speed -= speedReduction;
             if(_agent.speed <= 1) {
@@ -98,6 +110,7 @@ public class Enemy : MonoBehaviour
         yield return null;
     }
 
+    // changes the emission color on enemy materials, black resets it
     public void ChangeEmission(Color emissionColor, float intensity) {
         foreach(SkinnedMeshRenderer render in skinRenderers) {
             Material[] mats = render.materials;
@@ -113,10 +126,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // deal damage over time in increments
     public IEnumerator DamageOverTime(float damageAmount, float duration, float damageInterval) {
         burning = true;
         ChangeEmission(Color.red, colorIntensity);
         float elapsedTime = 0f;
+        
+        // continously elapse time until burn duration is completed
         while(elapsedTime < duration) {
             TakeDamage(damageAmount);
 
@@ -130,12 +146,17 @@ public class Enemy : MonoBehaviour
         yield return null;
     }
 
+    // damage surrounding enemies
     public void SplashDamage(float damageAmount, float splashRadius) {
         int excludeLayers = LayerMask.GetMask("ground", "path", "Triggers", "Towers");
+        
+        // get all nearby enemies
         Collider[] nearbyEnemies = Physics.OverlapSphere(transform.position, splashRadius, ~excludeLayers);
         foreach(Collider collider in nearbyEnemies) {
             if (collider.gameObject.CompareTag("Enemy")) {
                 Enemy nearby = collider.gameObject.GetComponent<Enemy>();
+
+                // deal splash damage amount to near by enemies
                 if (nearby != null) {
                     nearby.TakeDamage(damageAmount);
                 }

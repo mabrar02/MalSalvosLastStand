@@ -162,7 +162,7 @@ MonoBehaviour:
   agentSpeedOriginal: 6
   dying: 0
   colorIntensity: 0.5
-  gearAddition: 20
+  gearAddition: 25
   deathSE: {fileID: 4123989203993303916}
   damageToBase: 10
 --- !u!82 &4123989203993303916

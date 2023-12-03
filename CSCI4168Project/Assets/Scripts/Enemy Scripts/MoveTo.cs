@@ -13,13 +13,9 @@ public class MoveTo : MonoBehaviour
 
     void Start()
     {
+        // set navmesh destination to homebase
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = goal.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
